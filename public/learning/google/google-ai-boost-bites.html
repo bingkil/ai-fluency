@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google AI Boost Bites</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-rose-50 to-white dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-100">
+  <!-- Light/Dark Mode Toggle -->
+  <div class="fixed top-4 right-4 z-50">
+    <button id="toggleTheme" class="rounded-xl border px-3 py-1.5 text-sm font-medium bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 shadow flex items-center gap-2">
+      <span id="themeIcon">🌞</span> <span id="themeText">Light</span> Mode
+    </button>
+  </div>
+  <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Google AI Boost Bites — Infographic</h1>
+        <p class="mt-2 text-zinc-600 dark:text-zinc-400">25 bite‑size Google Cloud Skills Boost courses. Quick stats, filters, and direct links.</p>
+        <div class="mt-3 text-sm text-zinc-500 dark:text-zinc-400 space-y-1">
+          <p>Source: <a href="https://www.cloudskillsboost.google/paths/2480" target="_blank" rel="noopener" class="text-rose-600 hover:underline">https://www.cloudskillsboost.google/paths/2480</a></p>
+          <p>Curated by: Chris Prakoso <a href="https://www.linkedin.com/in/mahadewa" target="_blank" rel="noopener" class="text-rose-600 hover:underline">www.linkedin.com/in/mahadewa</a></p>
+          <p>Subscribe to my newsletter for the latest updates: <a href="https://augmentedhumanity.substack.com/" target="_blank" rel="noopener" class="text-rose-600 hover:underline">Augmented Humanity</a></p>
+        </div>
+      </div>
+      <a href="https://www.cloudskillsboost.google/paths/2480" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-semibold px-4 py-2 shadow">
+        View Learning Path
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <!-- Stats -->
+    <section class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 hidden">
+      <div class="bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6 flex items-center gap-3">
+        <div class="shrink-0 rounded-xl bg-rose-100 p-3 dark:bg-rose-900/40"><span class="text-rose-600 dark:text-rose-300">📚</span></div>
+        <div>
+          <div class="text-sm text-zinc-500">Total Courses</div>
+          <div class="text-2xl font-bold" id="statTotal">25</div>
+        </div>
+      </div>
+      <div class="bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6 flex items-center gap-3">
+        <div class="shrink-0 rounded-xl bg-rose-100 p-3 dark:bg-rose-900/40"><span class="text-rose-600 dark:text-rose-300">⏱️</span></div>
+        <div>
+          <div class="text-sm text-zinc-500">Avg Duration</div>
+          <div class="text-2xl font-bold" id="statAvg">15m</div>
+        </div>
+      </div>
+      <div class="bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6 flex items-center gap-3">
+        <div class="shrink-0 rounded-xl bg-rose-100 p-3 dark:bg-rose-900/40"><span class="text-rose-600 dark:text-rose-300">🕒</span></div>
+        <div>
+          <div class="text-sm text-zinc-500">Total Time</div>
+          <div class="text-2xl font-bold" id="statTotalTime">6h 15m</div>
+        </div>
+      </div>
+      <div class="bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6 flex items-center gap-3">
+        <div class="shrink-0 rounded-xl bg-rose-100 p-3 dark:bg-rose-900/40"><span class="text-rose-600 dark:text-rose-300">🏷️</span></div>
+        <div>
+          <div class="text-sm text-zinc-500">Categories</div>
+          <div class="text-2xl font-bold" id="statCats">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="mt-8 grid lg:grid-cols-3 gap-6 hidden
+      <div class="bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6 col-span-2">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold">Courses by Work Type</h2>
+          <div class="flex gap-2 text-xs">
+            <span class="rounded-full px-2.5 py-0.5 text-xs font-medium border border-blue-300/60 text-blue-700 dark:text-blue-300">Marketing</span>
+            <span class="rounded-full px-2.5 py-0.5 text-xs font-medium border border-green-300/60 text-green-700 dark:text-green-300">Productivity</span>
+            <span class="rounded-full px-2.5 py-0.5 text-xs font-medium border border-purple-300/60 text-purple-700 dark:text-purple-300">Research</span>
+          </div>
+        </div>
+        <div id="barChart" class="h-72"></div>
+      </div>
+      <div class="bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold">Level Mix</h2>
+        </div>
+        <div id="donutChart" class="h-72"></div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="mt-8 bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6">
+      <div class="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+        <div class="flex gap-2 flex-wrap">
+          <button data-filter="all" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium bg-white dark:bg-zinc-900">All</button>
+          <button data-filter="Marketing" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium">Marketing</button>
+          <button data-filter="Productivity" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium">Productivity</button>
+          <button data-filter="Research" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium">Research</button>
+          <button data-filter="Documentation" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium">Documentation</button>
+          <button data-filter="Strategy" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium">Strategy</button>
+          <button data-filter="Automation" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium">Automation</button>
+          <button data-filter="Learning" class="filter-btn rounded-xl border px-3 py-1.5 text-sm font-medium">Learning</button>
+        </div>
+        <div class="relative">
+          <input id="search" placeholder="Search courses…" class="w-full sm:w-72 rounded-xl border px-3 py-2 bg-white dark:bg-zinc-900" />
+          <svg class="pointer-events-none absolute right-3 top-2.5 h-5 w-5 text-zinc-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Cards -->
+    <section id="cards" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"></section>
+
+    <!-- Full Table -->
+    <section class="mt-8 bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-6">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold">Complete List</h2>
+        <button id="copyCsv" class="rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-sm font-semibold px-3 py-1.5">Copy CSV</button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead>
+            <tr class="text-left text-zinc-500 border-b dark:border-zinc-800">
+              <th class="py-2 pr-3">#</th>
+              <th class="py-2 pr-3">Name</th>
+              <th class="py-2 pr-3">Description</th>
+              <th class="py-2 pr-3">Duration</th>
+              <th class="py-2 pr-3">Link</th>
+              <th class="py-2 pr-3">Work Type</th>
+              <th class="py-2 pr-3">Tool</th>
+              <th class="py-2 pr-3">Level</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+  </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // --- Theme Toggle ------------------------------------------------------
+    const themeBtn = document.getElementById('toggleTheme');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    function setTheme(mode) {
+      if (mode === 'dark') {
+        document.documentElement.classList.add('dark');
+        themeIcon.textContent = '🌚';
+        themeText.textContent = 'Dark';
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeIcon.textContent = '🌞';
+        themeText.textContent = 'Light';
+      }
+      localStorage.setItem('theme', mode);
+    }
+    // On load, set theme from localStorage or system
+    (function(){
+      const saved = localStorage.getItem('theme');
+      if (saved) setTheme(saved);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+      else setTheme('light');
+    })();
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    });
+        // --- Data ---------------------------------------------------------------
+    const courses = [
+      {id:1,  name:"Gemini Gems – Your ultimate marketing sidekick", desc:"Use Gemini as a marketing assistant to boost creativity and efficiency.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1349", cat:"Gemini", workType:"Marketing", level:"Intro", dur:15},
+      {id:2,  name:"Customer insights with NotebookLM", desc:"Apply NotebookLM to derive insights about customers and markets.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1356", cat:"NotebookLM", workType:"Research", level:"Intro", dur:15},
+      {id:3,  name:"Content Generation with Gemini Made Easy", desc:"Generate text, ideas, and content quickly with Gemini.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1369", cat:"Gemini", workType:"Marketing", level:"Intro", dur:15},
+      {id:4,  name:"Prompting like a Pro with Google Workspace", desc:"Learn prompt engineering inside Google Workspace tools.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1365", cat:"Workspace", workType:"Productivity", level:"Intermediate", dur:15},
+      {id:5,  name:"TL;DR with Gemini in Docs & Drive", desc:"Summarize long docs and files automatically with Gemini.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1357", cat:"Gemini", workType:"Documentation", level:"Intro", dur:15},
+      {id:6,  name:"Personalization with customized prompts", desc:"Craft tailored prompts for more personalized AI outputs.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1366", cat:"Workspace", workType:"Productivity", level:"Intermediate", dur:15},
+      {id:7,  name:"NotebookLM for Competitive Edge", desc:"Gain a competitive advantage using NotebookLM for intelligence.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1352", cat:"NotebookLM", workType:"Strategy", level:"Intro", dur:15},
+      {id:8,  name:"Poke Holes in Your Strategy", desc:"Stress-test and refine strategies with AI-assisted analysis.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1363", cat:"Workspace", workType:"Strategy", level:"Intro", dur:15},
+      {id:9,  name:"Gemini Image-to-Sheets Hack", desc:"Convert images into structured data directly in Google Sheets.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1353", cat:"Gemini", workType:"Data Analysis", level:"Intro", dur:15},
+      {id:10, name:"\"Eat the Frog\" with NotebookLM", desc:"Use NotebookLM to tackle your most important tasks first.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1354", cat:"NotebookLM", workType:"Productivity", level:"Intro", dur:15},
+      {id:11, name:"Automate tasks with Gemini and Apps Script", desc:"Automate workflows by combining Gemini with Apps Script.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1371", cat:"Gemini", workType:"Automation", level:"Advanced", dur:15},
+      {id:12, name:"Exec Summaries with Gemini Gems", desc:"Quickly generate executive-level summaries.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1355", cat:"Gemini", workType:"Documentation", level:"Intro", dur:15},
+      {id:13, name:"Amplify Exec Voices with AI", desc:"Help executives communicate more effectively using AI.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1350", cat:"Workspace", workType:"Communication", level:"Intro", dur:15},
+      {id:14, name:"No-Code Sheets & Scripts", desc:"Build workflows in Sheets without coding, powered by AI.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1351", cat:"Workspace", workType:"Automation", level:"Intro", dur:15},
+      {id:15, name:"Gemini Slide Summaries", desc:"Summarize presentations and slides with Gemini.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1367", cat:"Gemini", workType:"Documentation", level:"Intro", dur:15},
+      {id:16, name:"Tame Your Inbox with AI", desc:"Manage and prioritize email with AI support.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1416", cat:"Workspace", workType:"Productivity", level:"Intro", dur:15},
+      {id:17, name:"AI Power-Ups for Google Workspace", desc:"Enhance Google Workspace with Gemini AI features.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1423", cat:"Workspace", workType:"Productivity", level:"Intro", dur:15},
+      {id:18, name:"Create Docs in Seconds", desc:"Draft professional documents instantly with Gemini.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1419", cat:"Gemini", workType:"Documentation", level:"Intro", dur:15},
+      {id:19, name:"Email Content Creation", desc:"Use AI to create engaging and effective emails.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1421", cat:"Workspace", workType:"Marketing", level:"Intermediate", dur:15},
+      {id:20, name:"Intro to NotebookLM", desc:"Learn the basics of NotebookLM and how to use it.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1418", cat:"NotebookLM", workType:"Learning", level:"Intro", dur:15},
+      {id:21, name:"NotebookLM Mind Maps", desc:"Visualize knowledge and connections in NotebookLM.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1415", cat:"NotebookLM", workType:"Learning", level:"Intro", dur:15},
+      {id:22, name:"Discover Sources in NotebookLM", desc:"Import and organize source materials in NotebookLM.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1424", cat:"NotebookLM", workType:"Learning", level:"Intro", dur:15},
+      {id:23, name:"NotebookLM Video Overviews", desc:"Summarize and analyze video content inside NotebookLM.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1420", cat:"NotebookLM", workType:"Research", level:"Intro", dur:15},
+      {id:24, name:"NotebookLM for Market Research", desc:"Apply NotebookLM for market research and trend analysis.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1422", cat:"NotebookLM", workType:"Research", level:"Intro", dur:15},
+      {id:25, name:"Project Notebooks", desc:"Advanced use of NotebookLM for end-to-end projects.", link:"https://www.cloudskillsboost.google/paths/2480/course_templates/1417", cat:"NotebookLM", workType:"Learning", level:"Advanced", dur:15},
+    ];
+
+    // --- Stats --------------------------------------------------------------
+    const total = courses.length;
+    const totalMinutes = courses.reduce((s,c)=>s+c.dur,0); // 25*15=375
+    const hours = Math.floor(totalMinutes/60), mins = totalMinutes%60;
+    document.getElementById('statTotalTime').textContent = `${hours}h ${mins}m`;
+
+    const catCounts = courses.reduce((m,c)=>{m[c.cat]=(m[c.cat]||0)+1; return m;},{});
+    const workTypeCounts = courses.reduce((m,c)=>{m[c.workType]=(m[c.workType]||0)+1; return m;},{});
+    document.getElementById('statCats').textContent = Object.keys(workTypeCounts).length + ' work types';
+
+    // --- Charts -------------------------------------------------------------
+    const bar = echarts.init(document.getElementById('barChart'));
+    bar.setOption({
+      tooltip: { trigger: 'axis' },
+      xAxis: { type: 'category', data: Object.keys(workTypeCounts), axisTick:{show:false} },
+      yAxis: { type: 'value', splitLine:{show:true} },
+      grid: { left: 8, right: 8, top: 20, bottom: 30, containLabel: true },
+      series: [{ type: 'bar', data: Object.values(workTypeCounts), barWidth: '40%', roundCap: true }]
+    });
+
+    const levelCounts = courses.reduce((m,c)=>{m[c.level]=(m[c.level]||0)+1; return m;},{});
+    const donut = echarts.init(document.getElementById('donutChart'));
+    donut.setOption({
+      tooltip: { trigger: 'item' },
+      series: [{
+        type: 'pie', radius: ['50%','75%'],
+        label: { formatter: '{b}: {c}' },
+        data: Object.entries(levelCounts).map(([name,val])=>({name, value: val}))
+      }]
+    });
+
+    // --- Render Cards -------------------------------------------------------
+    const cards = document.getElementById('cards');
+    function renderCards(list){
+      cards.innerHTML = list.map(c=>`
+        <article class="bg-zinc-50 dark:bg-zinc-900/70 backdrop-blur rounded-2xl shadow-sm border border-zinc-200/60 dark:border-zinc-800 p-4 sm:p-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-semibold leading-tight">${c.id}. ${c.name}</h3>
+              <span class="rounded-full px-2.5 py-0.5 text-xs font-medium border border-zinc-300/70 text-zinc-700 dark:text-zinc-300">${c.dur}m</span>
+            </div>
+            <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">${c.desc}</p>
+          </div>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="flex gap-2">
+              <span class="rounded-full px-2.5 py-0.5 text-xs font-medium border border-blue-300/60 text-blue-700 dark:text-blue-300">${c.workType}</span>
+              <span class="rounded-full px-2.5 py-0.5 text-xs font-medium border border-zinc-300/60 text-zinc-700 dark:text-zinc-300">${c.level}</span>
+            </div>
+            <a class="inline-flex items-center gap-2 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-sm font-semibold px-3 py-1.5" href="${c.link}" target="_blank" rel="noopener">Start<span aria-hidden>↗</span></a>
+          </div>
+        </article>
+      `).join('');
+    }
+    renderCards(courses);
+
+    // --- Table --------------------------------------------------------------
+    const tbody = document.getElementById('tableBody');
+    function renderTable(list){
+      tbody.innerHTML = list.map(c=>`
+        <tr class="border-b last:border-0 dark:border-zinc-800">
+          <td class="py-2 pr-3 align-top">${c.id}</td>
+          <td class="py-2 pr-3 align-top font-medium">${c.name}</td>
+          <td class="py-2 pr-3 align-top text-zinc-600 dark:text-zinc-400">${c.desc}</td>
+          <td class="py-2 pr-3 align-top">${c.dur}m</td>
+          <td class="py-2 pr-3 align-top"><a class="text-rose-600 hover:underline" href="${c.link}" target="_blank" rel="noopener">Open</a></td>
+          <td class="py-2 pr-3 align-top">${c.workType}</td>
+          <td class="py-2 pr-3 align-top">${c.cat}</td>
+          <td class="py-2 pr-3 align-top">${c.level}</td>
+        </tr>
+      `).join('');
+    }
+    renderTable(courses);
+
+    // --- Filters & Search ---------------------------------------------------
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    let activeFilter = 'all';
+    function applyFilters(){
+      const q = document.getElementById('search').value.toLowerCase();
+      const filtered = courses.filter(c =>
+        (activeFilter==='all' || c.workType===activeFilter) &&
+        (c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q))
+      );
+      renderCards(filtered);
+      renderTable(filtered);
+    }
+    filterBtns.forEach(b=>{
+      b.addEventListener('click',()=>{
+        filterBtns.forEach(x=>x.classList.remove('bg-white','dark:bg-zinc-900'));
+        b.classList.add('bg-white','dark:bg-zinc-900');
+        activeFilter = b.dataset.filter;
+        applyFilters();
+      })
+    });
+    document.getElementById('search').addEventListener('input', applyFilters);
+
+    // --- Copy CSV -----------------------------------------------------------
+    document.getElementById('copyCsv').addEventListener('click', () => {
+      const rows = [['id','name','description','duration_min','link','work_type','tool','level'], ...courses.map(c=>[c.id,c.name,c.desc,c.dur,c.link,c.workType,c.cat,c.level])];
+      const csv = rows.map(r=>r.map(x=>`"${String(x).replaceAll('"','""')}"`).join(',')).join('\n');
+      navigator.clipboard.writeText(csv).then(()=>{
+        const btn = document.getElementById('copyCsv');
+        btn.textContent = 'Copied!';
+        setTimeout(()=>btn.textContent='Copy CSV', 1500);
+      });
+    });
+
+    // --- Resize charts on theme/resize -------------------------------------
+    window.addEventListener('resize', ()=>{ bar.resize(); donut.resize(); });
+  </script>
+</body>
+</html>
