@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anthropic Economic Index — Uneven Geographic & Enterprise AI Adoption</title>
+  <meta name="description" content="Comprehensive infographic summarizing the Anthropic Economic Index V3 report covering AI adoption patterns, geographic distribution, and enterprise usage trends.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables and Custom Properties */
+    :root { 
+      --ring-thickness: 14px; 
+      --primary-red: rgb(239, 68, 68);
+      --red-light: rgb(254, 226, 226);
+      
+      /* Light theme colors */
+      --bg-primary: rgb(250, 250, 250);
+      --bg-secondary: rgb(255, 255, 255);
+      --bg-tertiary: rgb(245, 245, 245);
+      --text-primary: rgb(17, 24, 39);
+      --text-secondary: rgb(107, 114, 128);
+      --text-tertiary: rgb(156, 163, 175);
+      --border-primary: rgb(229, 231, 235);
+      --border-secondary: rgb(209, 213, 219);
+      --accent-bg: rgb(254, 226, 226);
+      --accent-border: rgb(252, 165, 165);
+      
+      /* Component backgrounds */
+      --card-bg: rgb(255, 255, 255);
+      --pill-neutral-bg: rgb(245, 245, 245);
+      --pill-neutral-text: rgb(55, 65, 81);
+      --pill-neutral-border: rgb(229, 231, 235);
+      
+      /* Color scheme specific backgrounds */
+      --blue-bg-light: rgb(239, 246, 255);
+      --blue-bg-medium: rgb(219, 234, 254);
+      --blue-text: rgb(30, 64, 175);
+      --blue-text-dark: rgb(30, 58, 138);
+      
+      --green-bg-light: rgb(240, 253, 244);
+      --green-bg-medium: rgb(187, 247, 208);
+      --green-text: rgb(22, 101, 52);
+      --green-text-dark: rgb(20, 83, 45);
+      
+      --amber-bg-light: rgb(255, 251, 235);
+      --amber-bg-medium: rgb(253, 230, 138);
+      --amber-text: rgb(146, 64, 14);
+      --amber-text-dark: rgb(120, 53, 15);
+      
+      --purple-bg-light: rgb(250, 245, 255);
+      --purple-bg-medium: rgb(221, 214, 254);
+      --purple-text: rgb(88, 28, 135);
+      --purple-text-dark: rgb(76, 29, 149);
+      
+      --red-bg-light: rgb(254, 242, 242);
+      --red-bg-medium: rgb(254, 202, 202);
+      --red-text: rgb(153, 27, 27);
+      --red-text-dark: rgb(127, 29, 29);
+      
+      --neutral-bg-light: rgb(250, 250, 250);
+      --neutral-bg-medium: rgb(229, 231, 235);
+      --neutral-text: rgb(55, 65, 81);
+      --neutral-text-dark: rgb(31, 41, 55);
+    }
+    
+    /* Dark theme colors */
+    [data-theme="dark"] {
+      --bg-primary: rgb(17, 24, 39);
+      --bg-secondary: rgb(31, 41, 55);
+      --bg-tertiary: rgb(55, 65, 81);
+      --text-primary: rgb(243, 244, 246);
+      --text-secondary: rgb(156, 163, 175);
+      --text-tertiary: rgb(107, 114, 128);
+      --border-primary: rgb(75, 85, 99);
+      --border-secondary: rgb(107, 114, 128);
+      --accent-bg: rgb(69, 26, 3);
+      --accent-border: rgb(154, 52, 18);
+      
+      /* Component backgrounds */
+      --card-bg: rgb(31, 41, 55);
+      --pill-neutral-bg: rgb(55, 65, 81);
+      --pill-neutral-text: rgb(209, 213, 219);
+      --pill-neutral-border: rgb(75, 85, 99);
+      
+      /* Color scheme specific backgrounds - dark variants */
+      --blue-bg-light: rgb(30, 58, 138);
+      --blue-bg-medium: rgb(37, 99, 235);
+      --blue-text: rgb(147, 197, 253);
+      --blue-text-dark: rgb(191, 219, 254);
+      
+      --green-bg-light: rgb(20, 83, 45);
+      --green-bg-medium: rgb(34, 197, 94);
+      --green-text: rgb(134, 239, 172);
+      --green-text-dark: rgb(187, 247, 208);
+      
+      --amber-bg-light: rgb(120, 53, 15);
+      --amber-bg-medium: rgb(245, 158, 11);
+      --amber-text: rgb(252, 211, 77);
+      --amber-text-dark: rgb(254, 243, 199);
+      
+      --purple-bg-light: rgb(76, 29, 149);
+      --purple-bg-medium: rgb(147, 51, 234);
+      --purple-text: rgb(196, 181, 253);
+      --purple-text-dark: rgb(221, 214, 254);
+      
+      --red-bg-light: rgb(127, 29, 29);
+      --red-bg-medium: rgb(220, 38, 38);
+      --red-text: rgb(252, 165, 165);
+      --red-text-dark: rgb(254, 202, 202);
+      
+      --neutral-bg-light: rgb(31, 41, 55);
+      --neutral-bg-medium: rgb(75, 85, 99);
+      --neutral-text: rgb(209, 213, 219);
+      --neutral-text-dark: rgb(243, 244, 246);
+    }
+    
+    /* Font Family Override */
+    html { 
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    }
+    
+    /* Progress Bar Component */
+    .progress-bar { 
+      height: 12px; 
+      border-radius: 9999px; 
+      background: linear-gradient(90deg, var(--primary-red) var(--p, 0%), var(--border-primary) 0);
+      transition: all 0.3s ease;
+    }
+    
+    /* Conic Ring Progress Component */
+    .conic-ring { 
+      width: 120px; 
+      height: 120px; 
+      border-radius: 50%; 
+      display: grid; 
+      place-items: center; 
+      background: conic-gradient(var(--primary-red) calc(var(--v, 0) * 3.6deg), var(--border-primary) 0);
+      position: relative;
+    }
+    
+    .conic-ring::before { 
+      content: ""; 
+      width: calc(100% - var(--ring-thickness)); 
+      height: calc(100% - var(--ring-thickness)); 
+      border-radius: 50%; 
+      background: var(--card-bg); 
+      position: absolute;
+    }
+    
+    .conic-ring .ring-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+    
+    /* Pill Badge Component */
+    .pill { 
+      border-radius: 9999px; 
+      padding: 4px 12px; 
+      font-size: 12px; 
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    
+    /* Card Elevation Shadow */
+    .card-shadow { 
+      box-shadow: 
+        0 1px 3px 0 rgba(0, 0, 0, 0.1), 
+        0 1px 2px -1px rgba(0, 0, 0, 0.1),
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.04);
+    }
+    
+    [data-theme="dark"] .card-shadow {
+      box-shadow: 
+        0 1px 3px 0 rgba(0, 0, 0, 0.3), 
+        0 1px 2px -1px rgba(0, 0, 0, 0.3),
+        0 4px 6px -1px rgba(0, 0, 0, 0.2),
+        0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Responsive Grid Utilities */
+    .grid-kpi { 
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    }
+    
+    .grid-auto-fit { 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    }
+    
+    /* Mini Chart Bars for Trends */
+    .mini-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--primary-red) var(--p, 0%), var(--border-primary) 0);
+      transition: all 0.2s ease;
+    }
+    
+    /* Dark Mode Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--card-bg);
+      border: 2px solid var(--border-primary);
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .theme-toggle:hover {
+      background: var(--bg-tertiary);
+      transform: translateY(-1px);
+    }
+    
+    .theme-toggle:focus {
+      outline: 2px solid var(--primary-red);
+      outline-offset: 2px;
+    }
+    
+    .theme-icon {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    [data-theme="dark"] .theme-icon-sun {
+      transform: rotate(180deg);
+    }
+    
+    [data-theme="light"] .theme-icon-moon {
+      transform: rotate(-180deg);
+    }
+    
+    /* Accessibility Improvements */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    
+    /* Focus States */
+    .focusable:focus {
+      outline: 2px solid var(--primary-red);
+      outline-offset: 2px;
+    }
+    
+    /* Hover States */
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+        0 2px 4px -2px rgba(0, 0, 0, 0.1),
+        0 10px 15px -3px rgba(0, 0, 0, 0.08),
+        0 20px 25px -5px rgba(0, 0, 0, 0.06);
+      transition: all 0.2s ease;
+    }
+    
+    [data-theme="dark"] .card-hover:hover {
+      box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.3), 
+        0 2px 4px -2px rgba(0, 0, 0, 0.3),
+        0 10px 15px -3px rgba(0, 0, 0, 0.2),
+        0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Smooth transitions for theme changes */
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    /* Print Styles */
+    @media print {
+      .theme-toggle { display: none !important; }
+      body { background: white !important; }
+      .card-shadow { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important; }
+      .progress-bar, .mini-bar { 
+        background: linear-gradient(90deg, #000 var(--p, 0%), #ddd 0) !important; 
+      }
+      .conic-ring {
+        background: conic-gradient(#000 calc(var(--v, 0) * 3.6deg), #ddd 0) !important;
+      }
+    }
+  </style>
+</head>
+<body class="leading-relaxed" style="background-color: var(--bg-primary); color: var(--text-primary);" data-theme="light">
+
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span class="theme-icon theme-icon-sun">☀️</span>
+    <span class="theme-icon theme-icon-moon" style="display: none;">🌙</span>
+    <span id="theme-text">Light</span>
+  </button>
+
+  <!-- Header Section -->
+  <header class="px-6 md:px-10 lg:px-12 py-12" style="background: linear-gradient(to bottom right, var(--bg-secondary), var(--bg-tertiary));" role="banner">
+    <div class="max-w-7xl mx-auto">
+      <!-- Brand and Meta Info -->
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: var(--accent-bg);" role="img" aria-label="AEI Logo">
+          <span class="text-red-600 font-black text-lg">AEI</span>
+        </div>
+        <div>
+          <span class="text-sm font-medium" style="color: var(--text-secondary);">Anthropic Economic Index</span>
+          <span class="mx-2" style="color: var(--text-tertiary);">•</span>
+          <time datetime="2025-09-15" class="text-sm" style="color: var(--text-tertiary);">Published Sept 15, 2025</time>
+        </div>
+      </div>
+      
+      <!-- Main Heading and Badges -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+        <div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 leading-tight" style="color: var(--text-primary);">
+            Uneven Geographic & Enterprise AI Adoption
+          </h1>
+          <p class="text-lg md:text-xl max-w-4xl leading-relaxed" style="color: var(--text-secondary);">
+            AI adoption accelerates globally but concentrates in high-income regions, with enterprise automation increasingly delegating complex tasks through programmatic interfaces.
+          </p>
+        </div>
+        <div class="flex gap-3 items-center flex-wrap">
+          <span class="pill bg-red-100 text-red-800 border border-red-200">Report V3</span>
+          <span class="pill border" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border-color: var(--pill-neutral-border);" title="Claude.ai consumer interface">Claude.ai</span>
+          <span class="pill border" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border-color: var(--pill-neutral-border);" title="First-party API - direct programmatic access">1P API</span>
+          <span class="pill border" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border-color: var(--pill-neutral-border);" title="Anthropic AI Usage Index - usage share ÷ working-age population share">AUI</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- KPI Overview Section -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="kpi-heading">
+    <div class="max-w-7xl mx-auto">
+      <h2 id="kpi-heading" class="text-2xl md:text-3xl font-bold mb-8 text-center">Key Performance Indicators</h2>
+      <div class="grid gap-6 grid-kpi">
+        
+        <!-- US Workers Using AI -->
+        <div class="card-shadow card-hover focusable rounded-2xl p-6" style="background-color: var(--card-bg);" tabindex="0" role="img" aria-label="US workers using AI: 40% in 2025, up from 20% in 2023">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">US workers using AI (2025)</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-5xl font-black" style="color: var(--text-primary);">40%</div>
+            <div class="text-sm font-semibold text-red-600 bg-red-50 px-2 py-1 rounded">↑ from 20% in 2023</div>
+          </div>
+          <div class="progress-bar mb-3" style="--p:40%" aria-hidden="true"></div>
+          <div class="text-xs" style="color: var(--text-tertiary);">Source: Gallup (cited in report)</div>
+        </div>
+
+        <!-- Directive Usage on Claude.ai -->
+        <div class="card-shadow card-hover focusable rounded-2xl p-6" style="background-color: var(--card-bg);" tabindex="0" role="img" aria-label="Directive usage on Claude.ai: 39%, up from 27%">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Directive usage on Claude.ai</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-5xl font-black" style="color: var(--text-primary);">39%</div>
+            <div class="text-sm font-semibold text-red-600 bg-red-50 px-2 py-1 rounded">↑ from 27%</div>
+          </div>
+          <div class="progress-bar mb-3" style="--p:39%" aria-hidden="true"></div>
+          <div class="text-xs" style="color: var(--text-tertiary);">Automation surpasses augmentation</div>
+        </div>
+
+        <!-- Coding Share on Claude.ai -->
+        <div class="card-shadow card-hover focusable rounded-2xl p-6" style="background-color: var(--card-bg);" tabindex="0" role="img" aria-label="Coding share on Claude.ai: 36%">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Coding share on Claude.ai</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-5xl font-black" style="color: var(--text-primary);">36%</div>
+          </div>
+          <div class="progress-bar mb-3" style="--p:36%" aria-hidden="true"></div>
+          <div class="text-xs" style="color: var(--text-tertiary);">Still dominant but usage diversifies</div>
+        </div>
+
+        <!-- Automation Share in 1P API -->
+        <div class="card-shadow card-hover focusable rounded-2xl p-6" style="background-color: var(--card-bg);" tabindex="0" role="img" aria-label="Automation share in 1P API: 77%, compared to around 50% on Claude.ai">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Automation share in 1P API</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-5xl font-black" style="color: var(--text-primary);">77%</div>
+            <div class="text-xs px-2 py-1 rounded" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">vs ~50% on Claude.ai</div>
+          </div>
+          <div class="progress-bar mb-3" style="--p:77%" aria-hidden="true"></div>
+          <div class="text-xs" style="color: var(--text-tertiary);">Programmatic deployment drives automation</div>
+        </div>
+
+        <!-- Income-AUI Correlation -->
+        <div class="card-shadow card-hover focusable rounded-2xl p-6" style="background-color: var(--card-bg);" tabindex="0" role="img" aria-label="Income and AUI correlation: R-squared 0.71, elasticity 0.69">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Income ↔ AUI correlation (global)</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-4xl font-black" style="color: var(--text-primary);">R² ≈ 0.71</div>
+            <div class="text-sm font-semibold text-red-600 bg-red-50 px-2 py-1 rounded">elasticity ≈ 0.69</div>
+          </div>
+          <div class="text-xs mt-3" style="color: var(--text-tertiary);">Higher-income countries show higher per-capita usage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage Trends and Collaboration Modes -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="trends-heading">
+    <div class="max-w-7xl mx-auto grid gap-8 lg:grid-cols-2">
+      
+      <!-- Usage Trends (V1→V3) -->
+      <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+        <div class="flex items-center justify-between mb-6">
+          <h2 id="trends-heading" class="text-2xl font-bold" style="color: var(--text-primary);">Usage Trends (V1→V3)</h2>
+          <span class="pill border" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border-color: var(--pill-neutral-border);">Jan 2025 → Aug 2025</span>
+        </div>
+        <p class="mb-6" style="color: var(--text-secondary);">Each row shows sector share of Claude.ai conversations in Jan 2025 (V1), Mar 2025 (V2), Aug 2025 (V3).</p>
+        
+        <!-- Usage Trends Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full" role="table" aria-label="Usage trends by sector from January to August 2025">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-primary);">
+                <th class="text-left py-3 px-4 font-semibold" style="color: var(--text-secondary);">Sector</th>
+                <th class="text-center py-3 px-4 font-semibold" style="color: var(--text-secondary);">Jan 2025 (V1)</th>
+                <th class="text-center py-3 px-4 font-semibold" style="color: var(--text-secondary);">Mar 2025 (V2)</th>
+                <th class="text-center py-3 px-4 font-semibold" style="color: var(--text-secondary);">Aug 2025 (V3)</th>
+                <th class="text-center py-3 px-4 font-semibold" style="color: var(--text-secondary);">Change</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm">
+              <!-- Computer & Mathematical -->
+              <tr class="transition-colors" style="border-bottom: 1px solid var(--border-secondary);" onmouseover="this.style.backgroundColor='var(--bg-tertiary)'" onmouseout="this.style.backgroundColor='transparent'">
+                <td class="py-3 px-4 font-medium" style="color: var(--text-primary);">Computer & Mathematical</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">37.2%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">39.6%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">36.9%</td>
+                <td class="text-center py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium" style="background-color: var(--red-bg-light); color: var(--red-text);">
+                    ↓ 0.3pp
+                  </span>
+                </td>
+              </tr>
+              
+              <!-- Educational Instruction & Library -->
+              <tr class="transition-colors" style="border-bottom: 1px solid var(--border-secondary);" onmouseover="this.style.backgroundColor='var(--bg-tertiary)'" onmouseout="this.style.backgroundColor='transparent'">
+                <td class="py-3 px-4 font-medium" style="color: var(--text-primary);">Educational Instruction & Library</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">9.3%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">11.0%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">12.7%</td>
+                <td class="text-center py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium" style="background-color: var(--green-bg-light); color: var(--green-text);">
+                    ↑ 3.4pp
+                  </span>
+                </td>
+              </tr>
+              
+              <!-- Life, Physical & Social Science -->
+              <tr class="transition-colors" style="border-bottom: 1px solid var(--border-secondary);" onmouseover="this.style.backgroundColor='var(--bg-tertiary)'" onmouseout="this.style.backgroundColor='transparent'">
+                <td class="py-3 px-4 font-medium" style="color: var(--text-primary);">Life, Physical & Social Science</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">6.3%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">6.8%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">7.4%</td>
+                <td class="text-center py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium" style="background-color: var(--green-bg-light); color: var(--green-text);">
+                    ↑ 1.1pp
+                  </span>
+                </td>
+              </tr>
+              
+              <!-- Office & Administrative Support -->
+              <tr class="transition-colors" style="border-bottom: 1px solid var(--border-secondary);" onmouseover="this.style.backgroundColor='var(--bg-tertiary)'" onmouseout="this.style.backgroundColor='transparent'">
+                <td class="py-3 px-4 font-medium" style="color: var(--text-primary);">Office & Administrative Support</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">7.8%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">7.0%</td>
+                <td class="text-center py-3 px-4 font-mono" style="color: var(--text-primary);">8.4%</td>
+                <td class="text-center py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium" style="background-color: var(--green-bg-light); color: var(--green-text);">
+                    ↑ 0.6pp
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-8 p-4 rounded-xl" style="background-color: var(--bg-tertiary);">
+          <div class="text-sm">
+            <span class="font-semibold" style="color: var(--text-primary);">Key changes:</span>
+            <span style="color: var(--text-secondary);"> New code creation +4.5pp; debugging −2.9pp.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collaboration Modes -->
+      <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold" style="color: var(--text-primary);">Collaboration Modes</h2>
+          <span class="pill border" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border-color: var(--pill-neutral-border);">Automation vs Augmentation</span>
+        </div>
+
+        <!-- Definition Box -->
+        <div class="mb-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+          <h3 class="font-semibold text-blue-900 mb-2">What do these terms mean?</h3>
+          <div class="text-sm text-blue-800 space-y-2">
+            <p><strong>Automation:</strong> AI handles complete tasks independently (directive, feedback-loop patterns)</p>
+            <p><strong>Augmentation:</strong> AI assists humans in collaborative workflows (learning, iteration, validation)</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-8 mb-8">
+          <!-- Claude.ai Ring -->
+          <div class="flex flex-col items-center">
+            <div class="conic-ring mb-4" style="--v:49" role="img" aria-label="Claude.ai automation rate: approximately 49%">
+              <div class="ring-content">
+                <div class="text-3xl font-black" style="color: var(--text-primary);">~49%</div>
+                <div class="text-xs text-neutral-500 mt-1">Claude.ai</div>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="font-semibold" style="color: var(--text-secondary);">Balanced</div>
+              <div class="text-xs" style="color: var(--text-tertiary);">Automation ≈ Augmentation</div>
+            </div>
+          </div>
+
+          <!-- 1P API Ring -->
+          <div class="flex flex-col items-center">
+            <div class="conic-ring mb-4" style="--v:77" role="img" aria-label="1P API automation rate: 77%">
+              <div class="ring-content">
+                <div class="text-3xl font-black" style="color: var(--text-primary);">77%</div>
+                <div class="text-xs mt-1" style="color: var(--text-tertiary);">1P API</div>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="font-semibold" style="color: var(--text-secondary);">Automation Dominant</div>
+              <div class="text-xs" style="color: var(--text-tertiary);">Programmatic Integration</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-sm p-4 rounded-xl" style="color: var(--text-secondary); background-color: var(--bg-tertiary);">
+          <p class="mb-2">API integration → higher delegation; consumer UI ≈ balanced.</p>
+          <p class="text-xs" style="color: var(--text-tertiary);"><strong>1P API:</strong> First-party API refers to direct programmatic access to Claude via Anthropic's API, typically used by developers and enterprises for automated workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Geography Section -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="geography-heading">
+    <div class="max-w-7xl mx-auto">
+      <h2 id="geography-heading" class="text-2xl md:text-3xl font-bold mb-4 text-center">Geography (AUI)</h2>
+      
+      <!-- AUI Definition -->
+      <div class="max-w-4xl mx-auto mb-8 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-200">
+        <h3 class="font-bold text-purple-900 mb-3 text-center">What is AUI (Anthropic AI Usage Index)?</h3>
+        <div class="text-sm text-purple-800 text-center">
+          <p class="mb-2"><strong>Formula:</strong> AUI = (Country's Usage Share) ÷ (Country's Working-Age Population Share)</p>
+          <p class="text-xs">An AUI of 7.00× means a country uses AI at 7 times the rate expected based on its population size. Values above 1.0× indicate higher-than-expected usage; below 1.0× indicates lower-than-expected usage.</p>
+        </div>
+      </div>
+      
+      <div class="grid gap-6 lg:grid-cols-3">
+        
+        <!-- Global AUI Leaders -->
+        <div class="card-shadow rounded-2xl p-6" style="background-color: var(--card-bg);">
+          <h3 class="text-xl font-bold mb-2" style="color: var(--text-primary);">Global AUI Leaders</h3>
+          <p class="text-sm mb-6" style="color: var(--text-secondary);">Countries with highest usage relative to population</p>
+          <div class="space-y-4" role="list">
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Israel</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">7.00×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Singapore</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">4.57×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Australia</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">4.10×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">New Zealand</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">4.05×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">South Korea</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">3.73×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">United States</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">3.62×</span>
+            </div>
+          </div>
+          <div class="mt-6 p-3 rounded-lg text-sm" style="background-color: var(--bg-tertiary); color: var(--text-secondary);">
+            High-AUI regions show more diverse usage and more augmentation.
+          </div>
+        </div>
+
+        <!-- Low AUI Examples -->
+        <div class="card-shadow rounded-2xl p-6" style="background-color: var(--card-bg);">
+          <h3 class="text-xl font-bold mb-2" style="color: var(--text-primary);">Low AUI Examples</h3>
+          <p class="text-sm mb-6" style="color: var(--text-secondary);">Usage below expected by working-age population</p>
+          <div class="space-y-4" role="list">
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Indonesia</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">0.36×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">India</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">0.27×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Nigeria</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">0.20×</span>
+            </div>
+          </div>
+          <div class="mt-6 p-3 rounded-lg text-sm" style="background-color: var(--red-bg-light); color: var(--red-text);">
+            <strong>Risk:</strong> Concentrated gains could widen global inequality.
+          </div>
+        </div>
+
+        <!-- US Per-capita Leaders -->
+        <div class="card-shadow rounded-2xl p-6" style="background-color: var(--card-bg);">
+          <h3 class="text-xl font-bold mb-2" style="color: var(--text-primary);">US per-capita Leaders</h3>
+          <p class="text-sm mb-6" style="color: var(--text-secondary);">State-level AUI</p>
+          <div class="space-y-4" role="list">
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Washington, DC</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">3.82×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Utah</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">3.78×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">California</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">2.13×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">New York</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">1.58×</span>
+            </div>
+            <div class="flex items-center justify-between" role="listitem">
+              <span style="color: var(--text-primary);">Virginia</span>
+              <span class="font-bold text-lg" style="color: var(--text-primary);">1.57×</span>
+            </div>
+          </div>
+          <div class="mt-6 p-3 rounded-lg text-sm" style="background-color: var(--bg-tertiary); color: var(--text-secondary);">
+            Local economies shape task mix (e.g., IT in CA, finance in FL, docs/careers in DC).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Elasticity Analysis Section -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="elasticity-heading">
+    <div class="max-w-7xl mx-auto">
+      <h2 id="elasticity-heading" class="text-2xl md:text-3xl font-bold mb-4 text-center">Elasticity Analysis</h2>
+      
+      <!-- Section Introduction -->
+      <div class="max-w-4xl mx-auto mb-8 p-6 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl border border-indigo-200">
+        <h3 class="font-bold text-indigo-900 mb-3 text-center">Understanding AI Usage Elasticity</h3>
+        <p class="text-sm text-indigo-800 text-center">
+          Elasticity measures how sensitive AI usage is to changes in different factors. These insights reveal fundamental constraints and opportunities in AI adoption patterns.
+        </p>
+      </div>
+      
+      <div class="grid gap-8 lg:grid-cols-2">
+        
+        <!-- Income-AUI Elasticity -->
+        <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Income ↔ AUI Elasticity</h3>
+            <span class="pill" style="background-color: var(--green-bg-light); color: var(--green-text);">Global correlation</span>
+          </div>
+          
+          <!-- Key Metrics -->
+          <div class="grid grid-cols-2 gap-6 mb-6">
+            <div class="text-center p-4 rounded-xl" style="background-color: var(--green-bg-light);">
+              <div class="text-3xl font-black mb-2" style="color: var(--green-text-dark);">0.69</div>
+              <div class="text-sm font-medium" style="color: var(--green-text);">Elasticity Coefficient</div>
+              <div class="text-xs mt-1" style="color: var(--green-text);">Per capita income → AUI</div>
+            </div>
+            <div class="text-center p-4 rounded-xl" style="background-color: var(--blue-bg-light);">
+              <div class="text-3xl font-black mb-2" style="color: var(--blue-text-dark);">0.71</div>
+              <div class="text-sm font-medium" style="color: var(--blue-text);">R-squared</div>
+              <div class="text-xs mt-1" style="color: var(--blue-text);">Variance explained</div>
+            </div>
+          </div>
+          
+          <!-- Interpretation -->
+          <div class="space-y-4">
+            <div class="p-4 rounded-lg border-l-4" style="background-color: var(--green-bg-light); border-color: var(--green-text);">
+              <h4 class="font-semibold mb-2" style="color: var(--green-text-dark);">What 0.69 elasticity means:</h4>
+              <p class="text-sm" style="color: var(--green-text);">
+                A 10% increase in per capita income typically leads to a <strong>6.9% increase</strong> in AI usage intensity (AUI). 
+                This is less than proportional, suggesting diminishing returns at higher income levels.
+              </p>
+            </div>
+            
+            <div class="p-4 rounded-lg border-l-4" style="background-color: var(--blue-bg-light); border-color: var(--blue-text);">
+              <h4 class="font-semibold mb-2" style="color: var(--blue-text-dark);">Strong but not perfect correlation:</h4>
+              <p class="text-sm" style="color: var(--blue-text);">
+                71% of the variation in AI usage across countries can be explained by income differences. 
+                The remaining 29% suggests other factors like digital infrastructure, education, and cultural adoption patterns matter significantly.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Geographic Examples -->
+          <div class="mt-6 p-4 rounded-xl" style="background-color: var(--bg-tertiary);">
+            <h4 class="font-semibold mb-3" style="color: var(--text-secondary);">Real-world examples:</h4>
+            <div class="grid grid-cols-2 gap-4 text-xs">
+              <div>
+                <div class="font-medium" style="color: var(--text-secondary);">Above trend line:</div>
+                <div style="color: var(--text-tertiary);">Israel (7.00×), Singapore (4.57×)</div>
+                <div style="color: var(--text-tertiary);">Higher AUI than income predicts</div>
+              </div>
+              <div>
+                <div class="font-medium" style="color: var(--text-secondary);">Below trend line:</div>
+                <div style="color: var(--text-tertiary);">Large emerging markets</div>
+                <div style="color: var(--text-tertiary);">Infrastructure constraints</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Context Length Elasticity -->
+        <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Input → Output Elasticity</h3>
+            <span class="pill" style="background-color: var(--amber-bg-light); color: var(--amber-text);">Context bottleneck</span>
+          </div>
+          
+          <!-- Key Metric -->
+          <div class="text-center mb-6">
+            <div class="text-6xl font-black mb-2" style="color: var(--amber-text);">0.38</div>
+            <div class="text-sm font-medium mb-2" style="color: var(--amber-text-dark);">Input → Output Elasticity</div>
+            <div class="text-xs" style="color: var(--amber-text);">Output length response to input length</div>
+          </div>
+          
+          <!-- Critical Insight -->
+          <div class="p-5 bg-gradient-to-r from-red-50 to-orange-50 rounded-xl border-l-4 border-red-400 mb-6">
+            <h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+              <span class="text-red-600">⚠️</span>
+              Critical Bottleneck Identified
+            </h4>
+            <p class="text-sm text-red-800 mb-3">
+              <strong>0.38 elasticity reveals a fundamental constraint:</strong> Doubling input length only increases output by ~38%, not 100%. 
+              This sublinear relationship suggests AI hits comprehension or processing limits with complex, lengthy contexts.
+            </p>
+          </div>
+          
+          <!-- Business Implications -->
+          <div class="space-y-4">
+            <div class="p-4 bg-amber-50 rounded-lg">
+              <h4 class="font-semibold text-amber-900 mb-2">Why this matters for enterprises:</h4>
+              <ul class="text-sm text-amber-800 space-y-2">
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 mt-1">•</span>
+                  <span><strong>Long documents:</strong> Diminishing returns on very long context</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 mt-1">•</span>
+                  <span><strong>Complex workflows:</strong> Breaking tasks into chunks may be more effective</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 mt-1">•</span>
+                  <span><strong>System design:</strong> Pre-processing and summarization become critical</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="p-4 bg-blue-50 rounded-lg">
+              <h4 class="font-semibold text-blue-900 mb-2">Strategic solutions:</h4>
+              <ul class="text-sm text-blue-800 space-y-2">
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-1">•</span>
+                  <span><strong>RAG systems:</strong> Retrieve only relevant context chunks</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-1">•</span>
+                  <span><strong>Hierarchical processing:</strong> Summary → detail workflows</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-blue-600 mt-1">•</span>
+                  <span><strong>Structured data:</strong> Convert unstructured input to structured formats</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Task Complexity vs Usage -->
+      <div class="mt-8 card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-bold" style="color: var(--text-primary);">Task Complexity → Usage Elasticity</h3>
+          <span class="pill" style="background-color: var(--purple-bg-light); color: var(--purple-text);">Counterintuitive finding</span>
+        </div>
+        
+        <div class="grid lg:grid-cols-3 gap-6">
+          <!-- Key Finding -->
+          <div class="lg:col-span-2">
+            <div class="p-6 rounded-xl border mb-6" style="background: linear-gradient(to right, var(--purple-bg-light), var(--purple-bg-light)); border-color: var(--purple-text);">
+              <h4 class="font-bold mb-3 flex items-center gap-2" style="color: var(--purple-text-dark);">
+                <span style="color: var(--purple-text);">🔄</span>
+                Inverted Cost-Usage Relationship
+              </h4>
+              <p class="text-sm mb-3" style="color: var(--purple-text);">
+                <strong>Unexpected result:</strong> Higher-cost tasks show <em>higher</em> usage rates, contradicting typical economic expectations. 
+                This suggests enterprises prioritize AI's unique capabilities over token economics.
+              </p>
+              <div class="text-xs p-3 rounded" style="color: var(--purple-text-dark); background-color: var(--purple-bg-medium);">
+                <strong>Traditional economics:</strong> Higher cost → Lower demand<br>
+                <strong>AI reality:</strong> Higher complexity → Higher demand (when AI provides unique value)
+              </div>
+            </div>
+            
+            <!-- Task Categories -->
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="p-4 rounded-lg border" style="background-color: var(--red-bg-light); border-color: var(--red-text);">
+                <h5 class="font-semibold mb-2" style="color: var(--red-text-dark);">High complexity, high usage:</h5>
+                <ul class="text-sm space-y-1" style="color: var(--red-text);">
+                  <li>• Code generation & debugging</li>
+                  <li>• Technical documentation</li>
+                  <li>• Complex analysis tasks</li>
+                  <li>• Multi-step problem solving</li>
+                </ul>
+              </div>
+              <div class="p-4 rounded-lg border" style="background-color: var(--green-bg-light); border-color: var(--green-text);">
+                <h5 class="font-semibold mb-2" style="color: var(--green-text-dark);">Simple tasks, variable usage:</h5>
+                <ul class="text-sm space-y-1" style="color: var(--green-text);">
+                  <li>• Basic text editing</li>
+                  <li>• Simple Q&A</li>
+                  <li>• Format conversions</li>
+                  <li>• Template filling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Strategic Insights -->
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl" style="background-color: var(--neutral-text-dark); color: var(--card-bg);">
+              <h5 class="font-semibold mb-2" style="color: var(--neutral-bg-light);">Enterprise Strategy</h5>
+              <p class="text-sm mb-3" style="color: var(--neutral-bg-medium);">
+                Focus AI deployment on high-value, complex tasks where AI provides irreplaceable capabilities.
+              </p>
+              <div class="text-xs" style="color: var(--neutral-bg-light);">
+                Don't optimize for token cost—optimize for business impact.
+              </div>
+            </div>
+            
+            <div class="p-4 rounded-lg border" style="background-color: var(--amber-bg-light); border-color: var(--amber-text);">
+              <h5 class="font-semibold mb-2" style="color: var(--amber-text-dark);">Implementation Priority</h5>
+              <ol class="text-sm space-y-1" style="color: var(--amber-text);">
+                <li>1. Identify high-complexity bottlenecks</li>
+                <li>2. Deploy AI for capability gaps, not cost savings</li>
+                <li>3. Measure business outcomes, not usage costs</li>
+              </ol>
+            </div>
+            
+            <div class="p-4 rounded-lg border" style="background-color: var(--blue-bg-light); border-color: var(--blue-text);">
+              <h5 class="font-semibold mb-2" style="color: var(--blue-text-dark);">Success Metrics</h5>
+              <ul class="text-sm space-y-1" style="color: var(--blue-text);">
+                <li>• Task completion quality</li>
+                <li>• Time to solution</li>
+                <li>• Employee capability expansion</li>
+                <li>• Innovation velocity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Patterns Section -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="enterprise-heading">
+    <div class="max-w-7xl mx-auto grid gap-8 lg:grid-cols-2">
+      
+      <!-- Top 1P API Use Clusters -->
+      <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+        <div class="flex items-center justify-between mb-6">
+          <h2 id="enterprise-heading" class="text-2xl font-bold" style="color: var(--text-primary);">Top 1P API Use Clusters</h2>
+          <span class="pill border" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border-color: var(--pill-neutral-border);">Share of transcripts</span>
+        </div>
+        
+        <div class="space-y-5" role="list">
+          <div role="listitem">
+            <div class="flex justify-between text-sm mb-2">
+              <span style="color: var(--text-primary);">Resolve dev technical issues & workflow</span>
+              <span class="font-bold" style="color: var(--text-primary);">6.0%</span>
+            </div>
+            <div class="progress-bar" style="--p:6%" aria-hidden="true"></div>
+          </div>
+          
+          <div role="listitem">
+            <div class="flex justify-between text-sm mb-2">
+              <span style="color: var(--text-primary);">Debug & develop web app frontend</span>
+              <span class="font-bold" style="color: var(--text-primary);">6.1%</span>
+            </div>
+            <div class="progress-bar" style="--p:6.1%" aria-hidden="true"></div>
+          </div>
+          
+          <div role="listitem">
+            <div class="flex justify-between text-sm mb-2">
+              <span style="color: var(--text-primary);">Develop & manage business software</span>
+              <span class="font-bold" style="color: var(--text-primary);">5.2%</span>
+            </div>
+            <div class="progress-bar" style="--p:5.2%" aria-hidden="true"></div>
+          </div>
+          
+          <div role="listitem">
+            <div class="flex justify-between text-sm mb-2">
+              <span style="color: var(--text-primary);">Develop / evaluate AI systems</span>
+              <span class="font-bold" style="color: var(--text-primary);">5.2%</span>
+            </div>
+            <div class="progress-bar" style="--p:5.2%" aria-hidden="true"></div>
+          </div>
+          
+          <div role="listitem">
+            <div class="flex justify-between text-sm mb-2">
+              <span style="color: var(--text-primary);">Marketing & journalistic content</span>
+              <span class="font-bold" style="color: var(--text-primary);">4.7%</span>
+            </div>
+            <div class="progress-bar" style="--p:4.7%" aria-hidden="true"></div>
+          </div>
+          
+          <div role="listitem">
+            <div class="flex justify-between text-sm mb-2">
+              <span style="color: var(--text-primary);">Recruitment / business data processing</span>
+              <span class="font-bold" style="color: var(--text-primary);">1.9%</span>
+            </div>
+            <div class="progress-bar" style="--p:1.9%" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="mt-8 p-4 rounded-xl text-sm" style="background-color: var(--bg-tertiary); color: var(--text-secondary);">
+          API usage concentrates on programmatically automatable tasks (coding, admin).
+        </div>
+      </div>
+
+      <!-- Enterprise Insights -->
+      <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold" style="color: var(--text-primary);">Enterprise Insights</h2>
+          <span class="pill border" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border-color: var(--pill-neutral-border);">Strategic deployment patterns</span>
+        </div>
+        
+        <!-- Key Finding: Value Over Cost -->
+        <div class="mb-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-400">
+          <h3 class="font-bold text-green-900 mb-3 flex items-center gap-2">
+            <span class="text-green-600">💡</span>
+            Key Finding: Capabilities > Cost
+          </h3>
+          <p class="text-sm text-green-800 mb-3">
+            <strong>Counter-intuitive result:</strong> Higher-cost tasks show <em>higher</em> usage rates, not lower. 
+            This suggests enterprises prioritize AI's unique capabilities over token economics.
+          </p>
+          <div class="text-xs text-green-700 bg-green-100 p-3 rounded">
+            <strong>Business Implication:</strong> Focus AI deployment on high-value, complex tasks where AI provides irreplaceable capabilities, rather than optimizing purely for cost-per-token efficiency.
+          </div>
+        </div>
+
+        <!-- Context Bottleneck Challenge -->
+        <div class="mb-6 p-5 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border-l-4 border-amber-400">
+          <h3 class="font-bold text-amber-900 mb-3 flex items-center gap-2">
+            <span class="text-amber-600">⚠️</span>
+            Critical Constraint: Context Bottleneck
+          </h3>
+          <p class="text-sm text-amber-800 mb-3">
+            Input→output elasticity of only <strong>0.38</strong> reveals a fundamental limitation: complex enterprise tasks require extensive context, but AI output doesn't scale proportionally with input length.
+          </p>
+          <div class="grid md:grid-cols-2 gap-3 text-xs">
+            <div class="bg-amber-100 p-3 rounded text-amber-700">
+              <strong>Challenge:</strong> Long documents, complex workflows, and multi-step processes hit context limits quickly.
+            </div>
+            <div class="bg-amber-100 p-3 rounded text-amber-700">
+              <strong>Solution:</strong> Invest in RAG systems, knowledge graphs, and structured data pipelines to pre-process context.
+            </div>
+          </div>
+        </div>
+
+        <!-- System Integration Success -->
+        <div class="mb-6 p-5 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-400">
+          <h3 class="font-bold text-blue-900 mb-3 flex items-center gap-2">
+            <span class="text-blue-600">🔗</span>
+            Success Pattern: System Embedding
+          </h3>
+          <p class="text-sm text-blue-800 mb-3">
+            The 77% automation rate in API usage (vs ~49% in consumer UI) demonstrates that <strong>programmatic integration drives automation adoption</strong>.
+          </p>
+          <div class="text-xs text-blue-700 space-y-2">
+            <div class="bg-blue-100 p-3 rounded">
+              <strong>Why this works:</strong> APIs enable seamless workflow integration, reducing human friction and enabling true task delegation.
+            </div>
+            <div class="bg-blue-100 p-3 rounded">
+              <strong>Strategic takeaway:</strong> Build AI directly into existing business systems rather than expecting users to context-switch to separate AI tools.
+            </div>
+          </div>
+        </div>
+
+        <!-- Implementation Framework -->
+        <div class="mb-6 p-5 rounded-xl border" style="background: linear-gradient(to right, var(--purple-bg-light), var(--purple-bg-light)); border-color: var(--purple-text);">
+          <h3 class="font-bold mb-4 text-center" style="color: var(--purple-text-dark);">Enterprise AI Implementation Framework</h3>
+          <div class="grid md:grid-cols-3 gap-4 text-xs">
+            <div class="p-4 rounded-lg border" style="background-color: var(--card-bg); border-color: var(--purple-text);">
+              <div class="font-semibold mb-2" style="color: var(--purple-text);">Phase 1: Infrastructure</div>
+              <ul class="space-y-1" style="color: var(--purple-text);">
+                <li>• Build data centralization</li>
+                <li>• Implement RAG systems</li>
+                <li>• Establish API workflows</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-lg border" style="background-color: var(--card-bg); border-color: var(--purple-text);">
+              <div class="font-semibold mb-2" style="color: var(--purple-text);">Phase 2: High-Value Tasks</div>
+              <ul class="space-y-1" style="color: var(--purple-text);">
+                <li>• Target complex, capability-driven work</li>
+                <li>• Automate repetitive processes</li>
+                <li>• Focus on developer workflows</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-lg border" style="background-color: var(--card-bg); border-color: var(--purple-text);">
+              <div class="font-semibold mb-2" style="color: var(--purple-text);">Phase 3: Scale & Balance</div>
+              <ul class="space-y-1" style="color: var(--purple-text);">
+                <li>• Expand to augmentation use cases</li>
+                <li>• Train teams on AI collaboration</li>
+                <li>• Measure business impact, not token cost</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics Dashboard -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="card-shadow rounded-xl p-4 text-center border" style="background: linear-gradient(to bottom right, var(--green-bg-light), var(--green-bg-medium)); border-color: var(--green-text);">
+            <div class="text-xs mb-2 font-medium" style="color: var(--green-text);">Cost ↔ Usage Correlation</div>
+            <div class="text-3xl font-black" style="color: var(--green-text-dark);">Positive</div>
+            <p class="text-xs mt-2" style="color: var(--green-text);">Higher complexity tasks = Higher adoption rates</p>
+            <div class="mt-2 text-xs rounded px-2 py-1" style="color: var(--green-text); background-color: var(--green-bg-medium);">Counterintuitive insight</div>
+          </div>
+          <div class="card-shadow rounded-xl p-4 text-center border" style="background: linear-gradient(to bottom right, var(--blue-bg-light), var(--blue-bg-medium)); border-color: var(--blue-text);">
+            <div class="text-xs mb-2 font-medium" style="color: var(--blue-text);">Infrastructure Readiness</div>
+            <div class="text-3xl font-black" style="color: var(--blue-text-dark);">Critical</div>
+            <p class="text-xs mt-2" style="color: var(--blue-text);">Context systems unlock sophisticated AI usage</p>
+            <div class="mt-2 text-xs rounded px-2 py-1" style="color: var(--blue-text); background-color: var(--blue-bg-medium);">Investment priority</div>
+          </div>
+        </div>
+
+        <!-- Bottom Summary -->
+        <div class="mt-6 p-4 rounded-xl" style="background-color: var(--neutral-text-dark); color: var(--card-bg);">
+          <h4 class="font-semibold mb-2" style="color: var(--neutral-bg-light);">Bottom Line for Enterprise Leaders</h4>
+          <p class="text-sm" style="color: var(--neutral-bg-medium);">
+            Don't chase token efficiency—chase capability impact. Build the data infrastructure first, 
+            integrate AI into existing workflows, and measure business outcomes rather than usage costs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Implications Section -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="implications-heading">
+    <div class="max-w-7xl mx-auto grid gap-8 grid-auto-fit">
+      
+      <!-- Policy and Enterprise Implications -->
+      <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+        <h2 id="implications-heading" class="text-2xl font-bold mb-6" style="color: var(--text-primary);">Implications</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <!-- For Policymakers -->
+          <div class="p-6 rounded-xl" style="background-color: var(--blue-bg-light);">
+            <h3 class="font-bold mb-4" style="color: var(--blue-text-dark);">For Policymakers</h3>
+            <ul class="space-y-3 text-sm" style="color: var(--blue-text);">
+              <li class="flex items-start gap-2">
+                <span class="mt-1" style="color: var(--blue-text);">•</span>
+                <span>Invest in digital infrastructure & AI fluency in low-AUI regions.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-1" style="color: var(--blue-text);">•</span>
+                <span>Support data modernization for SMEs to access AI benefits.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-1" style="color: var(--blue-text);">•</span>
+                <span>Monitor automation impacts in vulnerable sectors.</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- For Enterprises -->
+          <div class="p-6 rounded-xl" style="background-color: var(--green-bg-light);">
+            <h3 class="font-bold mb-4" style="color: var(--green-text-dark);">For Enterprises</h3>
+            <ul class="space-y-3 text-sm" style="color: var(--green-text);">
+              <li class="flex items-start gap-2">
+                <span class="mt-1" style="color: var(--green-text);">•</span>
+                <span>Prioritize high-value tasks (not token price).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-1" style="color: var(--green-text);">•</span>
+                <span>Build context pipelines (RAG/data platforms).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-1" style="color: var(--green-text);">•</span>
+                <span>Balance automation with augmentation.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Method Notes -->
+      <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+        <h2 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Method Notes</h2>
+        <div class="prose prose-sm max-w-none" style="color: var(--text-secondary);">
+          <p class="mb-4">
+            <strong>Data windows:</strong> 1M Claude.ai conversations Aug 4–11, 2025; large sample of 1P API transcripts Aug 2025.
+          </p>
+          <p class="mb-4">
+            <strong>AUI calculation:</strong> Usage share ÷ working-age population share. Geography excludes VPN/hosting IPs.
+          </p>
+          <p>
+            <strong>Collaboration modes:</strong> Automation (directive, feedback-loop) vs augmentation (learning/iteration/validation).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 md:px-10 lg:px-12 py-12" style="background-color: var(--bg-tertiary);" role="contentinfo">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="text-sm mb-2" style="color: var(--text-secondary);">
+        <strong>Source:</strong> Anthropic Economic Index (V3), published Sept 15, 2025.
+      </div>
+      <div class="text-xs" style="color: var(--text-tertiary);">
+        Infographic simplifies visuals for clarity. Complete methodology and data available in the full report.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode functionality
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      body.setAttribute('data-theme', newTheme);
+      
+      // Update button text and icons
+      const themeText = document.getElementById('theme-text');
+      const sunIcon = document.querySelector('.theme-icon-sun');
+      const moonIcon = document.querySelector('.theme-icon-moon');
+      
+      if (newTheme === 'dark') {
+        themeText.textContent = 'Dark';
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'inline';
+      } else {
+        themeText.textContent = 'Light';
+        sunIcon.style.display = 'inline';
+        moonIcon.style.display = 'none';
+      }
+      
+      // Save preference
+      localStorage.setItem('theme', newTheme);
+    }
+    
+    // Load saved theme on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.getElementById('theme-text').textContent = 'Dark';
+          document.querySelector('.theme-icon-sun').style.display = 'none';
+          document.querySelector('.theme-icon-moon').style.display = 'inline';
+        }
+      } else if (prefersDark) {
+        // Auto-detect system preference
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-text').textContent = 'Dark';
+        document.querySelector('.theme-icon-sun').style.display = 'none';
+        document.querySelector('.theme-icon-moon').style.display = 'inline';
+      }
+    });
+    
+    // Listen for system theme changes
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          const newTheme = e.matches ? 'dark' : 'light';
+          document.body.setAttribute('data-theme', newTheme);
+          
+          const themeText = document.getElementById('theme-text');
+          const sunIcon = document.querySelector('.theme-icon-sun');
+          const moonIcon = document.querySelector('.theme-icon-moon');
+          
+          if (newTheme === 'dark') {
+            themeText.textContent = 'Dark';
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'inline';
+          } else {
+            themeText.textContent = 'Light';
+            sunIcon.style.display = 'inline';
+            moonIcon.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
