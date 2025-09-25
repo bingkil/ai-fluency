@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Primary Meta Tags -->
+  <title>AI Fluency Theme Showcase — Visual Preview of All Available Themes</title>
+  <meta name="title" content="AI Fluency Theme Showcase — Visual Preview of All Available Themes" />
+  <meta name="description" content="Preview and compare all available themes for AI Fluency infographic mini-sites. See Dark Knight, Ocean Breeze, Sunset Glow, and Forest Sage themes in action." />
+  <meta name="author" content="Chris Prakoso" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- External Stylesheets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/infographic-styles.css">
+  
+  <!-- Base Theme for Showcase -->
+  <link rel="stylesheet" href="../assets/themes/base-theme.css">
+  
+  <!-- Showcase Specific Styles -->
+  <style>
+    /* Base showcase styles */
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .theme-preview-container {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .theme-preview-container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .theme-preview {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      min-height: 400px;
+      position: relative;
+    }
+    
+    /* Theme-specific preview styles */
+    .theme-dark-knight { --primary-color: #2563eb; --accent-color: #4285f4; --bg-primary: #fafafa; --text-primary: #111827; }
+    .theme-ocean-breeze { --primary-color: #0ea5e9; --accent-color: #06b6d4; --bg-primary: #f0f9ff; --text-primary: #0c4a6e; }
+    .theme-sunset-glow { --primary-color: #f59e0b; --accent-color: #ef4444; --bg-primary: #fef3c7; --text-primary: #92400e; }
+    .theme-forest-sage { --primary-color: #059669; --accent-color: #10b981; --bg-primary: #f0fdf4; --text-primary: #064e3b; }
+    .theme-hawkeye { --primary-color: #dc2626; --accent-color: #ef4444; --bg-primary: #fafafa; --text-primary: #111827; }
+    .theme-magneto { --primary-color: #6366f1; --accent-color: #8b5cf6; --bg-primary: #0b1220; --text-primary: #f8fafc; }
+    .theme-dawn { --primary-color: #0ea5e9; --accent-color: #d946ef; --bg-primary: #fefcfb; --text-primary: #1f2937; }
+    .theme-business { --primary-color: #1e40af; --accent-color: #3b82f6; --bg-primary: #f8fafc; --text-primary: #0f172a; }
+    .theme-leaderboard { --primary-color: #1e40af; --accent-color: #f59e0b; --bg-primary: #0f172a; --text-primary: #ffffff; }
+    
+    .sample-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .sample-content {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      padding: 20px;
+    }
+    
+    .sample-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .sample-button {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    .sample-button:hover {
+      transform: scale(1.05);
+    }
+    
+    .theme-info {
+      margin-top: 16px;
+      padding: 16px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .theme-colors {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    
+    .color-swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .use-cases {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    
+    .use-case-tag {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    /* Leaderboard theme animations */
+    @keyframes pulse {
+      0%, 100% { 
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+        transform: scale(1);
+      }
+      50% { 
+        box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="text-center py-12 px-6">
+    <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+      AI Fluency Theme Showcase
+    </h1>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      Preview and compare all 9 available themes for your infographic mini-sites. Each theme is carefully designed for specific use cases and aesthetic preferences, from professional corporate designs to competitive leaderboard interfaces.
+    </p>
+  </header>
+
+  <!-- Theme Showcase Grid -->
+  <main class="px-6 pb-12">
+    <div class="max-w-7xl mx-auto grid gap-8 lg:grid-cols-2">
+      
+      <!-- Dark Knight Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-dark-knight">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Dark Knight</h2>
+            <p class="opacity-90">Professional • Corporate • Tech-Focused</p>
+          </div>
+          <div class="sample-content">
+            <!-- Google Brand Colors Demo -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #4285f4; color: white;">Google Blue</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #ea4335; color: white;">Google Red</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #fbbc05; color: black;">Google Yellow</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #34a853; color: white;">Google Green</span>
+            </div>
+            
+            <!-- 5-Day Schedule Color Variations -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #eff6ff, #dbeafe); color: #1e3a8a;">
+                Day 1<br>Foundation
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0fdf4, #bbf7d0); color: #14532d;">
+                Day 2<br>Tools
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #faf5ff, #ddd6fe); color: #581c87;">
+                Day 3<br>Context
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fffbeb, #fde68a); color: #92400e;">
+                Day 4<br>Quality
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fef2f2, #fecaca); color: #7f1d1d;">
+                Day 5<br>Production
+              </div>
+            </div>
+            
+            <!-- KPI Cards with Color Variations -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #4285f4;">
+                <div class="text-2xl font-bold" style="color: #4285f4;">5</div>
+                <div class="text-xs">Days Duration</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #34a853;">
+                <div class="text-xl font-bold" style="color: #34a853;">1-2</div>
+                <div class="text-xs">hrs/day</div>
+              </div>
+            </div>
+            
+            <div class="sample-card">
+              <h3 class="font-semibold mb-2" style="color: var(--primary-color);">Course Overview</h3>
+              <p class="text-sm mb-3">Learn advanced AI concepts with Google's research team. This comprehensive program covers everything from basics to production deployment.</p>
+              <button class="sample-button">Register Now</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Dark Knight Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Professional, sophisticated, tech-focused aesthetic with Google brand integration. Features rich contextual color system for 5-day schedules, KPI highlights, and Google brand colors. Perfect for corporate courses and business content.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #4285f4;" title="Google Blue"></div>
+            <div class="color-swatch" style="background: #ea4335;" title="Google Red"></div>
+            <div class="color-swatch" style="background: #fbbc05;" title="Google Yellow"></div>
+            <div class="color-swatch" style="background: #34a853;" title="Google Green"></div>
+            <div class="color-swatch" style="background: #eff6ff;" title="Blue Theme Light"></div>
+            <div class="color-swatch" style="background: #f0fdf4;" title="Green Theme Light"></div>
+            <div class="color-swatch" style="background: #faf5ff;" title="Purple Theme Light"></div>
+            <div class="color-swatch" style="background: #fffbeb;" title="Amber Theme Light"></div>
+            <div class="color-swatch" style="background: #fef2f2;" title="Red Theme Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Corporate Courses</span>
+            <span class="use-case-tag">Technical Content</span>
+            <span class="use-case-tag">Professional Development</span>
+            <span class="use-case-tag">Business Presentations</span>
+            <span class="use-case-tag">Multi-Day Schedules</span>
+            <span class="use-case-tag">KPI Dashboards</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ocean Breeze Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-ocean-breeze">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Ocean Breeze</h2>
+            <p class="opacity-90">Fresh • Calming • Wellness-Focused</p>
+          </div>
+          <div class="sample-content">
+            <!-- Ocean-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #0ea5e9; color: white;">Ocean Blue</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #06b6d4; color: white;">Cyan Wave</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #0891b2; color: white;">Deep Teal</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #67e8f9; color: black;">Sky Light</span>
+            </div>
+            
+            <!-- Contextual Schedule Colors -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0f9ff, #bae6fd); color: #0c4a6e;">
+                Week 1<br>Mindfulness
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #ecfeff, #a7f3d0); color: #064e3b;">
+                Week 2<br>Balance
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0fdfa, #99f6e4); color: #134e4a;">
+                Week 3<br>Focus
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0f9ff, #7dd3fc); color: #0c4a6e;">
+                Week 4<br>Wellness
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #ecfeff, #67e8f9); color: #155e75;">
+                Week 5<br>Growth
+              </div>
+            </div>
+            
+            <!-- KPI Cards with Ocean Theme -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #0ea5e9;">
+                <div class="text-2xl font-bold" style="color: #0ea5e9;">85%</div>
+                <div class="text-xs">Stress Reduction</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #06b6d4;">
+                <div class="text-xl font-bold" style="color: #06b6d4;">30+</div>
+                <div class="text-xs">Techniques</div>
+              </div>
+            </div>
+            
+            <div class="sample-card">
+              <h3 class="font-semibold mb-2" style="color: var(--primary-color);">Wellness Program</h3>
+              <p class="text-sm mb-3">Discover mindful productivity techniques and work-life balance strategies. Create a healthier relationship with technology and AI.</p>
+              <button class="sample-button">Join Program</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Ocean Breeze Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Fresh, clean, calming aesthetic with ocean-inspired colors. Features soothing blue and teal variations for wellness journeys, progress tracking, and mindful learning experiences.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #0ea5e9;" title="Ocean Blue"></div>
+            <div class="color-swatch" style="background: #06b6d4;" title="Cyan Wave"></div>
+            <div class="color-swatch" style="background: #0891b2;" title="Deep Teal"></div>
+            <div class="color-swatch" style="background: #67e8f9;" title="Sky Light"></div>
+            <div class="color-swatch" style="background: #f0f9ff;" title="Blue Light"></div>
+            <div class="color-swatch" style="background: #ecfeff;" title="Cyan Light"></div>
+            <div class="color-swatch" style="background: #f0fdfa;" title="Teal Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Wellness Content</span>
+            <span class="use-case-tag">Productivity Courses</span>
+            <span class="use-case-tag">Learning Platforms</span>
+            <span class="use-case-tag">Health & Fitness</span>
+            <span class="use-case-tag">Mindfulness Programs</span>
+            <span class="use-case-tag">Progress Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sunset Glow Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-sunset-glow">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Sunset Glow</h2>
+            <p class="opacity-90">Creative • Energetic • Artistic</p>
+          </div>
+          <div class="sample-content">
+            <!-- Sunset-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #f59e0b; color: white;">Golden Amber</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #ef4444; color: white;">Sunset Red</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #f97316; color: white;">Orange Glow</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #fbbf24; color: black;">Warm Yellow</span>
+            </div>
+            
+            <!-- Creative Process Steps -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fef3c7, #fde68a); color: #92400e;">
+                Step 1<br>Inspire
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fed7aa, #fdba74); color: #9a3412;">
+                Step 2<br>Ideate
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fecaca, #fca5a5); color: #7f1d1d;">
+                Step 3<br>Create
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fee2e2, #fecaca); color: #991b1b;">
+                Step 4<br>Refine
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fef3c7, #f59e0b); color: #78350f;">
+                Step 5<br>Launch
+              </div>
+            </div>
+            
+            <!-- Creative KPI Cards -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #f59e0b;">
+                <div class="text-2xl font-bold" style="color: #f59e0b;">12</div>
+                <div class="text-xs">Projects</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #ef4444;">
+                <div class="text-xl font-bold" style="color: #ef4444;">95%</div>
+                <div class="text-xs">Satisfaction</div>
+              </div>
+            </div>
+            
+            <div class="sample-card">
+              <h3 class="font-semibold mb-2" style="color: var(--primary-color);">Creative Workshop</h3>
+              <p class="text-sm mb-3">Unleash your creative potential with AI-powered design tools. Learn to blend human creativity with artificial intelligence.</p>
+              <button class="sample-button">Start Creating</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Sunset Glow Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Warm, energetic, creative aesthetic with sunset-inspired colors. Features vibrant amber, orange, and red variations perfect for creative processes, artistic journeys, and inspiring content.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #f59e0b;" title="Golden Amber"></div>
+            <div class="color-swatch" style="background: #ef4444;" title="Sunset Red"></div>
+            <div class="color-swatch" style="background: #f97316;" title="Orange Glow"></div>
+            <div class="color-swatch" style="background: #fbbf24;" title="Warm Yellow"></div>
+            <div class="color-swatch" style="background: #fef3c7;" title="Amber Light"></div>
+            <div class="color-swatch" style="background: #fed7aa;" title="Orange Light"></div>
+            <div class="color-swatch" style="background: #fecaca;" title="Red Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Creative Workshops</span>
+            <span class="use-case-tag">Design Courses</span>
+            <span class="use-case-tag">Artistic Content</span>
+            <span class="use-case-tag">Photography</span>
+            <span class="use-case-tag">Innovation Labs</span>
+            <span class="use-case-tag">Creative Process</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forest Sage Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-forest-sage">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Forest Sage</h2>
+            <p class="opacity-90">Natural • Grounded • Eco-Friendly</p>
+          </div>
+          <div class="sample-content">
+            <!-- Forest-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #059669; color: white;">Forest Green</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #10b981; color: white;">Emerald</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #047857; color: white;">Deep Green</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #34d399; color: black;">Mint Fresh</span>
+            </div>
+            
+            <!-- Sustainability Journey -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); color: #14532d;">
+                Phase 1<br>Assess
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #ecfdf5, #bbf7d0); color: #166534;">
+                Phase 2<br>Plan
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0fdf4, #a7f3d0); color: #15803d;">
+                Phase 3<br>Implement
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #ecfdf5, #86efac); color: #166534;">
+                Phase 4<br>Monitor
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0fdf4, #6ee7b7); color: #14532d;">
+                Phase 5<br>Optimize
+              </div>
+            </div>
+            
+            <!-- Sustainability KPI Cards -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #059669;">
+                <div class="text-2xl font-bold" style="color: #059669;">-40%</div>
+                <div class="text-xs">Carbon Footprint</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #10b981;">
+                <div class="text-xl font-bold" style="color: #10b981;">100%</div>
+                <div class="text-xs">Renewable</div>
+              </div>
+            </div>
+            
+            <div class="sample-card">
+              <h3 class="font-semibold mb-2" style="color: var(--primary-color);">Sustainability Course</h3>
+              <p class="text-sm mb-3">Explore sustainable technology practices and environmental consciousness in AI development. Build a greener future with technology.</p>
+              <button class="sample-button">Learn More</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Forest Sage Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Natural, grounded, eco-friendly aesthetic with forest-inspired colors. Features rich green variations perfect for sustainability journeys, environmental progress tracking, and conscious growth content.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #059669;" title="Forest Green"></div>
+            <div class="color-swatch" style="background: #10b981;" title="Emerald"></div>
+            <div class="color-swatch" style="background: #047857;" title="Deep Green"></div>
+            <div class="color-swatch" style="background: #34d399;" title="Mint Fresh"></div>
+            <div class="color-swatch" style="background: #f0fdf4;" title="Green Light"></div>
+            <div class="color-swatch" style="background: #ecfdf5;" title="Emerald Light"></div>
+            <div class="color-swatch" style="background: #d1fae5;" title="Mint Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Environmental Content</span>
+            <span class="use-case-tag">Sustainability</span>
+            <span class="use-case-tag">Nature Topics</span>
+            <span class="use-case-tag">Eco-Brands</span>
+            <span class="use-case-tag">Green Tech</span>
+            <span class="use-case-tag">Impact Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hawkeye Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-hawkeye">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Hawkeye</h2>
+            <p class="opacity-90">Analytical • Sharp • Data-Focused</p>
+          </div>
+          <div class="sample-content">
+            <!-- Hawkeye-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #dc2626; color: white;">Hawkeye Crimson</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #e11d48; color: white;">Rose Accent</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #ef4444; color: white;">Sharp Red</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #991b1b; color: white;">Deep Burgundy</span>
+            </div>
+            
+            <!-- Data Analysis Process -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fef2f2, #fecaca); color: #7f1d1d;">
+                Phase 1<br>Collect
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fff1f2, #fda4af); color: #881337;">
+                Phase 2<br>Analyze
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fef2f2, #f87171); color: #991b1b;">
+                Phase 3<br>Interpret
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fee2e2, #dc2626); color: white;">
+                Phase 4<br>Report
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fef2f2, #b91c1c); color: white;">
+                Phase 5<br>Act
+              </div>
+            </div>
+            
+            <!-- Analytical KPI Cards -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #dc2626;">
+                <div class="text-2xl font-bold" style="color: #dc2626;">87%</div>
+                <div class="text-xs">Accuracy Rate</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #ef4444;">
+                <div class="text-xl font-bold" style="color: #ef4444;">2.3s</div>
+                <div class="text-xs">Response Time</div>
+              </div>
+            </div>
+            
+            <!-- Data Visualization Ring -->
+            <div class="flex justify-center mb-4">
+              <div class="relative w-16 h-16 rounded-full flex items-center justify-center" style="background: conic-gradient(#dc2626 75%, #e5e7eb 0);">
+                <div class="absolute inset-2 bg-white rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold" style="color: #dc2626;">75%</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="sample-card">
+              <h3 class="font-semibold mb-2" style="color: var(--primary-color);">Data Analysis Report</h3>
+              <p class="text-sm mb-3">Precision-focused analytical insights with sharp visual clarity. Perfect for economic indices, research findings, and business intelligence dashboards.</p>
+              <button class="sample-button">View Analysis</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Hawkeye Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Sharp, analytical, precision-focused aesthetic with crimson accents. Designed specifically for data-driven content, economic reports, research findings, and analytical dashboards. Features comprehensive data visualization elements and sharp contrast design.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #dc2626;" title="Hawkeye Crimson"></div>
+            <div class="color-swatch" style="background: #e11d48;" title="Rose Accent"></div>
+            <div class="color-swatch" style="background: #ef4444;" title="Sharp Red"></div>
+            <div class="color-swatch" style="background: #991b1b;" title="Deep Burgundy"></div>
+            <div class="color-swatch" style="background: #fef2f2;" title="Red Light"></div>
+            <div class="color-swatch" style="background: #fff1f2;" title="Rose Light"></div>
+            <div class="color-swatch" style="background: #fee2e2;" title="Crimson Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Data Reports</span>
+            <span class="use-case-tag">Economic Indices</span>
+            <span class="use-case-tag">Research Findings</span>
+            <span class="use-case-tag">Business Intelligence</span>
+            <span class="use-case-tag">Financial Data</span>
+            <span class="use-case-tag">KPI Dashboards</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Magneto Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-magneto">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Magneto</h2>
+            <p class="opacity-90">Dark • Magnetic • Infographic-Optimized</p>
+          </div>
+          <div class="sample-content">
+            <!-- Magneto-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #6366f1; color: white;">Magnetic Blue</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #8b5cf6; color: white;">Purple Glow</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #4f46e5; color: white;">Deep Indigo</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #a855f7; color: white;">Violet Spark</span>
+            </div>
+            
+            <!-- Data Visualization Process -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #1e1b4b, #6366f1); color: #c7d2fe;">
+                Stage 1<br>Collect
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #312e81, #8b5cf6); color: #ddd6fe;">
+                Stage 2<br>Process
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #4c1d95, #a855f7); color: #e9d5ff;">
+                Stage 3<br>Visualize
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #581c87, #c084fc); color: #f3e8ff;">
+                Stage 4<br>Analyze
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #6b21a8, #d8b4fe); color: #faf5ff;">
+                Stage 5<br>Deploy
+              </div>
+            </div>
+            
+            <!-- Glowing Data Cards -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: rgba(99, 102, 241, 0.1); border-color: #6366f1; backdrop-filter: blur(8px);">
+                <div class="text-2xl font-bold" style="color: #c7d2fe;">42M</div>
+                <div class="text-xs" style="color: #a5b4fc;">Data Points</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: rgba(139, 92, 246, 0.1); border-color: #8b5cf6; backdrop-filter: blur(8px);">
+                <div class="text-xl font-bold" style="color: #ddd6fe;">99.7%</div>
+                <div class="text-xs" style="color: #c4b5fd;">Uptime</div>
+              </div>
+            </div>
+            
+            <!-- Magnetic Ring Progress -->
+            <div class="flex justify-center mb-4">
+              <div class="relative w-16 h-16 rounded-full flex items-center justify-center" style="background: conic-gradient(#6366f1 0%, #8b5cf6 50%, #a855f7 85%, rgba(139, 92, 246, 0.2) 0);">
+                <div class="absolute inset-2 rounded-full flex items-center justify-center" style="background: #0b1220;">
+                  <span class="text-xs font-bold" style="color: #c7d2fe;">85%</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="sample-card" style="background: rgba(248, 250, 252, 0.05); backdrop-filter: blur(12px); border-left-color: #6366f1;">
+              <h3 class="font-semibold mb-2" style="color: #c7d2fe;">Interactive Dashboard</h3>
+              <p class="text-sm mb-3" style="color: #a5b4fc;">Dark, powerful theme with magnetic gradients and glowing effects. Perfect for data infographics, interactive visualizations, and modern dashboard interfaces.</p>
+              <button class="sample-button" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">Explore Data</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Magneto Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Dark, powerful theme with magnetic blue-purple gradients and glowing effects inspired by infographic styling. Features advanced glass morphism, backdrop blur effects, and data visualization components perfect for modern interfaces.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #6366f1;" title="Magnetic Blue"></div>
+            <div class="color-swatch" style="background: #8b5cf6;" title="Purple Glow"></div>
+            <div class="color-swatch" style="background: #4f46e5;" title="Deep Indigo"></div>
+            <div class="color-swatch" style="background: #a855f7;" title="Violet Spark"></div>
+            <div class="color-swatch" style="background: #0b1220;" title="Dark Background"></div>
+            <div class="color-swatch" style="background: #1e1b4b;" title="Indigo Dark"></div>
+            <div class="color-swatch" style="background: #312e81;" title="Purple Dark"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Data Infographics</span>
+            <span class="use-case-tag">Interactive Viz</span>
+            <span class="use-case-tag">Dashboard Interfaces</span>
+            <span class="use-case-tag">Analytics</span>
+            <span class="use-case-tag">Dark Mode</span>
+            <span class="use-case-tag">Technical Docs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dawn Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-dawn">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Dawn</h2>
+            <p class="opacity-90">Modern • Fresh • Glass Effects</p>
+          </div>
+          <div class="sample-content">
+            <!-- Dawn-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #0ea5e9; color: white;">Dawn Blue</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #d946ef; color: white;">Magenta Burst</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #06b6d4; color: white;">Cyan Fresh</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #ec4899; color: white;">Pink Glow</span>
+            </div>
+            
+            <!-- Modern Progress Journey -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0f9ff, #bae6fd); color: #0c4a6e;">
+                Step 1<br>Ideate
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fdf2f8, #f9a8d4); color: #831843;">
+                Step 2<br>Design
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #ecfeff, #a7f3d0); color: #134e4a;">
+                Step 3<br>Develop
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #fef7ff, #e879f9); color: #86198f;">
+                Step 4<br>Test
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0f9ff, #0ea5e9); color: white;">
+                Step 5<br>Launch
+              </div>
+            </div>
+            
+            <!-- Glass Morphism Cards -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: rgba(14, 165, 233, 0.1); border-color: #0ea5e9; backdrop-filter: blur(12px);">
+                <div class="text-2xl font-bold" style="color: #0ea5e9;">8.2k</div>
+                <div class="text-xs" style="color: #0369a1;">Users</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: rgba(217, 70, 239, 0.1); border-color: #d946ef; backdrop-filter: blur(12px);">
+                <div class="text-xl font-bold" style="color: #d946ef;">97%</div>
+                <div class="text-xs" style="color: #a21caf;">Satisfaction</div>
+              </div>
+            </div>
+            
+            <!-- Gradient Ring Progress -->
+            <div class="flex justify-center mb-4">
+              <div class="relative w-16 h-16 rounded-full flex items-center justify-center" style="background: conic-gradient(#0ea5e9 0%, #d946ef 50%, #06b6d4 80%, rgba(14, 165, 233, 0.2) 0);">
+                <div class="absolute inset-2 bg-white rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold" style="color: #0ea5e9;">92%</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="sample-card" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); border-left-color: #0ea5e9;">
+              <h3 class="font-semibold mb-2" style="color: var(--primary-color);">Modern Analytics</h3>
+              <p class="text-sm mb-3">Fresh, inspiring theme with dawn-like gradients and ethereal glass effects. Perfect for modern dashboards, educational content, and interactive visualizations.</p>
+              <button class="sample-button" style="background: linear-gradient(135deg, #0ea5e9, #d946ef);">Get Started</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Dawn Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Fresh, inspiring theme with dawn-like gradients and ethereal glass effects inspired by modern infographic design. Features ChatGPT-inspired gradient systems, advanced glass morphism, backdrop blur styling, and floating animations.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #0ea5e9;" title="Dawn Blue"></div>
+            <div class="color-swatch" style="background: #d946ef;" title="Magenta Burst"></div>
+            <div class="color-swatch" style="background: #06b6d4;" title="Cyan Fresh"></div>
+            <div class="color-swatch" style="background: #ec4899;" title="Pink Glow"></div>
+            <div class="color-swatch" style="background: #fefcfb;" title="Dawn Background"></div>
+            <div class="color-swatch" style="background: #f0f9ff;" title="Blue Light"></div>
+            <div class="color-swatch" style="background: #fdf2f8;" title="Pink Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Data Infographics</span>
+            <span class="use-case-tag">Modern Dashboards</span>
+            <span class="use-case-tag">Analytics</span>
+            <span class="use-case-tag">Educational Content</span>
+            <span class="use-case-tag">Interactive Viz</span>
+            <span class="use-case-tag">Progress Reports</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-business">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Business</h2>
+            <p class="opacity-90">Corporate • Professional • Slate-Based</p>
+          </div>
+          <div class="sample-content">
+            <!-- Business-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #1e40af; color: white;">Corporate Blue</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #0f172a; color: white;">Navy Slate</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #475569; color: white;">Professional Gray</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #10b981; color: white;">Success Green</span>
+            </div>
+            
+            <!-- Business Process Flow -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); color: #0f172a;">
+                Q1<br>Planning
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #eff6ff, #bfdbfe); color: #1e40af;">
+                Q2<br>Execution
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f0fdf4, #bbf7d0); color: #047857;">
+                Q3<br>Growth
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #f1f5f9, #cbd5e1); color: #334155;">
+                Q4<br>Review
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, #eff6ff, #3b82f6); color: white;">
+                Next<br>Strategy
+              </div>
+            </div>
+            
+            <!-- KPI Dashboard Cards -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #1e40af; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div class="text-2xl font-bold" style="color: #1e40af;">€2.4M</div>
+                <div class="text-xs" style="color: #64748b;">Revenue</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: white; border-color: #10b981; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <div class="text-xl font-bold" style="color: #10b981;">+18%</div>
+                <div class="text-xs" style="color: #64748b;">Growth</div>
+              </div>
+            </div>
+            
+            <!-- Professional Progress Bar -->
+            <div class="mb-4">
+              <div class="flex justify-between text-xs mb-1" style="color: #64748b;">
+                <span>Annual Target</span>
+                <span>87%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="h-2 rounded-full" style="width: 87%; background: linear-gradient(90deg, #1e40af, #3b82f6);"></div>
+              </div>
+            </div>
+            
+            <div class="sample-card">
+              <h3 class="font-semibold mb-2" style="color: var(--primary-color);">Executive Dashboard</h3>
+              <p class="text-sm mb-3">Professional corporate aesthetic with navy and slate tones inspired by modern infographic design. Perfect for business presentations, executive reports, and KPI dashboards.</p>
+              <button class="sample-button">View Report</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Business Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Professional corporate aesthetic with navy and slate tones inspired by modern infographic design. Features slate-based color palette, navy corporate accents, professional card layouts, and KPI dashboard components optimized for business use.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #1e40af;" title="Corporate Blue"></div>
+            <div class="color-swatch" style="background: #0f172a;" title="Navy Slate"></div>
+            <div class="color-swatch" style="background: #475569;" title="Professional Gray"></div>
+            <div class="color-swatch" style="background: #10b981;" title="Success Green"></div>
+            <div class="color-swatch" style="background: #f8fafc;" title="Slate Background"></div>
+            <div class="color-swatch" style="background: #eff6ff;" title="Blue Light"></div>
+            <div class="color-swatch" style="background: #f0fdf4;" title="Green Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Business Presentations</span>
+            <span class="use-case-tag">Corporate Dashboards</span>
+            <span class="use-case-tag">Executive Reports</span>
+            <span class="use-case-tag">Financial Data</span>
+            <span class="use-case-tag">KPI Dashboards</span>
+            <span class="use-case-tag">Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leaderboard Theme -->
+      <div class="theme-preview-container">
+        <div class="theme-preview theme-leaderboard">
+          <div class="sample-header">
+            <h2 class="text-2xl font-bold mb-2">Leaderboard</h2>
+            <p class="opacity-90">Competition • Ranking • Gamification</p>
+          </div>
+          <div class="sample-content" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);">
+            <!-- Leaderboard-themed Color Palette -->
+            <div class="flex gap-2 mb-4">
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #1e40af; color: white;">Navy Blue</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #f59e0b; color: white;">Gold Accent</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #06b6d4; color: white;">Cyan Glow</span>
+              <span class="px-3 py-1 rounded text-sm font-bold" style="background: #10b981; color: white;">Success Green</span>
+            </div>
+            
+            <!-- Ranking Progression -->
+            <div class="grid grid-cols-5 gap-2 mb-4">
+              <div class="p-2 rounded text-center text-xs font-semibold relative" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.4)); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); box-shadow: 0 0 8px rgba(251, 191, 36, 0.2);">
+                Rank 1<br>Champion
+                <div style="position: absolute; top: -2px; right: -2px; font-size: 8px;">🏆</div>
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(6, 182, 212, 0.3)); color: #67e8f9; border: 1px solid rgba(6, 182, 212, 0.3);">
+                Rank 2<br>Runner-up
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: linear-gradient(135deg, rgba(30, 64, 175, 0.2), rgba(59, 130, 246, 0.3)); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3);">
+                Rank 3<br>Third
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: rgba(255, 255, 255, 0.1); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.2);">
+                Rank 4<br>Performer
+              </div>
+              <div class="p-2 rounded text-center text-xs font-semibold" style="background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1);">
+                Rank 5<br>Rising
+              </div>
+            </div>
+            
+            <!-- Glass Morphism Score Cards -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="p-3 rounded border-l-4" style="background: rgba(255, 255, 255, 0.1); border-color: #f59e0b; backdrop-filter: blur(8px); box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">
+                <div class="text-2xl font-bold" style="color: #fbbf24;">98.5</div>
+                <div class="text-xs" style="color: #a3a3a3;">Champion Score</div>
+              </div>
+              <div class="p-3 rounded border-l-4" style="background: rgba(255, 255, 255, 0.1); border-color: #06b6d4; backdrop-filter: blur(8px);">
+                <div class="text-xl font-bold" style="color: #67e8f9;">156</div>
+                <div class="text-xs" style="color: #a3a3a3;">Achievements</div>
+              </div>
+            </div>
+            
+            <!-- Animated Ranking Badge -->
+            <div class="flex justify-center mb-4">
+              <div class="relative">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center font-bold text-lg" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); animation: pulse 2s infinite;">
+                  #1
+                </div>
+                <div class="absolute -top-1 -right-1 text-sm">🏆</div>
+              </div>
+            </div>
+            
+            <!-- Interactive Progress Bar -->
+            <div class="mb-4">
+              <div class="flex justify-between text-xs mb-1" style="color: #cbd5e1;">
+                <span>Performance Progress</span>
+                <span>98.5%</span>
+              </div>
+              <div class="w-full rounded-full h-2" style="background: rgba(255, 255, 255, 0.2);">
+                <div class="h-2 rounded-full" style="width: 98.5%; background: linear-gradient(90deg, #1e40af, #f59e0b); box-shadow: 0 0 8px rgba(251, 191, 36, 0.3);"></div>
+              </div>
+            </div>
+            
+            <div class="sample-card" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px); border-left-color: #f59e0b; border: 1px solid rgba(255, 255, 255, 0.2);">
+              <h3 class="font-semibold mb-2" style="color: #fbbf24;">Performance Leaderboard</h3>
+              <p class="text-sm mb-3" style="color: #cbd5e1;">Sophisticated ranking and competition-focused design with glass morphism effects and animated rankings. Perfect for performance tracking and gamification interfaces.</p>
+              <button class="sample-button" style="background: linear-gradient(135deg, #1e40af, #f59e0b); box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);">View Rankings</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="theme-info">
+          <h3 class="font-semibold text-gray-900 mb-2">Leaderboard Theme</h3>
+          <p class="text-sm text-gray-600 mb-3">Sophisticated ranking and competition-focused design with glass morphism effects and animated rankings. Features premium gold and blue color palette, pulsing champion effects, interactive table components, and responsive design perfect for performance tracking and gamification.</p>
+          
+          <div class="theme-colors">
+            <div class="color-swatch" style="background: #1e40af;" title="Navy Blue"></div>
+            <div class="color-swatch" style="background: #f59e0b;" title="Gold Accent"></div>
+            <div class="color-swatch" style="background: #06b6d4;" title="Cyan Glow"></div>
+            <div class="color-swatch" style="background: #10b981;" title="Success Green"></div>
+            <div class="color-swatch" style="background: #0f172a;" title="Dark Background"></div>
+            <div class="color-swatch" style="background: #fbbf24;" title="Gold Light"></div>
+            <div class="color-swatch" style="background: #67e8f9;" title="Cyan Light"></div>
+          </div>
+          
+          <div class="use-cases">
+            <span class="use-case-tag">Performance Leaderboards</span>
+            <span class="use-case-tag">Competition Rankings</span>
+            <span class="use-case-tag">Score Tracking</span>
+            <span class="use-case-tag">Achievement Displays</span>
+            <span class="use-case-tag">KPI Dashboards</span>
+            <span class="use-case-tag">Gaming Interfaces</span>
+            <span class="use-case-tag">Progress Tracking</span>
+            <span class="use-case-tag">Gamification</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Implementation Guide -->
+  <section class="bg-white py-12 px-6 mt-12">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">How to Use These Themes</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4 text-gray-900">1. Choose Your Theme</h3>
+          <p class="text-gray-600 mb-4">Select the theme that best matches your content type and target audience from the previews above.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• <strong>Dark Knight:</strong> Professional, corporate content</li>
+            <li>• <strong>Ocean Breeze:</strong> Wellness, productivity topics</li>
+            <li>• <strong>Sunset Glow:</strong> Creative, artistic content</li>
+            <li>• <strong>Forest Sage:</strong> Environmental, sustainability topics</li>
+            <li>• <strong>Hawkeye:</strong> Data analysis, research reports</li>
+            <li>• <strong>Magneto:</strong> Dark interfaces, data visualizations</li>
+            <li>• <strong>Dawn:</strong> Modern dashboards, interactive content</li>
+            <li>• <strong>Business:</strong> Corporate presentations, executive reports</li>
+            <li>• <strong>Leaderboard:</strong> Performance tracking, competition rankings</li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4 text-gray-900">2. Link the Theme CSS</h3>
+          <p class="text-gray-600 mb-4">Add the theme stylesheet to your HTML head section:</p>
+          <div class="bg-gray-800 text-green-400 p-4 rounded text-sm font-mono">
+            &lt;link id="theme-stylesheet" rel="stylesheet" href="../assets/themes/[theme-name].css"&gt;
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 p-6 bg-blue-50 border border-blue-200 rounded-lg">
+        <h3 class="text-lg font-semibold text-blue-900 mb-2">💡 Pro Tip</h3>
+        <p class="text-blue-800">You can create multiple versions of the same infographic with different themes to see which one resonates best with your audience. Each theme is designed to maintain readability and accessibility while providing distinct visual personalities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 px-6 text-center">
+    <p class="text-gray-400">
+      Theme System by <a href="https://augmentedhumanity.substack.com/" class="text-blue-400 hover:underline">Chris Prakoso - Augmented Humanity</a>
+    </p>
+  </footer>
+
+  <!-- Basic JavaScript for interactions -->
+  <script>
+    // Add smooth hover effects
+    document.querySelectorAll('.theme-preview-container').forEach(container => {
+      container.addEventListener('mouseenter', () => {
+        container.style.transform = 'translateY(-4px)';
+      });
+      
+      container.addEventListener('mouseleave', () => {
+        container.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Add click to copy theme name functionality
+    document.querySelectorAll('.theme-info h3').forEach(title => {
+      title.style.cursor = 'pointer';
+      title.title = 'Click to copy theme name';
+      
+      title.addEventListener('click', () => {
+        const themeName = title.textContent.replace(' Theme', '').toLowerCase().replace(' ', '-');
+        navigator.clipboard.writeText(themeName).then(() => {
+          const originalText = title.textContent;
+          title.textContent = 'Copied! ✓';
+          title.style.color = '#059669';
+          
+          setTimeout(() => {
+            title.textContent = originalText;
+            title.style.color = '';
+          }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+/* ===================================================================
+   HAWKEYE THEME
+   Sharp, analytical, precision-focused aesthetic with crimson accents
+   Author: Chris Prakoso - Augmented Humanity
+   ================================================================== */
+
+/* Import base theme foundation */
+@import url('./base-theme.css');
+
+:root {
+  /* ===================================================================
+     THEME METADATA
+     ================================================================== */
+  --theme-name: "Hawkeye";
+  --theme-description: "Sharp, analytical, precision-focused aesthetic with crimson accents for data-driven content";
+  --theme-version: "1.0";
+  --theme-author: "Chris Prakoso";
+  --theme-category: "Analytical";
+  
+  /* ===================================================================
+     HAWKEYE COLOR PALETTE - LIGHT MODE
+     Sharp reds and crimsons with professional grays
+     ================================================================== */
+  --bg-primary: rgb(250, 250, 250);
+  --bg-secondary: rgb(255, 255, 255);
+  --bg-tertiary: rgb(245, 245, 245);
+  --text-primary: rgb(17, 24, 39);
+  --text-secondary: rgb(107, 114, 128);
+  --text-tertiary: rgb(156, 163, 175);
+  --border-primary: rgb(229, 231, 235);
+  --border-secondary: rgb(209, 213, 219);
+  --accent-bg: rgb(254, 226, 226);
+  --accent-border: rgb(252, 165, 165);
+  
+  /* Component backgrounds */
+  --card-bg: rgb(255, 255, 255);
+  --pill-neutral-bg: rgb(245, 245, 245);
+  --pill-neutral-text: rgb(55, 65, 81);
+  --pill-neutral-border: rgb(229, 231, 235);
+  
+  /* ===================================================================
+     BRAND COLORS - HAWKEYE PRECISION PALETTE
+     ================================================================== */
+  --brand-primary: rgb(220, 38, 38);        /* Sharp Red */
+  --brand-secondary: rgb(239, 68, 68);      /* Crimson Accent */
+  --brand-accent: rgb(185, 28, 28);         /* Deep Red */
+  
+  /* Hawkeye Signature Colors */
+  --hawkeye-crimson: rgb(220, 38, 38);      /* Primary crimson */
+  --hawkeye-rose: rgb(225, 29, 72);         /* Rose accent */
+  --hawkeye-red: rgb(239, 68, 68);          /* Bright red */
+  --hawkeye-burgundy: rgb(153, 27, 27);     /* Deep burgundy */
+  
+  /* ===================================================================
+     CONTEXTUAL COLOR SYSTEM - HAWKEYE EDITION
+     Sharp, analytical color variations for data visualization
+     ================================================================== */
+  
+  /* Red Theme Colors (Primary data, alerts, critical metrics) */
+  --red-bg-light: rgb(254, 242, 242);
+  --red-bg-medium: rgb(254, 202, 202);
+  --red-text: rgb(153, 27, 27);
+  --red-text-dark: rgb(127, 29, 29);
+  
+  /* Rose Theme Colors (Secondary data, highlights) */
+  --rose-bg-light: rgb(255, 241, 242);
+  --rose-bg-medium: rgb(253, 164, 175);
+  --rose-text: rgb(159, 18, 57);
+  --rose-text-dark: rgb(136, 19, 55);
+  
+  /* Crimson Theme Colors (Key insights, important data) */
+  --crimson-bg-light: rgb(254, 242, 242);
+  --crimson-bg-medium: rgb(248, 113, 113);
+  --crimson-text: rgb(185, 28, 28);
+  --crimson-text-dark: rgb(153, 27, 27);
+  
+  /* Blue Theme Colors (Supporting data, context) */
+  --blue-bg-light: rgb(239, 246, 255);
+  --blue-bg-medium: rgb(219, 234, 254);
+  --blue-text: rgb(30, 64, 175);
+  --blue-text-dark: rgb(30, 58, 138);
+  
+  /* Green Theme Colors (Positive indicators, success metrics) */
+  --green-bg-light: rgb(240, 253, 244);
+  --green-bg-medium: rgb(187, 247, 208);
+  --green-text: rgb(22, 101, 52);
+  --green-text-dark: rgb(20, 83, 45);
+  
+  /* Amber Theme Colors (Warnings, caution indicators) */
+  --amber-bg-light: rgb(255, 251, 235);
+  --amber-bg-medium: rgb(253, 230, 138);
+  --amber-text: rgb(146, 64, 14);
+  --amber-text-dark: rgb(120, 53, 15);
+  
+  /* Purple Theme Colors (Advanced analytics, insights) */
+  --purple-bg-light: rgb(250, 245, 255);
+  --purple-bg-medium: rgb(221, 214, 254);
+  --purple-text: rgb(88, 28, 135);
+  --purple-text-dark: rgb(76, 29, 149);
+  
+  /* Neutral Theme Colors (Background data, secondary info) */
+  --neutral-bg-light: rgb(250, 250, 250);
+  --neutral-bg-medium: rgb(229, 231, 235);
+  --neutral-text: rgb(55, 65, 81);
+  --neutral-text-dark: rgb(31, 41, 55);
+  
+  /* ===================================================================
+     HAWKEYE COMPONENT CUSTOMIZATIONS
+     Sharp, precision-focused styling
+     ================================================================== */
+  
+  /* Enhanced card shadows for analytical precision */
+  --shadow-card: 0 1px 3px 0 rgba(220, 38, 38, 0.05), 
+                 0 1px 2px -1px rgba(0, 0, 0, 0.1),
+                 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  
+  --shadow-card-hover: 0 4px 6px -1px rgba(220, 38, 38, 0.1), 
+                       0 2px 4px -2px rgba(0, 0, 0, 0.1),
+                       0 10px 15px -3px rgba(220, 38, 38, 0.05),
+                       0 20px 25px -5px rgba(0, 0, 0, 0.06);
+  
+  /* Progress bar styling with Hawkeye precision */
+  --progress-primary: linear-gradient(90deg, var(--hawkeye-crimson) var(--p, 0%), var(--border-primary) 0);
+  --progress-success: linear-gradient(90deg, var(--green-text) var(--p, 0%), var(--border-primary) 0);
+  --progress-warning: linear-gradient(90deg, var(--amber-text) var(--p, 0%), var(--border-primary) 0);
+  --progress-info: linear-gradient(90deg, var(--blue-text) var(--p, 0%), var(--border-primary) 0);
+  
+  /* Analytical gradient backgrounds */
+  --gradient-header: linear-gradient(135deg, var(--bg-secondary), var(--accent-bg));
+  --gradient-cta-primary: linear-gradient(135deg, var(--hawkeye-crimson), var(--hawkeye-burgundy));
+  --gradient-data-viz: linear-gradient(135deg, var(--red-bg-light), var(--rose-bg-light));
+  
+  /* Ring/circular chart styling for data visualization */
+  --ring-thickness: 14px;
+  --ring-primary: var(--hawkeye-crimson);
+  --ring-secondary: var(--hawkeye-rose);
+  --ring-background: var(--border-primary);
+}
+
+/* ===================================================================
+   HAWKEYE DARK MODE COLORS
+   ================================================================== */
+[data-theme="dark"] {
+  --bg-primary: rgb(17, 24, 39);
+  --bg-secondary: rgb(31, 41, 55);
+  --bg-tertiary: rgb(55, 65, 81);
+  --text-primary: rgb(243, 244, 246);
+  --text-secondary: rgb(156, 163, 175);
+  --text-tertiary: rgb(107, 114, 128);
+  --border-primary: rgb(75, 85, 99);
+  --border-secondary: rgb(107, 114, 128);
+  --accent-bg: rgb(127, 29, 29);
+  --accent-border: rgb(185, 28, 28);
+  
+  /* Component backgrounds */
+  --card-bg: rgb(31, 41, 55);
+  --pill-neutral-bg: rgb(55, 65, 81);
+  --pill-neutral-text: rgb(209, 213, 219);
+  --pill-neutral-border: rgb(75, 85, 99);
+  
+  /* Dark mode Hawkeye colors */
+  --hawkeye-crimson: rgb(248, 113, 113);
+  --hawkeye-rose: rgb(251, 113, 133);
+  --hawkeye-red: rgb(252, 165, 165);
+  --hawkeye-burgundy: rgb(220, 38, 38);
+  
+  /* Dark mode contextual colors */
+  --red-bg-light: rgb(127, 29, 29);
+  --red-bg-medium: rgb(220, 38, 38);
+  --red-text: rgb(252, 165, 165);
+  --red-text-dark: rgb(254, 202, 202);
+  
+  --rose-bg-light: rgb(136, 19, 55);
+  --rose-bg-medium: rgb(225, 29, 72);
+  --rose-text: rgb(253, 164, 175);
+  --rose-text-dark: rgb(255, 228, 230);
+  
+  --crimson-bg-light: rgb(153, 27, 27);
+  --crimson-bg-medium: rgb(239, 68, 68);
+  --crimson-text: rgb(248, 113, 113);
+  --crimson-text-dark: rgb(252, 165, 165);
+  
+  --blue-bg-light: rgb(30, 58, 138);
+  --blue-bg-medium: rgb(37, 99, 235);
+  --blue-text: rgb(147, 197, 253);
+  --blue-text-dark: rgb(191, 219, 254);
+  
+  --green-bg-light: rgb(20, 83, 45);
+  --green-bg-medium: rgb(34, 197, 94);
+  --green-text: rgb(134, 239, 172);
+  --green-text-dark: rgb(187, 247, 208);
+  
+  --amber-bg-light: rgb(120, 53, 15);
+  --amber-bg-medium: rgb(245, 158, 11);
+  --amber-text: rgb(252, 211, 77);
+  --amber-text-dark: rgb(254, 243, 199);
+  
+  --purple-bg-light: rgb(76, 29, 149);
+  --purple-bg-medium: rgb(147, 51, 234);
+  --purple-text: rgb(196, 181, 253);
+  --purple-text-dark: rgb(221, 214, 254);
+  
+  --neutral-bg-light: rgb(31, 41, 55);
+  --neutral-bg-medium: rgb(75, 85, 99);
+  --neutral-text: rgb(209, 213, 219);
+  --neutral-text-dark: rgb(243, 244, 246);
+  
+  /* Enhanced shadows for dark mode */
+  --shadow-card: 0 1px 3px 0 rgba(248, 113, 113, 0.1), 
+                 0 1px 2px -1px rgba(0, 0, 0, 0.3),
+                 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+                 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  --shadow-card-hover: 0 4px 6px -1px rgba(248, 113, 113, 0.2), 
+                       0 2px 4px -2px rgba(0, 0, 0, 0.3),
+                       0 10px 15px -3px rgba(248, 113, 113, 0.1),
+                       0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  
+  /* Dark mode gradients */
+  --gradient-header: linear-gradient(135deg, var(--bg-secondary), var(--accent-bg));
+  --gradient-cta-primary: linear-gradient(135deg, var(--hawkeye-crimson), var(--hawkeye-burgundy));
+  --gradient-data-viz: linear-gradient(135deg, var(--red-bg-light), var(--rose-bg-light));
+}
+
+/* ===================================================================
+   HAWKEYE SPECIFIC COMPONENT OVERRIDES
+   ================================================================== */
+
+/* Hawkeye brand color utilities */
+.hawkeye-crimson { color: var(--hawkeye-crimson); }
+.hawkeye-rose { color: var(--hawkeye-rose); }
+.hawkeye-red { color: var(--hawkeye-red); }
+.hawkeye-burgundy { color: var(--hawkeye-burgundy); }
+
+.bg-hawkeye-crimson { background-color: rgba(220, 38, 38, 0.1); }
+.bg-hawkeye-rose { background-color: rgba(225, 29, 72, 0.1); }
+.bg-hawkeye-red { background-color: rgba(239, 68, 68, 0.1); }
+.bg-hawkeye-burgundy { background-color: rgba(153, 27, 27, 0.1); }
+
+/* Enhanced card styling for Hawkeye theme */
+.card-shadow { 
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(220, 38, 38, 0.08);
+}
+
+.card-hover:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+  border-color: rgba(220, 38, 38, 0.15);
+}
+
+/* Analytical button styling */
+.btn-primary {
+  background: var(--gradient-cta-primary);
+  color: white;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-bold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+/* Progress bar with Hawkeye precision styling */
+.progress-bar { 
+  height: 12px; 
+  border-radius: var(--radius-full); 
+  background: var(--progress-primary);
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+/* Conic ring charts for data visualization */
+.conic-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(var(--hawkeye-crimson) calc(var(--v) * 1%), var(--ring-background) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.conic-ring::before {
+  content: '';
+  position: absolute;
+  inset: var(--ring-thickness);
+  border-radius: 50%;
+  background: var(--card-bg);
+}
+
+.ring-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Theme-specific typography enhancements */
+.text-responsive-xl {
+  font-weight: var(--font-weight-black);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.text-responsive-lg {
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+/* Analytical pill styling */
+.pill {
+  border-radius: var(--radius-full);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.pill:hover {
+  transform: scale(1.05);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+/* Data visualization enhancements */
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-left: 4px solid var(--hawkeye-crimson);
+  border-radius: var(--radius-xl);
+  padding: var(--card-padding);
+  transition: all var(--transition-normal);
+}
+
+.kpi-card:hover {
+  border-left-color: var(--hawkeye-burgundy);
+  border-left-width: 6px;
+  transform: translateX(2px);
+}
+
+/* Table styling for analytical data */
+.hawkeye-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.hawkeye-table th {
+  background: linear-gradient(135deg, var(--red-bg-light), var(--rose-bg-light));
+  color: var(--red-text-dark);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-md);
+  border-bottom: 2px solid var(--hawkeye-crimson);
+}
+
+.hawkeye-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-secondary);
+  transition: background-color var(--transition-fast);
+}
+
+.hawkeye-table tr:hover td {
+  background-color: var(--red-bg-light);
+}
+
+/* ===================================================================
+   HAWKEYE THEME SPECIFIC ANIMATIONS
+   ================================================================== */
+@keyframes hawkeyeFocusIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) rotate(-1deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes hawkeyePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+  }
+}
+
+.animate-hawkeye-focus-in {
+  animation: hawkeyeFocusIn 0.6s ease-out;
+}
+
+.animate-hawkeye-pulse {
+  animation: hawkeyePulse 2s infinite;
+}
+
+/* ===================================================================
+   PRINT OPTIMIZATIONS FOR HAWKEYE
+   ================================================================== */
+@media print {
+  /* Ensure Hawkeye colors print correctly */
+  .hawkeye-crimson { color: #dc2626 !important; }
+  .hawkeye-rose { color: #e11d48 !important; }
+  .hawkeye-red { color: #ef4444 !important; }
+  .hawkeye-burgundy { color: #991b1b !important; }
+  
+  /* Optimize gradients for print */
+  .btn-primary {
+    background: #dc2626 !important;
+  }
+  
+  .progress-bar {
+    background: linear-gradient(90deg, #dc2626 var(--p, 0%), #ddd 0) !important;
+  }
+  
+  .kpi-card {
+    border-left-color: #dc2626 !important;
+  }
+}
+
+/* ===================================================================
+   HAWKEYE RESPONSIVE ENHANCEMENTS
+   ================================================================== */
+@media (max-width: 768px) {
+  /* Mobile-optimized spacing for Hawkeye */
+  :root {
+    --card-padding: 1rem;
+    --button-padding-x: 1.5rem;
+    --button-padding-y: 0.625rem;
+    --ring-thickness: 10px;
+  }
+  
+  /* Enhanced mobile shadows with subtle red tint */
+  .card-shadow {
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .conic-ring {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ===================================================================
+   HAWKEYE ACCESSIBILITY ENHANCEMENTS
+   ================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hawkeye-focus-in,
+  .animate-hawkeye-pulse,
+  .card-hover:hover,
+  .btn-primary:hover {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --hawkeye-crimson: rgb(180, 20, 20);
+    --border-primary: rgb(100, 100, 100);
+    --text-primary: rgb(0, 0, 0);
+  }
+  
+  .card-shadow {
+    border: 2px solid var(--hawkeye-crimson);
+  }
+}

@@ -1,0 +1,317 @@
+/* ===================================================================
+   DARK KNIGHT THEME
+   Professional, sophisticated, tech-focused aesthetic
+   Author: Chris Prakoso - Augmented Humanity
+   ================================================================== */
+
+/* Import base theme foundation */
+@import url('./base-theme.css');
+
+:root {
+  /* ===================================================================
+     THEME METADATA
+     ================================================================== */
+  --theme-name: "Dark Knight";
+  --theme-description: "Professional, sophisticated, tech-focused aesthetic with Google brand integration";
+  --theme-version: "1.0";
+  --theme-author: "Chris Prakoso";
+  --theme-category: "Professional";
+  
+  /* ===================================================================
+     DARK KNIGHT COLOR PALETTE - LIGHT MODE
+     ================================================================== */
+  --bg-primary: rgb(250, 250, 250);
+  --bg-secondary: rgb(255, 255, 255);
+  --bg-tertiary: rgb(245, 245, 245);
+  --text-primary: rgb(17, 24, 39);
+  --text-secondary: rgb(107, 114, 128);
+  --text-tertiary: rgb(156, 163, 175);
+  --border-primary: rgb(229, 231, 235);
+  --border-secondary: rgb(209, 213, 219);
+  --accent-bg: rgb(219, 234, 254);
+  --accent-border: rgb(147, 197, 253);
+  
+  /* Component backgrounds */
+  --card-bg: rgb(255, 255, 255);
+  --pill-neutral-bg: rgb(245, 245, 245);
+  --pill-neutral-text: rgb(55, 65, 81);
+  --pill-neutral-border: rgb(229, 231, 235);
+  
+  /* ===================================================================
+     BRAND COLORS - GOOGLE INTEGRATION
+     ================================================================== */
+  --brand-primary: rgb(37, 99, 235);      /* Primary Blue */
+  --brand-secondary: rgb(66, 133, 244);   /* Google Blue */
+  --brand-accent: rgb(52, 168, 83);       /* Google Green */
+  
+  /* Google Brand Palette */
+  --google-blue: rgb(66, 133, 244);
+  --google-red: rgb(234, 67, 53);
+  --google-yellow: rgb(251, 188, 5);
+  --google-green: rgb(52, 168, 83);
+  
+  /* ===================================================================
+     CONTEXTUAL COLOR SYSTEM - DARK KNIGHT EDITION
+     ================================================================== */
+  
+  /* Blue Theme Colors (Foundation, Primary concepts) */
+  --blue-bg-light: rgb(239, 246, 255);
+  --blue-bg-medium: rgb(219, 234, 254);
+  --blue-text: rgb(30, 64, 175);
+  --blue-text-dark: rgb(30, 58, 138);
+  
+  /* Green Theme Colors (Tools, Success, Integration) */
+  --green-bg-light: rgb(240, 253, 244);
+  --green-bg-medium: rgb(187, 247, 208);
+  --green-text: rgb(22, 101, 52);
+  --green-text-dark: rgb(20, 83, 45);
+  
+  /* Purple Theme Colors (Context, Memory, Advanced) */
+  --purple-bg-light: rgb(250, 245, 255);
+  --purple-bg-medium: rgb(221, 214, 254);
+  --purple-text: rgb(88, 28, 135);
+  --purple-text-dark: rgb(76, 29, 149);
+  
+  /* Amber Theme Colors (Quality, Evaluation, Warning) */
+  --amber-bg-light: rgb(255, 251, 235);
+  --amber-bg-medium: rgb(253, 230, 138);
+  --amber-text: rgb(146, 64, 14);
+  --amber-text-dark: rgb(120, 53, 15);
+  
+  /* Red Theme Colors (Production, Deployment, Critical) */
+  --red-bg-light: rgb(254, 242, 242);
+  --red-bg-medium: rgb(254, 202, 202);
+  --red-text: rgb(153, 27, 27);
+  --red-text-dark: rgb(127, 29, 29);
+  
+  /* Neutral Theme Colors */
+  --neutral-bg-light: rgb(250, 250, 250);
+  --neutral-bg-medium: rgb(229, 231, 235);
+  --neutral-text: rgb(55, 65, 81);
+  --neutral-text-dark: rgb(31, 41, 55);
+  
+  /* ===================================================================
+     DARK KNIGHT COMPONENT CUSTOMIZATIONS
+     ================================================================== */
+  
+  /* Enhanced card shadows for professional look */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 
+                 0 1px 2px -1px rgba(0, 0, 0, 0.1),
+                 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                       0 2px 4px -2px rgba(0, 0, 0, 0.1),
+                       0 10px 15px -3px rgba(0, 0, 0, 0.08),
+                       0 20px 25px -5px rgba(0, 0, 0, 0.06);
+  
+  /* Progress bar styling */
+  --progress-primary: linear-gradient(90deg, var(--brand-primary) var(--p, 0%), var(--border-primary) 0);
+  --progress-success: linear-gradient(90deg, var(--google-green) var(--p, 0%), var(--border-primary) 0);
+  --progress-warning: linear-gradient(90deg, var(--google-yellow) var(--p, 0%), var(--border-primary) 0);
+  
+  /* Professional gradient backgrounds */
+  --gradient-header: linear-gradient(135deg, var(--bg-secondary), var(--accent-bg));
+  --gradient-cta-primary: linear-gradient(135deg, var(--google-blue), rgb(29, 78, 216));
+  --gradient-cta-newsletter: linear-gradient(135deg, var(--blue-bg-light), var(--purple-bg-light));
+}
+
+/* ===================================================================
+   DARK KNIGHT DARK MODE COLORS
+   ================================================================== */
+[data-theme="dark"] {
+  --bg-primary: rgb(17, 24, 39);
+  --bg-secondary: rgb(31, 41, 55);
+  --bg-tertiary: rgb(55, 65, 81);
+  --text-primary: rgb(243, 244, 246);
+  --text-secondary: rgb(156, 163, 175);
+  --text-tertiary: rgb(107, 114, 128);
+  --border-primary: rgb(75, 85, 99);
+  --border-secondary: rgb(107, 114, 128);
+  --accent-bg: rgb(30, 58, 138);
+  --accent-border: rgb(37, 99, 235);
+  
+  /* Component backgrounds */
+  --card-bg: rgb(31, 41, 55);
+  --pill-neutral-bg: rgb(55, 65, 81);
+  --pill-neutral-text: rgb(209, 213, 219);
+  --pill-neutral-border: rgb(75, 85, 99);
+  
+  /* Dark mode contextual colors */
+  --blue-bg-light: rgb(30, 58, 138);
+  --blue-bg-medium: rgb(37, 99, 235);
+  --blue-text: rgb(147, 197, 253);
+  --blue-text-dark: rgb(191, 219, 254);
+  
+  --green-bg-light: rgb(20, 83, 45);
+  --green-bg-medium: rgb(34, 197, 94);
+  --green-text: rgb(134, 239, 172);
+  --green-text-dark: rgb(187, 247, 208);
+  
+  --amber-bg-light: rgb(120, 53, 15);
+  --amber-bg-medium: rgb(245, 158, 11);
+  --amber-text: rgb(252, 211, 77);
+  --amber-text-dark: rgb(254, 243, 199);
+  
+  --purple-bg-light: rgb(76, 29, 149);
+  --purple-bg-medium: rgb(147, 51, 234);
+  --purple-text: rgb(196, 181, 253);
+  --purple-text-dark: rgb(221, 214, 254);
+  
+  --red-bg-light: rgb(127, 29, 29);
+  --red-bg-medium: rgb(220, 38, 38);
+  --red-text: rgb(252, 165, 165);
+  --red-text-dark: rgb(254, 202, 202);
+  
+  --neutral-bg-light: rgb(31, 41, 55);
+  --neutral-bg-medium: rgb(75, 85, 99);
+  --neutral-text: rgb(209, 213, 219);
+  --neutral-text-dark: rgb(243, 244, 246);
+  
+  /* Enhanced shadows for dark mode */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 
+                 0 1px 2px -1px rgba(0, 0, 0, 0.3),
+                 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+                 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 
+                       0 2px 4px -2px rgba(0, 0, 0, 0.3),
+                       0 10px 15px -3px rgba(0, 0, 0, 0.2),
+                       0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  
+  /* Dark mode gradients */
+  --gradient-header: linear-gradient(135deg, var(--bg-secondary), var(--accent-bg));
+  --gradient-cta-primary: linear-gradient(135deg, var(--google-blue), rgb(29, 78, 216));
+  --gradient-cta-newsletter: linear-gradient(135deg, var(--blue-bg-light), var(--purple-bg-light));
+}
+
+/* ===================================================================
+   DARK KNIGHT SPECIFIC COMPONENT OVERRIDES
+   ================================================================== */
+
+/* Google brand color utilities */
+.google-blue { color: var(--google-blue); }
+.google-red { color: var(--google-red); }
+.google-yellow { color: var(--google-yellow); }
+.google-green { color: var(--google-green); }
+
+.bg-google-blue { background-color: rgba(66, 133, 244, 0.1); }
+.bg-google-red { background-color: rgba(234, 67, 53, 0.1); }
+.bg-google-yellow { background-color: rgba(251, 188, 5, 0.1); }
+.bg-google-green { background-color: rgba(52, 168, 83, 0.1); }
+
+/* Enhanced card styling for Dark Knight theme */
+.card-shadow { 
+  box-shadow: var(--shadow-card);
+}
+
+.card-hover:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+/* Professional button styling */
+.btn-primary {
+  background: var(--gradient-cta-primary);
+  color: white;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-bold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Progress bar with Dark Knight styling */
+.progress-bar { 
+  height: 12px; 
+  border-radius: var(--radius-full); 
+  background: var(--progress-primary);
+  transition: all var(--transition-normal);
+}
+
+/* Theme-specific typography enhancements */
+.text-responsive-xl {
+  font-weight: var(--font-weight-black);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.text-responsive-lg {
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.015em;
+}
+
+/* Professional pill styling */
+.pill {
+  border-radius: var(--radius-full);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+/* ===================================================================
+   DARK KNIGHT THEME SPECIFIC ANIMATIONS
+   ================================================================== */
+@keyframes darkKnightFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-dark-knight-fade-in-up {
+  animation: darkKnightFadeInUp 0.6s ease-out;
+}
+
+/* ===================================================================
+   PRINT OPTIMIZATIONS FOR DARK KNIGHT
+   ================================================================== */
+@media print {
+  /* Ensure Google brand colors print correctly */
+  .google-blue { color: #4285f4 !important; }
+  .google-red { color: #ea4335 !important; }
+  .google-yellow { color: #fbbc05 !important; }
+  .google-green { color: #34a853 !important; }
+  
+  /* Optimize gradients for print */
+  .btn-primary {
+    background: #4285f4 !important;
+  }
+  
+  .progress-bar {
+    background: linear-gradient(90deg, #4285f4 var(--p, 0%), #ddd 0) !important;
+  }
+}
+
+/* ===================================================================
+   DARK KNIGHT RESPONSIVE ENHANCEMENTS
+   ================================================================== */
+@media (max-width: 768px) {
+  /* Mobile-optimized spacing for Dark Knight */
+  :root {
+    --card-padding: 1rem;
+    --button-padding-x: 1.5rem;
+    --button-padding-y: 0.625rem;
+  }
+  
+  /* Enhanced mobile shadows */
+  .card-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}

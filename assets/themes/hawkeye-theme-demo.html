@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anthropic Economic Index V3 — Hawkeye Theme Demo</title>
+  <meta name="description" content="Demo of the new Hawkeye theme applied to the Anthropic Economic Index infographic - Sharp, analytical, precision-focused aesthetic with crimson accents." />
+  
+  <!-- External Dependencies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Import Hawkeye Theme -->
+  <link rel="stylesheet" href="assets/themes/hawkeye.css">
+
+  <style>
+    /* Additional layout styles specific to this demo */
+    body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    
+    /* Grid layouts */
+    .grid-kpi { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    
+    /* Pills */
+    .pill { 
+      border-radius: 9999px; 
+      padding: 0.25rem 1rem; 
+      font-size: 0.75rem; 
+      font-weight: 500; 
+      white-space: nowrap; 
+    }
+    
+    /* Progress bars */
+    .progress-bar { 
+      height: 12px; 
+      border-radius: 9999px; 
+      background: linear-gradient(90deg, var(--hawkeye-crimson) var(--p, 0%), var(--border-primary) 0);
+    }
+    
+    /* Conic rings */
+    .conic-ring {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(var(--hawkeye-crimson) calc(var(--v) * 1%), var(--border-primary) 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .conic-ring::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      background: var(--card-bg);
+    }
+    
+    .ring-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-primary);
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 1000;
+      transition: all 0.2s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .theme-icon {
+      font-size: 1rem;
+    }
+    
+    [data-theme="dark"] .theme-icon-sun { display: none; }
+    [data-theme="light"] .theme-icon-moon { display: none; }
+  </style>
+</head>
+
+<body class="leading-relaxed" style="background-color: var(--bg-primary); color: var(--text-primary);" data-theme="light">
+
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span class="theme-icon theme-icon-sun">☀️</span>
+    <span class="theme-icon theme-icon-moon" style="display: none;">🌙</span>
+    <span id="theme-text">Light</span>
+  </button>
+
+  <!-- Header Section -->
+  <header class="px-6 md:px-10 lg:px-12 py-12" style="background: var(--gradient-header);" role="banner">
+    <div class="max-w-7xl mx-auto">
+      <!-- Brand and Meta Info -->
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background-color: var(--accent-bg);" role="img" aria-label="AEI Logo">
+          <span class="hawkeye-crimson font-black text-lg">AEI</span>
+        </div>
+        <div>
+          <span class="text-sm font-medium" style="color: var(--text-secondary);">Anthropic Economic Index</span>
+          <span class="mx-2" style="color: var(--text-tertiary);">•</span>
+          <time datetime="2025-09-15" class="text-sm" style="color: var(--text-tertiary);">Published Sept 15, 2025</time>
+        </div>
+      </div>
+      
+      <!-- Main Heading and Badges -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+        <div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 leading-tight" style="color: var(--text-primary);">
+            Uneven Geographic & Enterprise AI Adoption
+          </h1>
+          <p class="text-lg md:text-xl max-w-4xl leading-relaxed" style="color: var(--text-secondary);">
+            AI adoption accelerates globally but concentrates in high-income regions, with enterprise automation increasingly delegating complex tasks through programmatic interfaces.
+          </p>
+          <div class="mt-6 p-4 rounded-xl" style="background-color: var(--red-bg-light); border-left: 4px solid var(--hawkeye-crimson);">
+            <h2 class="font-bold mb-2" style="color: var(--hawkeye-crimson);">🎯 Hawkeye Theme Demo</h2>
+            <p class="text-sm" style="color: var(--red-text);">
+              This is a demonstration of the new <strong>Hawkeye theme</strong> - Sharp, analytical, precision-focused aesthetic with crimson accents, 
+              specifically designed for data-driven content like economic indices and research reports.
+            </p>
+          </div>
+          <div class="mt-3 text-sm space-y-1" style="color: var(--text-tertiary);">
+            <p>Source: <a href="https://www.anthropic.com/research/anthropic-economic-index-september-2025-report" target="_blank" rel="noopener" class="hawkeye-crimson hover:underline">Anthropic Economic Index Report</a></p>
+            <p>Theme Demo by: Chris Prakoso <a href="https://www.linkedin.com/in/mahadewa" target="_blank" rel="noopener" class="hawkeye-crimson hover:underline">LinkedIn</a></p>
+            <p>Subscribe: <a href="https://augmentedhumanity.substack.com/" target="_blank" rel="noopener" class="hawkeye-crimson hover:underline">Augmented Humanity Newsletter</a></p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-center flex-wrap">
+          <span class="pill" style="background-color: var(--red-bg-light); color: var(--red-text); border: 1px solid var(--hawkeye-crimson);">Hawkeye Theme</span>
+          <span class="pill" style="background-color: var(--pill-neutral-bg); color: var(--pill-neutral-text); border: 1px solid var(--pill-neutral-border);">Demo Version</span>
+          <span class="pill" style="background-color: var(--crimson-bg-light); color: var(--crimson-text); border: 1px solid var(--hawkeye-burgundy);">Analytical</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- KPI Overview Section -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="kpi-heading">
+    <div class="max-w-7xl mx-auto">
+      <h2 id="kpi-heading" class="text-2xl md:text-3xl font-bold mb-8 text-center hawkeye-crimson">Key Performance Indicators</h2>
+      <div class="grid gap-6 grid-kpi">
+        
+        <!-- US Workers Using AI -->
+        <div class="kpi-card card-hover focusable" tabindex="0" role="img" aria-label="US workers using AI: 40% in 2025, up from 20% in 2023">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">US workers using AI (2025)</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-5xl font-black hawkeye-crimson">40%</div>
+            <div class="text-sm font-semibold text-white px-2 py-1 rounded" style="background: var(--hawkeye-crimson);">↑ from 20% in 2023</div>
+          </div>
+          <div class="progress-bar mb-3" style="--p:40%" aria-hidden="true"></div>
+          <div class="text-xs" style="color: var(--text-tertiary);">Source: Gallup (cited in report)</div>
+        </div>
+
+        <!-- Directive Usage on Claude.ai -->
+        <div class="kpi-card card-hover focusable" tabindex="0" role="img" aria-label="Directive usage on Claude.ai: 39%, up from 27%">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Directive usage on Claude.ai</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-5xl font-black hawkeye-crimson">39%</div>
+            <div class="text-sm font-semibold text-white px-2 py-1 rounded" style="background: var(--hawkeye-red);">↑ from 27%</div>
+          </div>
+          <div class="progress-bar mb-3" style="--p:39%" aria-hidden="true"></div>
+          <div class="text-xs" style="color: var(--text-tertiary);">Automation surpasses augmentation</div>
+        </div>
+
+        <!-- Automation Share in 1P API -->
+        <div class="kpi-card card-hover focusable" tabindex="0" role="img" aria-label="Automation share in 1P API: 77%">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Automation share in 1P API</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-5xl font-black hawkeye-crimson">77%</div>
+            <div class="text-xs px-2 py-1 rounded" style="color: var(--text-tertiary); background-color: var(--bg-tertiary);">vs ~50% on Claude.ai</div>
+          </div>
+          <div class="progress-bar mb-3" style="--p:77%" aria-hidden="true"></div>
+          <div class="text-xs" style="color: var(--text-tertiary);">Programmatic deployment drives automation</div>
+        </div>
+
+        <!-- Income-AUI Correlation -->
+        <div class="kpi-card card-hover focusable" tabindex="0" role="img" aria-label="Income and AUI correlation: R-squared 0.71">
+          <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Income ↔ AUI correlation (global)</div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <div class="text-4xl font-black hawkeye-crimson">R² ≈ 0.71</div>
+            <div class="text-sm font-semibold text-white px-2 py-1 rounded" style="background: var(--hawkeye-burgundy);">elasticity ≈ 0.69</div>
+          </div>
+          <div class="text-xs mt-3" style="color: var(--text-tertiary);">Higher-income countries show higher per-capita usage</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Visualization Demo -->
+  <section class="px-6 md:px-10 lg:px-12 py-8" style="background-color: var(--bg-secondary);">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center hawkeye-crimson">Hawkeye Theme Data Visualization</h2>
+      
+      <div class="grid gap-8 lg:grid-cols-2">
+        <!-- Collaboration Modes with Hawkeye Styling -->
+        <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold hawkeye-crimson">Collaboration Modes</h3>
+            <span class="pill" style="background-color: var(--red-bg-light); color: var(--red-text); border: 1px solid var(--hawkeye-crimson);">Automation vs Augmentation</span>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-8 mb-8">
+            <!-- Claude.ai Ring -->
+            <div class="flex flex-col items-center">
+              <div class="conic-ring mb-4" style="--v:49" role="img" aria-label="Claude.ai automation rate: approximately 49%">
+                <div class="ring-content">
+                  <div class="text-3xl font-black hawkeye-crimson">~49%</div>
+                  <div class="text-xs mt-1" style="color: var(--text-tertiary);">Claude.ai</div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="font-semibold hawkeye-crimson">Balanced</div>
+                <div class="text-xs" style="color: var(--text-tertiary);">Automation ≈ Augmentation</div>
+              </div>
+            </div>
+
+            <!-- 1P API Ring -->
+            <div class="flex flex-col items-center">
+              <div class="conic-ring mb-4" style="--v:77" role="img" aria-label="1P API automation rate: 77%">
+                <div class="ring-content">
+                  <div class="text-3xl font-black hawkeye-crimson">77%</div>
+                  <div class="text-xs mt-1" style="color: var(--text-tertiary);">1P API</div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="font-semibold hawkeye-crimson">Automation Dominant</div>
+                <div class="text-xs" style="color: var(--text-tertiary);">Programmatic Integration</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl" style="background-color: var(--red-bg-light); border-left: 4px solid var(--hawkeye-crimson);">
+            <p class="text-sm hawkeye-burgundy mb-2">API integration → higher delegation; consumer UI ≈ balanced.</p>
+            <p class="text-xs" style="color: var(--red-text);"><strong>1P API:</strong> First-party API refers to direct programmatic access to Claude via Anthropic's API.</p>
+          </div>
+        </div>
+
+        <!-- Theme Features -->
+        <div class="card-shadow rounded-2xl p-8" style="background-color: var(--card-bg);">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold hawkeye-crimson">Hawkeye Theme Features</h3>
+            <span class="pill" style="background-color: var(--crimson-bg-light); color: var(--crimson-text); border: 1px solid var(--hawkeye-burgundy);">Design System</span>
+          </div>
+          
+          <div class="space-y-4">
+            <!-- Color Palette -->
+            <div class="p-4 rounded-lg" style="background-color: var(--red-bg-light);">
+              <h4 class="font-semibold mb-3 hawkeye-crimson">Precision Color Palette</h4>
+              <div class="flex gap-2 flex-wrap">
+                <div class="w-8 h-8 rounded border-2 border-white shadow-sm" style="background: var(--hawkeye-crimson);" title="Hawkeye Crimson"></div>
+                <div class="w-8 h-8 rounded border-2 border-white shadow-sm" style="background: var(--hawkeye-rose);" title="Rose Accent"></div>
+                <div class="w-8 h-8 rounded border-2 border-white shadow-sm" style="background: var(--hawkeye-red);" title="Sharp Red"></div>
+                <div class="w-8 h-8 rounded border-2 border-white shadow-sm" style="background: var(--hawkeye-burgundy);" title="Deep Burgundy"></div>
+              </div>
+              <p class="text-xs mt-2" style="color: var(--red-text);">Sharp, analytical reds with professional contrast</p>
+            </div>
+            
+            <!-- Data Visualization -->
+            <div class="p-4 rounded-lg" style="background-color: var(--amber-bg-light);">
+              <h4 class="font-semibold mb-2" style="color: var(--amber-text-dark);">Data Visualization Elements</h4>
+              <ul class="text-sm space-y-1" style="color: var(--amber-text);">
+                <li>• Enhanced KPI cards with crimson accents</li>
+                <li>• Precision progress bars and ring charts</li>
+                <li>• Analytical table styling</li>
+                <li>• Sharp contrast for readability</li>
+              </ul>
+            </div>
+            
+            <!-- Typography -->
+            <div class="p-4 rounded-lg" style="background-color: var(--blue-bg-light);">
+              <h4 class="font-semibold mb-2" style="color: var(--blue-text-dark);">Typography System</h4>
+              <div class="space-y-2">
+                <div class="text-2xl font-black hawkeye-crimson">Sharp Headlines</div>
+                <div class="text-lg font-bold" style="color: var(--text-primary);">Bold Subheadings</div>
+                <div class="text-sm" style="color: var(--text-secondary);">Clean body text with excellent readability</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 md:px-10 lg:px-12 py-12" style="background-color: var(--bg-tertiary);" role="contentinfo">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="text-sm mb-4" style="color: var(--text-secondary);">
+        <strong>Hawkeye Theme Demo</strong> — Sharp, analytical, precision-focused aesthetic
+      </div>
+      <div class="p-4 rounded-xl max-w-2xl mx-auto" style="background-color: var(--red-bg-light); border: 1px solid var(--hawkeye-crimson);">
+        <h3 class="font-bold mb-2 hawkeye-crimson">🎯 Perfect for:</h3>
+        <div class="flex flex-wrap gap-2 justify-center">
+          <span class="pill" style="background-color: var(--card-bg); color: var(--hawkeye-crimson); border: 1px solid var(--hawkeye-crimson);">Economic Reports</span>
+          <span class="pill" style="background-color: var(--card-bg); color: var(--hawkeye-crimson); border: 1px solid var(--hawkeye-crimson);">Research Data</span>
+          <span class="pill" style="background-color: var(--card-bg); color: var(--hawkeye-crimson); border: 1px solid var(--hawkeye-crimson);">Analytics Dashboards</span>
+          <span class="pill" style="background-color: var(--card-bg); color: var(--hawkeye-crimson); border: 1px solid var(--hawkeye-crimson);">Business Intelligence</span>
+        </div>
+      </div>
+      <div class="text-xs mt-4" style="color: var(--text-tertiary);">
+        Theme created by <a href="https://augmentedhumanity.substack.com/" class="hawkeye-crimson hover:underline">Chris Prakoso - Augmented Humanity</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode functionality
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      body.setAttribute('data-theme', newTheme);
+      
+      // Update button text and icons
+      const themeText = document.getElementById('theme-text');
+      const sunIcon = document.querySelector('.theme-icon-sun');
+      const moonIcon = document.querySelector('.theme-icon-moon');
+      
+      if (newTheme === 'dark') {
+        themeText.textContent = 'Dark';
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'inline';
+      } else {
+        themeText.textContent = 'Light';
+        sunIcon.style.display = 'inline';
+        moonIcon.style.display = 'none';
+      }
+      
+      // Save preference
+      localStorage.setItem('theme', newTheme);
+    }
+    
+    // Load saved theme on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+          document.getElementById('theme-text').textContent = 'Dark';
+          document.querySelector('.theme-icon-sun').style.display = 'none';
+          document.querySelector('.theme-icon-moon').style.display = 'inline';
+        }
+      } else if (prefersDark) {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-text').textContent = 'Dark';
+        document.querySelector('.theme-icon-sun').style.display = 'none';
+        document.querySelector('.theme-icon-moon').style.display = 'inline';
+      }
+    });
+  </script>
+
+</body>
+</html>

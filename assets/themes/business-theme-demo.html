@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Theme Demo — Corporate Infographic Style</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <!-- Business Theme -->
+  <link rel="stylesheet" href="assets/themes/business.css">
+  <style>
+    /* Print and Fullscreen-friendly */
+    @media print { .no-print { display: none !important; } }
+    html, body { height: 100%; }
+    
+    /* Business theme integration with Tailwind */
+    .business-body {
+      background: var(--gradient-infographic);
+      min-height: 100vh;
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+    }
+    
+    .business-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    /* Override Tailwind with business theme colors */
+    .text-slate-600 { color: var(--text-secondary) !important; }
+    .text-slate-500 { color: var(--text-tertiary) !important; }
+    .text-slate-900 { color: var(--text-primary) !important; }
+    .bg-white { background-color: var(--card-bg) !important; }
+    .border-slate-200 { border-color: var(--border-primary) !important; }
+    .bg-slate-50 { background-color: var(--bg-tertiary) !important; }
+  </style>
+</head>
+<body class="business-body">
+  <div class="business-container">
+    <!-- Header -->
+    <header class="business-header">
+      <div class="business-header-content">
+        <h1 class="business-heading-xl">Business Intelligence Dashboard</h1>
+        <p class="business-body max-w-3xl">Professional corporate data visualization showcasing the Business theme's clean, slate-based design inspired by modern infographic aesthetics.</p>
+      </div>
+      <div class="business-header-actions no-print">
+        <button id="toggleTheme" class="btn-business-secondary">Toggle Dark</button>
+        <button onclick="window.print()" class="btn-business-primary">Print Report</button>
+      </div>
+    </header>
+
+    <!-- KPI Cards -->
+    <section class="business-grid business-grid-4 mb-8" id="kpis">
+      <div class="kpi-card">
+        <div class="kpi-value text-business-primary">€2.4M</div>
+        <div class="kpi-label">Quarterly Revenue</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value text-business-accent">+18%</div>
+        <div class="kpi-label">Growth Rate</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value text-corporate-blue">847</div>
+        <div class="kpi-label">Active Clients</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value text-corporate-emerald">94%</div>
+        <div class="kpi-label">Satisfaction Rate</div>
+      </div>
+    </section>
+
+    <!-- Charts Grid -->
+    <section class="business-grid" style="grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+      <!-- Revenue Trend -->
+      <div class="chart-container">
+        <h2 class="chart-title">Revenue Growth Trend</h2>
+        <p class="chart-subtitle">Quarterly performance showing consistent growth trajectory</p>
+        <div id="revenueTrend" class="h-80"></div>
+      </div>
+
+      <!-- Market Share -->
+      <div class="chart-container">
+        <h2 class="chart-title">Market Share</h2>
+        <p class="chart-subtitle">Distribution by segment</p>
+        <div id="marketShare" class="h-80"></div>
+      </div>
+    </section>
+
+    <section class="business-grid business-grid-2">
+      <!-- Department Performance -->
+      <div class="chart-container">
+        <h2 class="chart-title">Department Performance</h2>
+        <p class="chart-subtitle">Efficiency metrics by business unit</p>
+        <div id="deptPerformance" class="h-80"></div>
+      </div>
+
+      <!-- Customer Segments -->
+      <div class="chart-container">
+        <h2 class="chart-title">Customer Segments</h2>
+        <p class="chart-subtitle">Revenue contribution by customer type</p>
+        <div id="customerSegments" class="h-80"></div>
+      </div>
+    </section>
+
+    <!-- Business Insights Cards -->
+    <section class="business-grid business-grid-3 mt-8">
+      <div class="business-card">
+        <h3 class="business-heading-lg mb-4 text-business-primary">Key Insights</h3>
+        <ul class="space-y-2 business-body">
+          <li>• Revenue up 18% YoY</li>
+          <li>• Customer retention at 94%</li>
+          <li>• New market expansion successful</li>
+          <li>• Digital transformation on track</li>
+        </ul>
+      </div>
+      
+      <div class="business-card">
+        <h3 class="business-heading-lg mb-4 text-business-accent">Action Items</h3>
+        <ul class="space-y-2 business-body">
+          <li>• Expand sales team by Q2</li>
+          <li>• Launch new product line</li>
+          <li>• Optimize operational costs</li>
+          <li>• Enhance customer support</li>
+        </ul>
+      </div>
+      
+      <div class="business-card">
+        <h3 class="business-heading-lg mb-4 text-corporate-emerald">Achievements</h3>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between business-small mb-1">
+              <span>Sales Target</span>
+              <span>112%</span>
+            </div>
+            <div class="progress-business progress-success" style="--p: 112%"></div>
+          </div>
+          <div>
+            <div class="flex justify-between business-small mb-1">
+              <span>Customer Goals</span>
+              <span>94%</span>
+            </div>
+            <div class="progress-business" style="--p: 94%"></div>
+          </div>
+          <div>
+            <div class="flex justify-between business-small mb-1">
+              <span>Digital Initiative</span>
+              <span>87%</span>
+            </div>
+            <div class="progress-business" style="--p: 87%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="business-footer">
+      Business Theme Demo — Professional corporate aesthetic with navy and slate tones inspired by modern infographic design. 
+      Theme by Chris Prakoso - Augmented Humanity.
+    </footer>
+  </div>
+
+  <script>
+    // --- THEME TOGGLE ---
+    const toggleTheme = document.getElementById('toggleTheme');
+    const body = document.body;
+    let dark = false;
+    
+    toggleTheme?.addEventListener('click', () => {
+      dark = !dark;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      toggleTheme.textContent = dark ? 'Toggle Light' : 'Toggle Dark';
+      
+      // Re-render charts to adapt colors
+      renderAll();
+    });
+
+    // --- Helper: base text color based on theme ---
+    function baseTextColor() {
+      return document.documentElement.getAttribute('data-theme') === 'dark' ? '#f8fafc' : '#0f172a';
+    }
+
+    function baseBackgroundColor() {
+      return document.documentElement.getAttribute('data-theme') === 'dark' ? '#1e293b' : '#ffffff';
+    }
+
+    // --- CHART DATA ---
+    const quarters = ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025'];
+    const revenue = [1.8, 2.1, 2.3, 2.4, 2.6];
+    const profit = [0.4, 0.5, 0.6, 0.6, 0.7];
+
+    const marketData = [
+      { name: 'Enterprise', value: 45 },
+      { name: 'SMB', value: 30 },
+      { name: 'Startups', value: 15 },
+      { name: 'Government', value: 10 }
+    ];
+
+    const deptData = [
+      { name: 'Sales', value: 95 },
+      { name: 'Marketing', value: 87 },
+      { name: 'Support', value: 92 },
+      { name: 'Development', value: 89 },
+      { name: 'Operations', value: 91 }
+    ];
+
+    const customerData = [
+      { name: 'Premium', value: 40 },
+      { name: 'Standard', value: 35 },
+      { name: 'Basic', value: 25 }
+    ];
+
+    // --- Render Charts ---
+    function renderRevenueTrend() {
+      const el = document.getElementById('revenueTrend');
+      const chart = echarts.init(el, null, { backgroundColor: baseBackgroundColor() });
+      const color = baseTextColor();
+      
+      chart.setOption({
+        tooltip: { trigger: 'axis' },
+        legend: { 
+          data: ['Revenue', 'Profit'], 
+          textStyle: { color },
+          top: 10
+        },
+        grid: { left: 60, right: 30, top: 50, bottom: 30 },
+        xAxis: { 
+          type: 'category', 
+          data: quarters, 
+          axisLabel: { color }
+        },
+        yAxis: { 
+          type: 'value', 
+          axisLabel: { formatter: '€{value}M', color }
+        },
+        series: [
+          { 
+            name: 'Revenue', 
+            type: 'line', 
+            smooth: true, 
+            data: revenue,
+            itemStyle: { color: '#1e40af' },
+            areaStyle: { color: 'rgba(30, 64, 175, 0.1)' }
+          },
+          { 
+            name: 'Profit', 
+            type: 'line', 
+            smooth: true, 
+            data: profit,
+            itemStyle: { color: '#10b981' },
+            areaStyle: { color: 'rgba(16, 185, 129, 0.1)' }
+          }
+        ]
+      });
+      
+      window.addEventListener('resize', () => chart.resize());
+      return chart;
+    }
+
+    function renderMarketShare() {
+      const el = document.getElementById('marketShare');
+      const chart = echarts.init(el, null, { backgroundColor: baseBackgroundColor() });
+      const color = baseTextColor();
+      
+      chart.setOption({
+        tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+        legend: { 
+          orient: 'vertical', 
+          left: 10, 
+          top: 'middle',
+          textStyle: { color }
+        },
+        series: [{
+          type: 'pie',
+          radius: ['40%', '70%'],
+          center: ['65%', '50%'],
+          data: marketData,
+          label: { 
+            show: true, 
+            formatter: '{c}%',
+            color: color
+          },
+          color: ['#1e40af', '#3b82f6', '#10b981', '#475569']
+        }]
+      });
+      
+      window.addEventListener('resize', () => chart.resize());
+      return chart;
+    }
+
+    function renderDeptPerformance() {
+      const el = document.getElementById('deptPerformance');
+      const chart = echarts.init(el, null, { backgroundColor: baseBackgroundColor() });
+      const color = baseTextColor();
+      
+      chart.setOption({
+        tooltip: { trigger: 'axis' },
+        grid: { left: 80, right: 30, top: 20, bottom: 30 },
+        xAxis: { 
+          type: 'value', 
+          axisLabel: { formatter: '{value}%', color }
+        },
+        yAxis: { 
+          type: 'category', 
+          data: deptData.map(d => d.name), 
+          axisLabel: { color }
+        },
+        series: [{
+          type: 'bar',
+          data: deptData.map(d => d.value),
+          itemStyle: { 
+            color: '#1e40af',
+            borderRadius: [0, 4, 4, 0]
+          },
+          barWidth: '60%'
+        }]
+      });
+      
+      window.addEventListener('resize', () => chart.resize());
+      return chart;
+    }
+
+    function renderCustomerSegments() {
+      const el = document.getElementById('customerSegments');
+      const chart = echarts.init(el, null, { backgroundColor: baseBackgroundColor() });
+      const color = baseTextColor();
+      
+      chart.setOption({
+        tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+        legend: { 
+          bottom: 0, 
+          textStyle: { color }
+        },
+        series: [{
+          type: 'pie',
+          radius: ['30%', '70%'],
+          data: customerData,
+          label: { 
+            show: true, 
+            formatter: '{b}\n{c}%',
+            color: color
+          },
+          color: ['#1e40af', '#3b82f6', '#475569']
+        }]
+      });
+      
+      window.addEventListener('resize', () => chart.resize());
+      return chart;
+    }
+
+    let charts = [];
+    function renderAll() {
+      charts.forEach(c => c.dispose && c.dispose());
+      charts = [
+        renderRevenueTrend(),
+        renderMarketShare(),
+        renderDeptPerformance(),
+        renderCustomerSegments()
+      ];
+    }
+
+    // Initial render after DOM ready
+    window.addEventListener('load', renderAll);
+  </script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+/* ===================================================================
+   INFOGRAPHIC STYLES LIBRARY
+   A comprehensive CSS library for infographic pages
+   Author: Chris Prakoso - Augmented Humanity
+   ================================================================== */
+
+/* CSS Variables and Custom Properties */
+:root { 
+  --ring-thickness: 14px; 
+  --primary-blue: rgb(37, 99, 235);
+  --blue-light: rgb(219, 234, 254);
+  
+  /* Light theme colors */
+  --bg-primary: rgb(250, 250, 250);
+  --bg-secondary: rgb(255, 255, 255);
+  --bg-tertiary: rgb(245, 245, 245);
+  --text-primary: rgb(17, 24, 39);
+  --text-secondary: rgb(107, 114, 128);
+  --text-tertiary: rgb(156, 163, 175);
+  --border-primary: rgb(229, 231, 235);
+  --border-secondary: rgb(209, 213, 219);
+  --accent-bg: rgb(219, 234, 254);
+  --accent-border: rgb(147, 197, 253);
+  
+  /* Component backgrounds */
+  --card-bg: rgb(255, 255, 255);
+  --pill-neutral-bg: rgb(245, 245, 245);
+  --pill-neutral-text: rgb(55, 65, 81);
+  --pill-neutral-border: rgb(229, 231, 235);
+  
+  /* Color scheme specific backgrounds */
+  --blue-bg-light: rgb(239, 246, 255);
+  --blue-bg-medium: rgb(219, 234, 254);
+  --blue-text: rgb(30, 64, 175);
+  --blue-text-dark: rgb(30, 58, 138);
+  
+  --green-bg-light: rgb(240, 253, 244);
+  --green-bg-medium: rgb(187, 247, 208);
+  --green-text: rgb(22, 101, 52);
+  --green-text-dark: rgb(20, 83, 45);
+  
+  --amber-bg-light: rgb(255, 251, 235);
+  --amber-bg-medium: rgb(253, 230, 138);
+  --amber-text: rgb(146, 64, 14);
+  --amber-text-dark: rgb(120, 53, 15);
+  
+  --purple-bg-light: rgb(250, 245, 255);
+  --purple-bg-medium: rgb(221, 214, 254);
+  --purple-text: rgb(88, 28, 135);
+  --purple-text-dark: rgb(76, 29, 149);
+  
+  --red-bg-light: rgb(254, 242, 242);
+  --red-bg-medium: rgb(254, 202, 202);
+  --red-text: rgb(153, 27, 27);
+  --red-text-dark: rgb(127, 29, 29);
+  
+  --neutral-bg-light: rgb(250, 250, 250);
+  --neutral-bg-medium: rgb(229, 231, 235);
+  --neutral-text: rgb(55, 65, 81);
+  --neutral-text-dark: rgb(31, 41, 55);
+
+  /* Brand Colors */
+  --google-blue: rgb(66, 133, 244);
+  --google-red: rgb(234, 67, 53);
+  --google-yellow: rgb(251, 188, 5);
+  --google-green: rgb(52, 168, 83);
+}
+
+/* Dark theme colors */
+[data-theme="dark"] {
+  --bg-primary: rgb(17, 24, 39);
+  --bg-secondary: rgb(31, 41, 55);
+  --bg-tertiary: rgb(55, 65, 81);
+  --text-primary: rgb(243, 244, 246);
+  --text-secondary: rgb(156, 163, 175);
+  --text-tertiary: rgb(107, 114, 128);
+  --border-primary: rgb(75, 85, 99);
+  --border-secondary: rgb(107, 114, 128);
+  --accent-bg: rgb(30, 58, 138);
+  --accent-border: rgb(37, 99, 235);
+  
+  /* Component backgrounds */
+  --card-bg: rgb(31, 41, 55);
+  --pill-neutral-bg: rgb(55, 65, 81);
+  --pill-neutral-text: rgb(209, 213, 219);
+  --pill-neutral-border: rgb(75, 85, 99);
+  
+  /* Color scheme specific backgrounds - dark variants */
+  --blue-bg-light: rgb(30, 58, 138);
+  --blue-bg-medium: rgb(37, 99, 235);
+  --blue-text: rgb(147, 197, 253);
+  --blue-text-dark: rgb(191, 219, 254);
+  
+  --green-bg-light: rgb(20, 83, 45);
+  --green-bg-medium: rgb(34, 197, 94);
+  --green-text: rgb(134, 239, 172);
+  --green-text-dark: rgb(187, 247, 208);
+  
+  --amber-bg-light: rgb(120, 53, 15);
+  --amber-bg-medium: rgb(245, 158, 11);
+  --amber-text: rgb(252, 211, 77);
+  --amber-text-dark: rgb(254, 243, 199);
+  
+  --purple-bg-light: rgb(76, 29, 149);
+  --purple-bg-medium: rgb(147, 51, 234);
+  --purple-text: rgb(196, 181, 253);
+  --purple-text-dark: rgb(221, 214, 254);
+  
+  --red-bg-light: rgb(127, 29, 29);
+  --red-bg-medium: rgb(220, 38, 38);
+  --red-text: rgb(252, 165, 165);
+  --red-text-dark: rgb(254, 202, 202);
+  
+  --neutral-bg-light: rgb(31, 41, 55);
+  --neutral-bg-medium: rgb(75, 85, 99);
+  --neutral-text: rgb(209, 213, 219);
+  --neutral-text-dark: rgb(243, 244, 246);
+}
+
+/* ===================================================================
+   TYPOGRAPHY AND BASE STYLES
+   ================================================================== */
+
+/* Font Family Override */
+html { 
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+}
+
+/* ===================================================================
+   COMPONENT STYLES
+   ================================================================== */
+
+/* Progress Bar Component */
+.progress-bar { 
+  height: 12px; 
+  border-radius: 9999px; 
+  background: linear-gradient(90deg, var(--primary-blue) var(--p, 0%), var(--border-primary) 0);
+  transition: all 0.3s ease;
+}
+
+/* Conic Ring Progress Component */
+.conic-ring { 
+  width: 120px; 
+  height: 120px; 
+  border-radius: 50%; 
+  display: grid; 
+  place-items: center; 
+  background: conic-gradient(var(--primary-blue) calc(var(--v, 0) * 3.6deg), var(--border-primary) 0);
+  position: relative;
+}
+
+.conic-ring::before { 
+  content: ""; 
+  width: calc(100% - var(--ring-thickness)); 
+  height: calc(100% - var(--ring-thickness)); 
+  border-radius: 50%; 
+  background: var(--card-bg); 
+  position: absolute;
+}
+
+.conic-ring .ring-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Pill Badge Component */
+.pill { 
+  border-radius: 9999px; 
+  padding: 4px 12px; 
+  font-size: 12px; 
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Card Elevation Shadow */
+.card-shadow { 
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 
+    0 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .card-shadow {
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.3), 
+    0 1px 2px -1px rgba(0, 0, 0, 0.3),
+    0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================================================
+   RESPONSIVE GRID UTILITIES
+   ================================================================== */
+
+/* KPI Grid */
+.grid-kpi { 
+  grid-template-columns: repeat(6, 1fr); 
+}
+
+@media (max-width: 1400px) {
+  .grid-kpi {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-kpi {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* Auto-fit Grid */
+.grid-auto-fit { 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+}
+
+/* Schedule Grid */
+.schedule-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 1280px) {
+  .schedule-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+/* ===================================================================
+   THEME TOGGLE COMPONENTS
+   ================================================================== */
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--card-bg);
+  border: 2px solid var(--border-primary);
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+.theme-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .theme-icon-sun {
+  transform: rotate(180deg);
+}
+
+[data-theme="light"] .theme-icon-moon {
+  transform: rotate(-180deg);
+}
+
+/* ===================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link styles */
+.sr-only:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  z-index: 9999;
+}
+
+/* Focus States */
+.focusable:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* ===================================================================
+   INTERACTION STATES
+   ================================================================== */
+
+/* Hover States */
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 20px 25px -5px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .card-hover:hover {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3), 
+    0 2px 4px -2px rgba(0, 0, 0, 0.3),
+    0 10px 15px -3px rgba(0, 0, 0, 0.2),
+    0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===================================================================
+   BRAND COLOR UTILITIES
+   ================================================================== */
+
+/* Google Colors */
+.google-blue { color: var(--google-blue); }
+.google-red { color: var(--google-red); }
+.google-yellow { color: var(--google-yellow); }
+.google-green { color: var(--google-green); }
+
+.bg-google-blue { background-color: rgba(66, 133, 244, 0.1); }
+.bg-google-red { background-color: rgba(234, 67, 53, 0.1); }
+.bg-google-yellow { background-color: rgba(251, 188, 5, 0.1); }
+.bg-google-green { background-color: rgba(52, 168, 83, 0.1); }
+
+/* ===================================================================
+   ANIMATIONS
+   ================================================================== */
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ===================================================================
+   TIMELINE COMPONENTS
+   ================================================================== */
+
+/* Timeline styles */
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  border: 3px solid var(--card-bg);
+  box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+.timeline-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1.5rem;
+  width: 2px;
+  height: calc(100% - 1rem);
+  background: var(--border-primary);
+}
+
+/* ===================================================================
+   PRINT STYLES
+   ================================================================== */
+
+@media print {
+  .theme-toggle { display: none !important; }
+  body { background: white !important; }
+  .card-shadow { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important; }
+  .progress-bar { 
+    background: linear-gradient(90deg, #4285f4 var(--p, 0%), #ddd 0) !important; 
+  }
+  .conic-ring {
+    background: conic-gradient(#4285f4 calc(var(--v, 0) * 3.6deg), #ddd 0) !important;
+  }
+}
+
+/* ===================================================================
+   UTILITY CLASSES FOR COMMON PATTERNS
+   ================================================================== */
+
+/* Fixed positioning utilities */
+.fixed-top-left {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+}
+
+.fixed-top-right {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+/* Common button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue), rgb(29, 78, 216));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Social media button styles */
+.social-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.social-btn:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* Content spacing utilities */
+.section-spacing {
+  padding: 2rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding: 2rem 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding: 2rem 3rem;
+  }
+}
+
+/* ===================================================================
+   RESPONSIVE UTILITIES
+   ================================================================== */
+
+/* Container with max width */
+.container-responsive {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Responsive text sizes */
+.text-responsive-lg {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .text-responsive-lg {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-lg {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+.text-responsive-xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .text-responsive-xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}

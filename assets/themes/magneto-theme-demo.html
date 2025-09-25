@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magneto Theme Demo - AI Fluency</title>
+    <link rel="stylesheet" href="assets/themes/magneto.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Demo-specific styles */
+        .demo-section {
+            margin-bottom: 3rem;
+        }
+        
+        .demo-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .demo-progress-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .demo-progress-label {
+            display: flex;
+            justify-content: between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .demo-color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 16px;
+            margin: 2rem 0;
+        }
+        
+        .demo-color-swatch {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            border: var(--magneto-border-subtle);
+        }
+    </style>
+</head>
+<body>
+    <div class="magneto-container">
+        <!-- Header Section -->
+        <div class="magneto-card magneto-card-glow magneto-fade-in">
+            <div class="magneto-card-content">
+                <h1 class="magneto-color-blue">🧲 Magneto Theme Demo</h1>
+                <p>A dark, powerful theme with magnetic blue-purple gradients and glowing effects, inspired by modern infographic styling and data visualization interfaces.</p>
+                
+                <div class="magneto-controls">
+                    <button class="magneto-button">⚡ Primary Action</button>
+                    <button class="magneto-button" style="background: var(--magneto-gradient-secondary);">🌊 Secondary Action</button>
+                    <select class="magneto-select">
+                        <option>Theme Options</option>
+                        <option>Dark Mode</option>
+                        <option>High Contrast</option>
+                        <option>Accessibility</option>
+                    </select>
+                    <span class="magneto-text-dim">Interactive controls with hover effects</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Dashboard -->
+        <div class="demo-section">
+            <h2>📊 Metrics Dashboard</h2>
+            <div class="demo-metrics">
+                <div class="magneto-metric-card magneto-slide-up">
+                    <div class="magneto-metric-title">Total Users</div>
+                    <div class="magneto-metric-value magneto-color-blue">2.4M</div>
+                    <div class="magneto-metric-subtitle">↗️ +12.5% from last month</div>
+                </div>
+                
+                <div class="magneto-metric-card magneto-slide-up" style="animation-delay: 0.1s;">
+                    <div class="magneto-metric-title">Active Sessions</div>
+                    <div class="magneto-metric-value magneto-color-cyan">89.2K</div>
+                    <div class="magneto-metric-subtitle">🔥 Peak performance today</div>
+                </div>
+                
+                <div class="magneto-metric-card magneto-slide-up" style="animation-delay: 0.2s;">
+                    <div class="magneto-metric-title">Engagement Rate</div>
+                    <div class="magneto-metric-value magneto-color-emerald">94.8%</div>
+                    <div class="magneto-metric-subtitle">✨ Above industry average</div>
+                </div>
+                
+                <div class="magneto-metric-card magneto-slide-up" style="animation-delay: 0.3s;">
+                    <div class="magneto-metric-title">Revenue Growth</div>
+                    <div class="magneto-metric-value magneto-color-amber">$847K</div>
+                    <div class="magneto-metric-subtitle">💰 Q3 2025 results</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Indicators -->
+        <div class="demo-section">
+            <div class="magneto-card">
+                <div class="magneto-card-content">
+                    <h2>📈 Progress Indicators</h2>
+                    <p class="magneto-text-muted">Animated progress bars with magnetic styling</p>
+                    
+                    <div class="demo-progress-item">
+                        <div class="demo-progress-label">
+                            <span class="magneto-text-secondary">Machine Learning Progress</span>
+                            <span class="magneto-text-dim">87%</span>
+                        </div>
+                        <div class="magneto-progress">
+                            <div class="magneto-progress-bar" style="width: 87%; background: var(--magneto-gradient-primary);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-progress-item">
+                        <div class="demo-progress-label">
+                            <span class="magneto-text-secondary">Data Processing</span>
+                            <span class="magneto-text-dim">64%</span>
+                        </div>
+                        <div class="magneto-progress">
+                            <div class="magneto-progress-bar" style="width: 64%; background: var(--magneto-gradient-secondary);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-progress-item">
+                        <div class="demo-progress-label">
+                            <span class="magneto-text-secondary">Model Training</span>
+                            <span class="magneto-text-dim">92%</span>
+                        </div>
+                        <div class="magneto-progress">
+                            <div class="magneto-progress-bar" style="width: 92%; background: linear-gradient(135deg, var(--magneto-energy-emerald) 0%, var(--magneto-plasma-teal) 100%);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typography Showcase -->
+        <div class="demo-section">
+            <div class="magneto-card">
+                <div class="magneto-card-content">
+                    <h1>🎨 Typography Scale</h1>
+                    <h2 class="magneto-color-purple">Heading Level 2</h2>
+                    <h3 class="magneto-color-cyan">Heading Level 3</h3>
+                    <h4 class="magneto-color-teal">Heading Level 4</h4>
+                    <h5 class="magneto-color-emerald">Heading Level 5</h5>
+                    <h6 class="magneto-color-amber">Heading Level 6</h6>
+                    
+                    <p>This is regular paragraph text with <strong>bold elements</strong> and <em>italic styling</em>. The Magneto theme uses the Inter font family for optimal readability across all device types.</p>
+                    
+                    <p class="magneto-text-muted">This is muted text, perfect for secondary information and subtle details that support the main content without overwhelming the user's attention.</p>
+                    
+                    <p class="magneto-text-dim">This is dim text, ideal for timestamps, metadata, and other tertiary information that needs to be present but not prominent.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Palette -->
+        <div class="demo-section">
+            <div class="magneto-card">
+                <div class="magneto-card-content">
+                    <h2>🎨 Magnetic Color Palette</h2>
+                    <p class="magneto-text-muted">The core colors that give Magneto its powerful, magnetic personality</p>
+                    
+                    <div class="demo-color-palette">
+                        <div class="demo-color-swatch magneto-bg-blue magneto-glow">
+                            <span>Magnetic<br>Blue</span>
+                        </div>
+                        <div class="demo-color-swatch magneto-bg-purple magneto-glow-accent">
+                            <span>Magnetic<br>Purple</span>
+                        </div>
+                        <div class="demo-color-swatch magneto-bg-cyan">
+                            <span>Electric<br>Cyan</span>
+                        </div>
+                        <div class="demo-color-swatch magneto-bg-teal">
+                            <span>Plasma<br>Teal</span>
+                        </div>
+                        <div class="demo-color-swatch magneto-bg-emerald">
+                            <span>Energy<br>Emerald</span>
+                        </div>
+                        <div class="demo-color-swatch magneto-bg-amber">
+                            <span>Power<br>Amber</span>
+                        </div>
+                        <div class="demo-color-swatch magneto-bg-rose">
+                            <span>Force<br>Rose</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid System -->
+        <div class="demo-section">
+            <h2>📐 Grid System</h2>
+            
+            <h3 class="magneto-text-muted">Two Column Grid</h3>
+            <div class="magneto-grid magneto-grid-2">
+                <div class="magneto-card">
+                    <div class="magneto-card-content">
+                        <h4 class="magneto-color-blue">Column 1</h4>
+                        <p>Content in the first column with magnetic blue accent.</p>
+                    </div>
+                </div>
+                <div class="magneto-card">
+                    <div class="magneto-card-content">
+                        <h4 class="magneto-color-purple">Column 2</h4>
+                        <p>Content in the second column with magnetic purple accent.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="magneto-text-muted">Three Column Grid</h3>
+            <div class="magneto-grid magneto-grid-3">
+                <div class="magneto-card magneto-card-glow">
+                    <div class="magneto-card-content">
+                        <h4 class="magneto-color-cyan">Feature 1</h4>
+                        <p>Advanced glow effects that respond to user interaction.</p>
+                    </div>
+                </div>
+                <div class="magneto-card magneto-card-glow">
+                    <div class="magneto-card-content">
+                        <h4 class="magneto-color-teal">Feature 2</h4>
+                        <p>Gradient backgrounds with magnetic color transitions.</p>
+                    </div>
+                </div>
+                <div class="magneto-card magneto-card-glow">
+                    <div class="magneto-card-content">
+                        <h4 class="magneto-color-emerald">Feature 3</h4>
+                        <p>Backdrop blur effects for modern glass-morphism design.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Container Demo -->
+        <div class="demo-section">
+            <h2>📊 Chart Container</h2>
+            <div class="magneto-chart-container">
+                <h3 class="magneto-color-blue">Data Visualization Ready</h3>
+                <p>This container is optimized for charts, graphs, and interactive data visualizations. It features:</p>
+                <ul>
+                    <li>✨ Subtle gradient borders</li>
+                    <li>🌟 Enhanced shadow system</li>
+                    <li>🎯 Perfect contrast ratios for data readability</li>
+                    <li>📱 Responsive design for all screen sizes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="magneto-card" style="margin-top: 3rem;">
+            <div class="magneto-card-content">
+                <h3 class="magneto-color-blue">🚀 Magneto Theme Features</h3>
+                <div class="magneto-grid magneto-grid-2">
+                    <div>
+                        <h4 class="magneto-color-purple">Design System</h4>
+                        <ul class="magneto-text-muted">
+                            <li>Magnetic color palette</li>
+                            <li>Advanced glow effects</li>
+                            <li>Gradient backgrounds</li>
+                            <li>Backdrop blur elements</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="magneto-color-cyan">Components</h4>
+                        <ul class="magneto-text-muted">
+                            <li>Interactive buttons & controls</li>
+                            <li>Metric dashboard cards</li>
+                            <li>Progress indicators</li>
+                            <li>Chart containers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: var(--magneto-border-subtle);">
+                    <p class="magneto-text-dim">
+                        <strong>Magneto Theme v1.0</strong> - Created by Chris Prakoso for AI Fluency<br>
+                        Inspired by modern infographic design and data visualization interfaces
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive demo functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars on load
+            const progressBars = document.querySelectorAll('.magneto-progress-bar');
+            progressBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.width = bar.style.width || '0%';
+                }, index * 200);
+            });
+
+            // Add click handlers to buttons
+            const buttons = document.querySelectorAll('.magneto-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Create a ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: 4px;
+                        height: 4px;
+                        background: rgba(255, 255, 255, 0.6);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        animation: ripple 0.6s ease-out;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: translate(-50%, -50%) scale(10);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

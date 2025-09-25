@@ -1,0 +1,614 @@
+/* 
+ * Dawn Theme
+ * A fresh, inspiring theme with dawn-like gradients and ethereal effects
+ * Inspired by the ChatGPT infographic styling with a light, optimistic twist
+ * Author: Chris Prakoso
+ * Version: 1.0
+ */
+
+:root {
+  /* Base Colors - Dawn palette */
+  --dawn-light-primary: #fefcfb;
+  --dawn-light-secondary: #fef7f0;
+  --dawn-light-tertiary: #fdf2f8;
+  --dawn-surface: #ffffff;
+  --dawn-surface-elevated: #fefefe;
+  
+  /* Dawn Color Palette */
+  --dawn-sunrise-orange: #fb923c;
+  --dawn-golden-yellow: #fbbf24;
+  --dawn-coral-pink: #f472b6;
+  --dawn-lavender-purple: #a78bfa;
+  --dawn-sky-blue: #60a5fa;
+  --dawn-mint-green: #4ade80;
+  --dawn-warm-rose: #fb7185;
+  
+  /* Brand Colors (inspired by ChatGPT infographic) */
+  --dawn-brand-primary: #0ea5e9;
+  --dawn-brand-secondary: #d946ef;
+  --dawn-brand-accent: #f59e0b;
+  
+  /* Text Colors */
+  --dawn-text-primary: #1f2937;
+  --dawn-text-secondary: #374151;
+  --dawn-text-muted: #6b7280;
+  --dawn-text-dim: #9ca3af;
+  --dawn-text-subtle: #d1d5db;
+  
+  /* Gradient Definitions */
+  --dawn-gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%);
+  --dawn-gradient-secondary: linear-gradient(135deg, #fb923c 0%, #fbbf24 100%);
+  --dawn-gradient-background: linear-gradient(135deg, #fefcfb 0%, #fef7f0 50%, #fdf2f8 100%);
+  --dawn-gradient-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(254, 252, 251, 0.6) 100%);
+  --dawn-gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(254, 247, 240, 0.7) 100%);
+  --dawn-gradient-hero: linear-gradient(135deg, #fefcfb 0%, #fef7f0 25%, #fdf2f8 50%, #f0f9ff 75%, #faf5ff 100%);
+  
+  /* Glass Effects */
+  --dawn-glass-light: rgba(255, 255, 255, 0.2);
+  --dawn-glass-medium: rgba(255, 255, 255, 0.4);
+  --dawn-glass-strong: rgba(255, 255, 255, 0.6);
+  
+  /* Glow Effects */
+  --dawn-glow-primary: 0 0 20px rgba(14, 165, 233, 0.2);
+  --dawn-glow-secondary: 0 0 16px rgba(217, 70, 239, 0.15);
+  --dawn-glow-warm: 0 0 12px rgba(251, 146, 60, 0.2);
+  --dawn-glow-soft: 0 0 8px rgba(14, 165, 233, 0.1);
+  
+  /* Border Effects */
+  --dawn-border-primary: 1px solid rgba(14, 165, 233, 0.2);
+  --dawn-border-secondary: 1px solid rgba(217, 70, 239, 0.15);
+  --dawn-border-subtle: 1px solid rgba(209, 213, 219, 0.5);
+  --dawn-border-glass: 1px solid rgba(255, 255, 255, 0.3);
+  
+  /* Shadow System */
+  --dawn-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --dawn-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --dawn-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --dawn-shadow-glow: 0 8px 24px rgba(14, 165, 233, 0.15);
+  --dawn-shadow-float: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--dawn-gradient-hero);
+  color: var(--dawn-text-secondary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dawn-text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+h1 { 
+  font-size: 2.5rem; 
+  background: var(--dawn-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 { 
+  font-size: 2rem;
+  background: var(--dawn-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin: 0 0 1rem 0;
+  color: var(--dawn-text-secondary);
+}
+
+/* Gradient Text Utility */
+.dawn-gradient-text {
+  background: var(--dawn-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dawn-gradient-text-warm {
+  background: var(--dawn-gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Layout Components */
+.dawn-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dawn-card {
+  background: var(--dawn-gradient-card);
+  backdrop-filter: blur(10px);
+  border: var(--dawn-border-glass);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: var(--dawn-shadow-float);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.dawn-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dawn-gradient-surface);
+  opacity: 0.3;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.dawn-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.dawn-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--dawn-shadow-lg);
+}
+
+/* Glass Effect Cards */
+.dawn-glass-card {
+  background: var(--dawn-glass-medium);
+  backdrop-filter: blur(16px);
+  border: var(--dawn-border-glass);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: var(--dawn-shadow-float);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.dawn-glass-card:hover {
+  background: var(--dawn-glass-strong);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--dawn-shadow-glow);
+}
+
+/* Hero Section Styling */
+.dawn-hero {
+  background: var(--dawn-gradient-hero);
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dawn-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+  animation: dawn-float 6s ease-in-out infinite;
+}
+
+.dawn-hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.05) 0%, transparent 70%);
+  animation: dawn-float 8s ease-in-out infinite reverse;
+}
+
+/* Button Styling */
+.dawn-button, button {
+  background: var(--dawn-gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--dawn-shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.dawn-button::before, button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.dawn-button:hover, button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dawn-shadow-glow);
+}
+
+.dawn-button:hover::before, button:hover::before {
+  left: 100%;
+}
+
+.dawn-button:active, button:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.dawn-button-secondary {
+  background: var(--dawn-glass-medium);
+  color: var(--dawn-text-primary);
+  backdrop-filter: blur(10px);
+  border: var(--dawn-border-glass);
+}
+
+.dawn-button-secondary:hover {
+  background: var(--dawn-glass-strong);
+  color: var(--dawn-brand-primary);
+}
+
+/* Select Styling */
+.dawn-select, select {
+  background: var(--dawn-glass-medium);
+  color: var(--dawn-text-secondary);
+  border: var(--dawn-border-subtle);
+  border-radius: 16px;
+  padding: 14px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.dawn-select:focus, select:focus {
+  outline: none;
+  border-color: var(--dawn-brand-primary);
+  box-shadow: var(--dawn-glow-soft);
+  background: var(--dawn-glass-strong);
+}
+
+/* Navigation Styling */
+.dawn-nav {
+  background: var(--dawn-glass-light);
+  backdrop-filter: blur(20px);
+  border-bottom: var(--dawn-border-glass);
+  padding: 16px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Metric Cards */
+.dawn-metric-card {
+  background: var(--dawn-glass-card);
+  backdrop-filter: blur(16px);
+  border: var(--dawn-border-glass);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--dawn-shadow-md);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.dawn-metric-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--dawn-shadow-glow);
+}
+
+.dawn-metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--dawn-gradient-primary);
+  border-radius: 20px 20px 0 0;
+}
+
+.dawn-metric-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--dawn-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.dawn-metric-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dawn-text-primary);
+  margin-bottom: 4px;
+}
+
+.dawn-metric-subtitle {
+  font-size: 0.875rem;
+  color: var(--dawn-text-dim);
+  font-weight: 400;
+}
+
+/* Chart Container */
+.dawn-chart-container {
+  background: var(--dawn-glass-medium);
+  backdrop-filter: blur(16px);
+  border: var(--dawn-border-glass);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--dawn-shadow-md);
+  position: relative;
+  min-height: 400px;
+}
+
+/* Progress Bars */
+.dawn-progress {
+  background: var(--dawn-glass-light);
+  border-radius: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  border: var(--dawn-border-subtle);
+}
+
+.dawn-progress-bar {
+  height: 100%;
+  background: var(--dawn-gradient-primary);
+  border-radius: inherit;
+  position: relative;
+  transition: width 0.6s ease;
+}
+
+.dawn-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  animation: dawn-shimmer 2s infinite;
+}
+
+/* Grid System */
+.dawn-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.dawn-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.dawn-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.dawn-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Text Utilities */
+.dawn-text-primary { color: var(--dawn-text-primary); }
+.dawn-text-secondary { color: var(--dawn-text-secondary); }
+.dawn-text-muted { color: var(--dawn-text-muted); }
+.dawn-text-dim { color: var(--dawn-text-dim); }
+.dawn-text-subtle { color: var(--dawn-text-subtle); }
+
+/* Dawn Color Classes */
+.dawn-color-brand { color: var(--dawn-brand-primary); }
+.dawn-color-accent { color: var(--dawn-brand-secondary); }
+.dawn-color-warm { color: var(--dawn-sunrise-orange); }
+.dawn-color-golden { color: var(--dawn-golden-yellow); }
+.dawn-color-coral { color: var(--dawn-coral-pink); }
+.dawn-color-lavender { color: var(--dawn-lavender-purple); }
+.dawn-color-sky { color: var(--dawn-sky-blue); }
+.dawn-color-mint { color: var(--dawn-mint-green); }
+
+/* Glow Utilities */
+.dawn-glow { box-shadow: var(--dawn-glow-primary); }
+.dawn-glow-secondary { box-shadow: var(--dawn-glow-secondary); }
+.dawn-glow-warm { box-shadow: var(--dawn-glow-warm); }
+.dawn-glow-soft { box-shadow: var(--dawn-glow-soft); }
+
+/* Animation Utilities */
+.dawn-fade-in {
+  animation: dawn-fadeIn 0.8s ease-out;
+}
+
+.dawn-slide-up {
+  animation: dawn-slideUp 0.6s ease-out;
+}
+
+.dawn-float {
+  animation: dawn-float 3s ease-in-out infinite;
+}
+
+/* Keyframe Animations */
+@keyframes dawn-fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes dawn-slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes dawn-float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(1deg); 
+  }
+}
+
+@keyframes dawn-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dawn-container {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dawn-grid-2,
+  .dawn-grid-3,
+  .dawn-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .dawn-card,
+  .dawn-glass-card {
+    padding: 20px;
+  }
+  
+  .dawn-metric-card {
+    padding: 16px;
+  }
+  
+  .dawn-metric-value {
+    font-size: 2rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .dawn-container {
+    padding: 16px;
+  }
+  
+  .dawn-card,
+  .dawn-glass-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  
+  .dawn-chart-container {
+    min-height: 300px;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+/* Special Effects */
+.dawn-backdrop-blur {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dawn-backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dawn-backdrop-blur-lg {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Insight Cards */
+.dawn-insight-card {
+  background: var(--dawn-glass-card);
+  backdrop-filter: blur(16px);
+  border: var(--dawn-border-glass);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--dawn-shadow-md);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dawn-insight-card:hover {
+  transform: translateY(-4px) rotate(1deg);
+  box-shadow: var(--dawn-shadow-lg);
+}
+
+.dawn-insight-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--dawn-gradient-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: white;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .dawn-card,
+  .dawn-glass-card {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  
+  .dawn-button, button {
+    display: none;
+  }
+  
+  .dawn-gradient-text,
+  .dawn-gradient-text-warm,
+  h1, h2 {
+    color: black !important;
+    -webkit-text-fill-color: black !important;
+  }
+}

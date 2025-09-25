@@ -1,0 +1,179 @@
+/* Ocean Breeze Theme - Fresh, clean, calming aesthetic */
+@import url("base-theme.css");
+
+:root {
+  /* Primary Theme Colors */
+  --primary-color: #0ea5e9;
+  --primary-dark: #0284c7;
+  --primary-light: #38bdf8;
+  --primary-50: #f0f9ff;
+  --primary-100: #e0f2fe;
+  --primary-200: #bae6fd;
+  --primary-300: #7dd3fc;
+  --primary-400: #38bdf8;
+  --primary-500: #0ea5e9;
+  --primary-600: #0284c7;
+  --primary-700: #0369a1;
+  --primary-800: #075985;
+  --primary-900: #0c4a6e;
+
+  /* Accent Colors */
+  --accent-color: #06b6d4;
+  --accent-dark: #0891b2;
+  --accent-light: #22d3ee;
+  
+  /* Background System */
+  --bg-primary: #f0f9ff;
+  --bg-secondary: #e0f2fe;
+  --bg-tertiary: #ffffff;
+  --bg-overlay: rgba(240, 249, 255, 0.95);
+  
+  /* Text Colors */
+  --text-primary: #0c4a6e;
+  --text-secondary: #075985;
+  --text-muted: #0369a1;
+  --text-accent: #0ea5e9;
+  --text-light: #38bdf8;
+  
+  /* Interactive States */
+  --hover-bg: rgba(14, 165, 233, 0.1);
+  --active-bg: rgba(14, 165, 233, 0.2);
+  --focus-ring: rgba(14, 165, 233, 0.3);
+  
+  /* Semantic Colors */
+  --success-color: #10b981;
+  --success-bg: #d1fae5;
+  --warning-color: #f59e0b;
+  --warning-bg: #fef3c7;
+  --error-color: #ef4444;
+  --error-bg: #fee2e2;
+  --info-color: #06b6d4;
+  --info-bg: #cffafe;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
+  --gradient-subtle: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  --gradient-hero: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #38bdf8 100%);
+  
+  /* Enhanced Shadows */
+  --shadow-xs: 0 1px 2px rgba(12, 74, 110, 0.05);
+  --shadow-sm: 0 1px 3px rgba(12, 74, 110, 0.1), 0 1px 2px rgba(12, 74, 110, 0.06);
+  --shadow-md: 0 4px 6px rgba(12, 74, 110, 0.1), 0 2px 4px rgba(12, 74, 110, 0.06);
+  --shadow-lg: 0 10px 15px rgba(12, 74, 110, 0.1), 0 4px 6px rgba(12, 74, 110, 0.05);
+  --shadow-xl: 0 20px 25px rgba(12, 74, 110, 0.1), 0 10px 10px rgba(12, 74, 110, 0.04);
+  --shadow-2xl: 0 25px 50px rgba(12, 74, 110, 0.15);
+  --shadow-glow: 0 0 20px rgba(14, 165, 233, 0.3);
+  
+  /* Component Specific */
+  --card-bg: #ffffff;
+  --card-border: rgba(14, 165, 233, 0.1);
+  --card-shadow: var(--shadow-lg);
+  
+  --button-primary-bg: var(--gradient-primary);
+  --button-primary-text: #ffffff;
+  --button-primary-shadow: var(--shadow-md);
+  
+  --feature-dot-1: #06b6d4;  /* Cyan */
+  --feature-dot-2: #0ea5e9;  /* Sky Blue */
+  --feature-dot-3: #10b981;  /* Emerald */
+  
+  /* Border System */
+  --border-subtle: rgba(14, 165, 233, 0.1);
+  --border-default: rgba(14, 165, 233, 0.2);
+  --border-strong: rgba(14, 165, 233, 0.3);
+  
+  /* Animation Enhancements */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Theme-specific component customizations */
+.hero-section {
+  background: var(--gradient-hero);
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0 50 Q25 25 50 50 T100 50 V100 H0 V50" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23wave)"/></svg>') repeat;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.card {
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+}
+
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.feature-list .feature-item {
+  transition: var(--transition-bounce);
+}
+
+.feature-list .feature-item:hover {
+  transform: translateX(8px);
+}
+
+/* Ocean-inspired animations */
+@keyframes wave {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating-element {
+  animation: wave 3s ease-in-out infinite;
+}
+
+.floating-element:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.floating-element:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* Enhanced focus states for accessibility */
+.interactive-element:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0c1821;
+    --bg-secondary: #1e3a8a;
+    --bg-tertiary: #1e40af;
+    --text-primary: #e0f2fe;
+    --text-secondary: #bae6fd;
+    --text-muted: #7dd3fc;
+    --card-bg: #1e40af;
+    --card-border: rgba(56, 189, 248, 0.2);
+  }
+}

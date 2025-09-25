@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How People Use ChatGPT – Canvas Infographic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0b1220 0%, #0f172a 100%);
+      color: #e5e7eb;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+    }
+    
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      background: rgba(31, 41, 55, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    button, select {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+    }
+    
+    select {
+      background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+      color: #e5e7eb;
+    }
+    
+    .tip {
+      font-size: 13px;
+      color: #94a3b8;
+      font-weight: 400;
+    }
+    
+    canvas {
+      width: 100%;
+      height: auto;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 20px;
+      display: block;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="controls">
+      <button id="download">📥 Download PNG</button>
+      <span class="tip">Resize the window, then click Download to export at chosen resolution</span>
+      <select id="scale">
+        <option value="1">Export scale: 1x</option>
+        <option value="1.5">Export scale: 1.5x</option>
+        <option value="2" selected>Export scale: 2x</option>
+        <option value="3">Export scale: 3x</option>
+      </select>
+    </div>
+    <canvas id="board"></canvas>
+  </div>
+
+  <script>
+    // Data derived from the summarized study[1]
+    const data = {
+      kpis: {
+        wau: 700_000_000, // Weekly active users (Jul 2025)[1]
+        adultSharePct: 10, // ~10% of adult population[1]
+        dailyMsgs: 2_500_000_000, // 2.5B daily messages[1]
+        workPct: 27, // Work 27%[1]
+        nonWorkPct: 73 // Non-work 73%[1]
+      },
+      timeline: [
+        { label: 'Nov 2022', users: 0, note: 'Launch' }, //[1]
+        { label: 'Dec 2022', users: 1_000_000, note: '1M users' }, //[1]
+        { label: 'Nov 2023', users: 100_000_000, note: '100M' }, //[1]
+        { label: 'Nov 2024', users: 350_000_000, note: '350M' }, //[1]
+        { label: 'Jul 2025', users: 700_000_000, note: '700M' } //[1]
+      ],
+      workShift: [
+        { period: 'Jun 2024', work: 47, non: 53 }, //[1]
+        { period: 'Jun 2025', work: 27, non: 73 } //[1]
+      ],
+      topics: [
+        { name: 'Practical Guidance', value: 29 }, //[1]
+        { name: 'Seeking Information', value: 24 }, //[1]
+        { name: 'Writing', value: 24 }, //[1]
+        { name: 'Technical Help', value: 5 }, //[1]
+        { name: 'Multimedia', value: 7 }, //[1]
+        { name: 'Self-Expression', value: 2.4 }, //[1]
+        { name: 'Other', value: 8.6 } //[1]
+      ],
+      intent: [
+        { name: 'Asking', value: 49 }, //[1]
+        { name: 'Doing', value: 40 }, //[1]
+        { name: 'Expressing', value: 11 } //[1]
+      ],
+      gender: {
+        early2022: { masculine: 80, feminine: 20 }, //[1]
+        y2025: { masculine: 48, feminine: 52 } //[1]
+      },
+      age: [
+        { name: 'Under 26', value: 46 }, //[1]
+        { name: '26–40', value: 32 }, //[1]
+        { name: '41–65', value: 20 }, //[1]
+        { name: '66+', value: 2 } //[1]
+      ],
+      workActivities: [
+        { name: 'Getting Information', value: 19.3 }, //[1]
+        { name: 'Interpreting Information', value: 13.1 }, //[1]
+        { name: 'Documenting Information', value: 12.8 }, //[1]
+        { name: 'Providing Consultation', value: 9.2 }, //[1]
+        { name: 'Thinking Creatively', value: 9.1 }, //[1]
+        { name: 'Making Decisions', value: 8.5 }, //[1]
+        { name: 'Working with Computers', value: 4.9 } //[1]
+      ],
+      geo: {
+        // Qualitative, relative radar levels for adoption growth[1]
+        '2023': [25, 45, 65, 85], // High, Upper-mid, Lower-mid, Low income
+        '2025': [35, 60, 80, 95] // Faster adoption in lower-income countries
+      }
+    };
+
+    // Enhanced color palette with gradients
+    const colors = {
+      ink: '#f8fafc',
+      inkDim: '#cbd5e1',
+      grid: 'rgba(55, 65, 81, 0.5)',
+      p1: '#6366f1', // indigo
+      p2: '#0ea5e9', // sky
+      p3: '#10b981', // emerald
+      p4: '#f59e0b', // amber
+      p5: '#ef4444', // rose
+      p6: '#8b5cf6', // violet
+      p7: '#06b6d4', // cyan
+      // Gradient colors for enhanced visuals
+      gradients: {
+        p1: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+        p2: 'linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%)',
+        p3: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+        background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+        card: 'linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%)'
+      }
+    };
+
+    const canvas = document.getElementById('board');
+    const scaleSelect = document.getElementById('scale');
+    const downloadBtn = document.getElementById('download');
+
+    function fmtNum(n) {
+      if (n >= 1e9) return (n/1e9).toFixed(1).replace(/\.0$/,'') + 'B';
+      if (n >= 1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'') + 'M';
+      if (n >= 1e3) return (n/1e3).toFixed(1).replace(/\.0$/,'') + 'K';
+      return String(n);
+    }
+
+    function drawRoundedRect(ctx, x, y, w, h, r, fill, stroke) {
+      const rr = Math.min(r, w/2, h/2);
+      ctx.beginPath();
+      ctx.moveTo(x+rr, y);
+      ctx.arcTo(x+w, y, x+w, y+h, rr);
+      ctx.arcTo(x+w, y+h, x, y+h, rr);
+      ctx.arcTo(x, y+h, x, y, rr);
+      ctx.arcTo(x, y, x+w, y, rr);
+      ctx.closePath();
+      
+      if (fill) {
+        ctx.fillStyle = fill;
+        ctx.fill();
+      }
+      
+      if (stroke) {
+        ctx.strokeStyle = stroke;
+        ctx.stroke();
+      }
+    }
+
+    function drawGradientRect(ctx, x, y, w, h, r, color1, color2) {
+      const gradient = ctx.createLinearGradient(x, y, x + w, y + h);
+      gradient.addColorStop(0, color1);
+      gradient.addColorStop(1, color2);
+      drawRoundedRect(ctx, x, y, w, h, r, gradient, null);
+    }
+
+    function addGlow(ctx, x, y, w, h, r, color, intensity = 0.3) {
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 20;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+      ctx.globalAlpha = intensity;
+      drawRoundedRect(ctx, x, y, w, h, r, color, null);
+      ctx.shadowBlur = 0;
+      ctx.globalAlpha = 1;
+    }
+
+    function text(ctx, str, x, y, size=14, color=colors.ink, align='left', base='alphabetic', weight='normal') {
+      ctx.fillStyle = color;
+      ctx.font = `${weight} ${size}px Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif`;
+      ctx.textAlign = align;
+      ctx.textBaseline = base;
+      ctx.fillText(str, x, y);
+    }
+
+    function wrapText(ctx, str, x, y, maxWidth, lineHeight, size=12, color=colors.inkDim, align='left') {
+      ctx.font = `${size}px Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif`;
+      ctx.fillStyle = color;
+      ctx.textAlign = align;
+      const words = str.split(' ');
+      let line = '';
+      let yy = y;
+      
+      for (let i=0; i<words.length; i++) {
+        const test = line + words[i] + ' ';
+        const w = ctx.measureText(test).width;
+        if (w > maxWidth && i>0) {
+          ctx.fillText(line, x, yy);
+          line = words[i] + ' ';
+          yy += lineHeight;
+        } else {
+          line = test;
+        }
+      }
+      ctx.fillText(line, x, yy);
+    }
+
+    function donut(ctx, cx, cy, outerR, innerR, slices) {
+      let start = -Math.PI/2;
+      
+      slices.forEach(s => {
+        const end = start + (Math.PI*2) * (s.value/100);
+        
+        // Add glow effect
+        addGlow(ctx, cx-outerR, cy-outerR, outerR*2, outerR*2, outerR, s.color, 0.2);
+        
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.fillStyle = s.color;
+        ctx.arc(cx, cy, outerR, start, end);
+        ctx.arc(cx, cy, innerR, end, start, true);
+        ctx.closePath();
+        ctx.fill();
+        
+        // Label with better positioning
+        const mid = (start+end)/2;
+        const r = outerR + 20;
+        const lx = cx + r * Math.cos(mid);
+        const ly = cy + r * Math.sin(mid);
+        text(ctx, `${s.name}`, lx, ly-6, 12, colors.ink, 'center', 'middle', '600');
+        text(ctx, `${s.value}%`, lx, ly+8, 11, colors.inkDim, 'center', 'middle', '500');
+        
+        start = end;
+      });
+    }
+
+    function hBar(ctx, x, y, w, h, valuePct, color) {
+      // Background with subtle gradient
+      const bgGradient = ctx.createLinearGradient(x, y, x + w, y);
+      bgGradient.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+      bgGradient.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+      drawRoundedRect(ctx, x, y, w, h, h/2, bgGradient, 'rgba(99, 102, 241, 0.2)');
+      
+      const vw = Math.max(0, Math.min(1, valuePct/100)) * w;
+      
+      // Bar with gradient
+      const barGradient = ctx.createLinearGradient(x, y, x + vw, y);
+      barGradient.addColorStop(0, color);
+      barGradient.addColorStop(1, color + 'aa'); // Add transparency
+      
+      addGlow(ctx, x, y, vw, h, h/2, color, 0.2);
+      drawRoundedRect(ctx, x, y, vw, h, h/2, barGradient, null);
+    }
+
+    function gridLines(ctx, x, y, w, h, yTicks=4) {
+      ctx.strokeStyle = colors.grid;
+      ctx.lineWidth = 1;
+      for (let i=0; i<=yTicks; i++) {
+        const yy = y + (h/yTicks)*i;
+        ctx.beginPath();
+        ctx.moveTo(x, yy);
+        ctx.lineTo(x+w, yy);
+        ctx.stroke();
+      }
+    }
+
+    function lineChart(ctx, x, y, w, h, points, color) {
+      gridLines(ctx, x, y, w, h, 4);
+      
+      const max = Math.max(...points.map(p => p.value));
+      const min = Math.min(...points.map(p => p.value));
+      const pad = (max - min) * 0.1;
+      const hi = max + pad;
+      const lo = Math.max(0, min - pad);
+
+      // Enhanced line with glow
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 4;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      
+      points.forEach((p, i) => {
+        const xx = x + (w / (points.length - 1)) * i;
+        const yy = y + h - ((p.value - lo) / (hi - lo)) * h;
+        if (i === 0) ctx.moveTo(xx, yy);
+        else ctx.lineTo(xx, yy);
+      });
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Enhanced points
+      points.forEach((p, i) => {
+        const xx = x + (w / (points.length - 1)) * i;
+        const yy = y + h - ((p.value - lo) / (hi - lo)) * h;
+        
+        // Glow effect for points
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 10;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(xx, yy, 6, 0, Math.PI*2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        
+        // Inner highlight
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(xx, yy, 3, 0, Math.PI*2);
+        ctx.fill();
+        
+        text(ctx, p.label, xx, y+h+20, 11, colors.inkDim, 'center', 'alphabetic', '600');
+        text(ctx, p.note || fmtNum(p.value), xx, yy - 12, 11, colors.ink, 'center', 'alphabetic', '600');
+      });
+
+      // Y ticks
+      for (let i=0; i<=4; i++) {
+        const val = lo + (i/4)*(hi-lo);
+        const yy = y + h - (i/4)*h;
+        text(ctx, fmtNum(Math.round(val)), x-8, yy+4, 10, colors.inkDim, 'right', 'alphabetic');
+      }
+    }
+
+    function stackedBars(ctx, x, y, w, h, categories, colorsArr) {
+      const barW = Math.min(160, Math.max(60, w / categories.length * 0.6));
+      const gap = (w - barW * categories.length) / (categories.length + 1);
+      
+      categories.forEach((c, idx) => {
+        const bx = x + gap + idx*(barW + gap);
+        const workH = (c.work/100)*h;
+        const nonH = (c.non/100)*h;
+        
+        // Background bar with gradient
+        const bgGradient = ctx.createLinearGradient(bx, y, bx, y + h);
+        bgGradient.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        bgGradient.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        drawRoundedRect(ctx, bx, y, barW, h, 8, bgGradient, 'rgba(99, 102, 241, 0.2)');
+        
+        // Non-work segment with glow
+        addGlow(ctx, bx, y + (h - nonH), barW, nonH, 8, colorsArr[0], 0.2);
+        drawRoundedRect(ctx, bx, y + (h - nonH), barW, nonH, 8, colorsArr[0], null);
+        
+        // Work segment with glow
+        addGlow(ctx, bx, y + (h - nonH - workH), barW, workH, 8, colorsArr[1], 0.2);
+        drawRoundedRect(ctx, bx, y + (h - nonH - workH), barW, workH, 8, colorsArr[1], null);
+        
+        text(ctx, c.period, bx + barW/2, y + h + 20, 12, colors.inkDim, 'center');
+        text(ctx, `${c.work}% work`, bx + barW/2, y - 8, 12, colors.ink, 'center', 'alphabetic', '600');
+      });
+
+      // Enhanced legend
+      const lx = x + w - 170, ly = y - 12;
+      const legGradient = ctx.createLinearGradient(lx, ly, lx + 160, ly + 44);
+      legGradient.addColorStop(0, 'rgba(15, 23, 42, 0.9)');
+      legGradient.addColorStop(1, 'rgba(30, 41, 59, 0.7)');
+      drawRoundedRect(ctx, lx, ly, 160, 44, 8, legGradient, 'rgba(99, 102, 241, 0.3)');
+      
+      // Legend items with glow
+      ctx.shadowColor = colorsArr[0];
+      ctx.shadowBlur = 8;
+      ctx.fillStyle = colorsArr[0];
+      ctx.beginPath();
+      ctx.arc(lx+16, ly+22, 6, 0, Math.PI*2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      text(ctx, 'Non-work', lx+32, ly+26, 12, colors.ink, 'left', 'alphabetic', '500');
+      
+      ctx.shadowColor = colorsArr[1];
+      ctx.shadowBlur = 8;
+      ctx.fillStyle = colorsArr[1];
+      ctx.beginPath();
+      ctx.arc(lx+95, ly+22, 6, 0, Math.PI*2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      text(ctx, 'Work', lx+111, ly+26, 12, colors.ink, 'left', 'alphabetic', '500');
+    }
+
+    function radar(ctx, cx, cy, r, axes, series) {
+      const n = axes.length;
+      
+      // Enhanced grid with subtle glow
+      ctx.strokeStyle = colors.grid;
+      ctx.lineWidth = 1;
+      for (let k=1; k<=4; k++) {
+        const rr = (r * k)/4;
+        ctx.beginPath();
+        for (let i=0; i<n; i++) {
+          const a = -Math.PI/2 + i*(2*Math.PI/n);
+          const x = cx + rr * Math.cos(a);
+          const y = cy + rr * Math.sin(a);
+          if (i===0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+      }
+
+      // Axes lines
+      for (let i=0; i<n; i++) {
+        const a = -Math.PI/2 + i*(2*Math.PI/n);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+        ctx.stroke();
+      }
+
+      // Axes labels with better styling
+      for (let i=0; i<n; i++) {
+        const a = -Math.PI/2 + i*(2*Math.PI/n);
+        const x = cx + (r+18) * Math.cos(a);
+        const y = cy + (r+18) * Math.sin(a);
+        text(ctx, axes[i], x, y, 12, colors.ink, 'center', 'middle', '600');
+      }
+
+      // Enhanced series with glow
+      series.forEach(s => {
+        ctx.beginPath();
+        s.values.forEach((v, i) => {
+          const a = -Math.PI/2 + i*(2*Math.PI/n);
+          const rr = r * (v/100);
+          const x = cx + rr * Math.cos(a);
+          const y = cy + rr * Math.sin(a);
+          if (i===0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        
+        // Glow effect
+        ctx.shadowColor = s.stroke;
+        ctx.shadowBlur = 15;
+        ctx.fillStyle = s.fill;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        
+        ctx.strokeStyle = s.stroke;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+      });
+    }
+
+    function render(exportScale = 1) {
+      const width = Math.min(1200, window.innerWidth - 48);
+      const baseH = 1650; // Increased height for better spacing
+      const W = Math.round(width * exportScale);
+      const H = Math.round(baseH * exportScale);
+      
+      canvas.width = W;
+      canvas.height = H;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(exportScale, exportScale);
+
+      // Enhanced background with gradient
+      const bgGradient = ctx.createLinearGradient(0, 0, width, baseH);
+      bgGradient.addColorStop(0, '#0f172a');
+      bgGradient.addColorStop(0.5, '#1e293b');
+      bgGradient.addColorStop(1, '#0f172a');
+      drawRoundedRect(ctx, 0, 0, width, baseH, 20, bgGradient, null);
+
+      // Header with enhanced styling
+      text(ctx, 'How People Use ChatGPT', 32, 48, 28, colors.ink, 'left', 'alphabetic', '700');
+      text(ctx, 'Interactive infographic summary of usage patterns, demographics, and work activities', 32, 76, 15, colors.inkDim, 'left', 'alphabetic', '400');
+      text(ctx, 'Source: NBER Working Paper (Sep 2025)', width - 32, 48, 13, colors.inkDim, 'right', 'alphabetic', '500');
+
+      // Enhanced card grid metrics
+      const col = (width - 64) / 3;
+      const cardH = 100;
+      const y0 = 100;
+      
+      const cards = [
+        { title: 'Weekly Active Users (Jul 2025)', big: fmtNum(data.kpis.wau), small: `≈ ${data.kpis.adultSharePct}% of adult population`, color: colors.p1 },
+        { title: 'Daily Messages', big: fmtNum(data.kpis.dailyMsgs), small: 'Sustained growth since 2024', color: colors.p2 },
+        { title: 'Work vs Non‑work', big: `${data.kpis.workPct}% / ${data.kpis.nonWorkPct}%`, small: 'Non‑work dominates by mid‑2025', color: colors.p3 }
+      ];
+
+      cards.forEach((c, i) => {
+        const x = 24 + i * (col + 8);
+        
+        // Card glow effect
+        addGlow(ctx, x, y0, col, cardH, 16, c.color, 0.15);
+        
+        // Card gradient background
+        const cardGradient = ctx.createLinearGradient(x, y0, x + col, y0 + cardH);
+        cardGradient.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGradient.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        drawRoundedRect(ctx, x, y0, col, cardH, 16, cardGradient, `rgba(${c.color.slice(1).match(/.{2}/g).map(hex => parseInt(hex, 16)).join(', ')}, 0.3)`);
+        
+        text(ctx, c.title, x+20, y0+28, 13, colors.inkDim, 'left', 'alphabetic', '500');
+        text(ctx, c.big, x+20, y0+58, 24, c.color, 'left', 'alphabetic', '700');
+        text(ctx, c.small, x+20, y0+82, 12, colors.inkDim, 'left', 'alphabetic', '400');
+      });
+
+      // Layout rows with improved spacing
+      let y = y0 + cardH + 24;
+
+      // Growth Timeline (full width) with enhanced styling
+      const timelineH = 240;
+      const timelineGradient = ctx.createLinearGradient(24, y, width-24, y + timelineH);
+      timelineGradient.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+      timelineGradient.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+      
+      addGlow(ctx, 24, y, width-48, timelineH, 16, colors.p1, 0.1);
+      drawRoundedRect(ctx, 24, y, width-48, timelineH, 16, timelineGradient, 'rgba(99, 102, 241, 0.2)');
+      
+      text(ctx, 'Growth Timeline', 44, y+32, 16, colors.ink, 'left', 'alphabetic', '700');
+      text(ctx, 'Nov 2022 → Jul 2025', width-44, y+32, 13, colors.inkDim, 'right', 'alphabetic', '500');
+      
+      lineChart(
+        ctx, 44, y+56, width-88, timelineH-88,
+        data.timeline.map(d => ({ label: d.label, value: d.users, note: d.note })),
+        colors.p1
+      );
+
+      y += timelineH + 20;
+
+      // 3-column charts with enhanced styling
+      const colW = (width - 48 - 16*2) / 3;
+      const cellH = 270;
+
+      // Work vs Non-work (stacked bars)
+      {
+        const x = 24, yy = y;
+        const cardGrad = ctx.createLinearGradient(x, yy, x + colW, yy + cellH);
+        cardGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        
+        addGlow(ctx, x, yy, colW, cellH, 16, colors.p3, 0.1);
+        drawRoundedRect(ctx, x, yy, colW, cellH, 16, cardGrad, 'rgba(16, 185, 129, 0.2)');
+        
+        text(ctx, 'Work vs Non‑work', x+20, yy+30, 15, colors.ink, 'left', 'alphabetic', '700');
+        text(ctx, 'Shift: ~47% → 27% work (Jun 2024 → Jun 2025)', x+20, yy+50, 12, colors.inkDim, 'left', 'alphabetic', '400');
+        stackedBars(ctx, x+20, yy+72, colW-40, 160, data.workShift, [colors.p3, colors.p2]);
+      }
+
+      // Topics (horizontal bars)
+      {
+        const x = 24 + colW + 16, yy = y;
+        const cardGrad = ctx.createLinearGradient(x, yy, x + colW, yy + cellH);
+        cardGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        
+        addGlow(ctx, x, yy, colW, cellH, 16, colors.p2, 0.1);
+        drawRoundedRect(ctx, x, yy, colW, cellH, 16, cardGrad, 'rgba(14, 165, 233, 0.2)');
+        
+        text(ctx, 'Conversation Topics', x+20, yy+30, 15, colors.ink, 'left', 'alphabetic', '700');
+        text(ctx, 'Top three ≈ 80%', x+20, yy+50, 12, colors.inkDim, 'left', 'alphabetic', '400');
+        
+        const barX = x+20, barY = yy+72, bw = colW-40, bh = 18, gap = 20;
+        data.topics.forEach((t, i) => {
+          const yy2 = barY + i*(bh+gap);
+          hBar(ctx, barX, yy2, bw, bh, t.value, [colors.p1, colors.p2, colors.p3, colors.p6, colors.p7, colors.p4, colors.p5][i%7]);
+          text(ctx, `${t.name}`, barX, yy2 - 8, 12, colors.ink, 'left', 'alphabetic', '600');
+          text(ctx, `${t.value}%`, barX + bw - 4, yy2 + 6, 11, colors.inkDim, 'right', 'alphabetic', '500');
+        });
+      }
+
+      // Intent (donut)
+      {
+        const x = 24 + 2*(colW + 16), yy = y;
+        const cardGrad = ctx.createLinearGradient(x, yy, x + colW, yy + cellH);
+        cardGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        
+        addGlow(ctx, x, yy, colW, cellH, 16, colors.p6, 0.1);
+        drawRoundedRect(ctx, x, yy, colW, cellH, 16, cardGrad, 'rgba(139, 92, 246, 0.2)');
+        
+        text(ctx, 'User Intent', x+20, yy+30, 15, colors.ink, 'left', 'alphabetic', '700');
+        
+        const cx = x + colW/2, cy = yy + 150;
+        donut(ctx, cx, cy, 76, 44, [
+          { name: 'Asking', value: 49, color: colors.p1 },
+          { name: 'Doing', value: 40, color: colors.p2 },
+          { name: 'Expressing', value: 11, color: colors.p3 }
+        ]);
+      }
+
+      y += cellH + 20;
+
+      // Bottom row with enhanced styling
+      const row2H = 280;
+
+      // Gender distribution
+      {
+        const x = 24, yy = y;
+        const cardGrad = ctx.createLinearGradient(x, yy, x + colW, yy + row2H);
+        cardGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        
+        addGlow(ctx, x, yy, colW, row2H, 16, colors.p5, 0.1);
+        drawRoundedRect(ctx, x, yy, colW, row2H, 16, cardGrad, 'rgba(239, 68, 68, 0.2)');
+        
+        text(ctx, 'Gender Distribution', x+20, yy+30, 15, colors.ink, 'left', 'alphabetic', '700');
+        
+        const bw = (colW - 80)/2;
+        const bx1 = x+20, bx2 = x+40 + bw;
+        const by = yy+60, bh = 150;
+
+        // Enhanced bars with gradients
+        [
+          { data: data.gender.early2022, label: 'Early 2022', x: bx1 },
+          { data: data.gender.y2025, label: '2025', x: bx2 }
+        ].forEach(item => {
+          const bgGrad = ctx.createLinearGradient(item.x, by, item.x, by + bh);
+          bgGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+          bgGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+          drawRoundedRect(ctx, item.x, by, bw, bh, 10, bgGrad, 'rgba(99, 102, 241, 0.2)');
+          
+          const mH = bh * (item.data.masculine/100);
+          const fH = bh * (item.data.feminine/100);
+          
+          addGlow(ctx, item.x, by + (bh - mH), bw, mH, 10, colors.p2, 0.2);
+          drawRoundedRect(ctx, item.x, by + (bh - mH), bw, mH, 10, colors.p2, null);
+          
+          addGlow(ctx, item.x, by + (bh - mH - fH), bw, fH, 10, colors.p3, 0.2);
+          drawRoundedRect(ctx, item.x, by + (bh - mH - fH), bw, fH, 10, colors.p3, null);
+          
+          text(ctx, item.label, item.x + bw/2, by + bh + 22, 12, colors.inkDim, 'center', 'alphabetic', '500');
+          text(ctx, `${item.data.masculine}% / ${item.data.feminine}%`, item.x + bw/2, by - 12, 11, colors.ink, 'center', 'alphabetic', '600');
+        });
+
+        // Enhanced legend
+        const legY = yy + 240;
+        text(ctx, '●', x+20, legY, 16, colors.p2, 'left', 'alphabetic', '600');
+        text(ctx, 'Masculine', x+35, legY, 12, colors.ink, 'left', 'alphabetic', '500');
+        text(ctx, '●', x+110, legY, 16, colors.p3, 'left', 'alphabetic', '600');
+        text(ctx, 'Feminine', x+125, legY, 12, colors.ink, 'left', 'alphabetic', '500');
+      }
+
+      // Age distribution
+      {
+        const x = 24 + colW + 16, yy = y;
+        const cardGrad = ctx.createLinearGradient(x, yy, x + colW, yy + row2H);
+        cardGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        
+        addGlow(ctx, x, yy, colW, row2H, 16, colors.p4, 0.1);
+        drawRoundedRect(ctx, x, yy, colW, row2H, 16, cardGrad, 'rgba(245, 158, 11, 0.2)');
+        
+        text(ctx, 'Age Distribution', x+20, yy+30, 15, colors.ink, 'left', 'alphabetic', '700');
+        
+        const bw = (colW - 60) / data.age.length;
+        const base = yy + 230, maxH = 150;
+        
+        gridLines(ctx, x+20, base - maxH, colW-40, maxH, 4);
+        
+        data.age.forEach((a, i) => {
+          const bx = x+20 + i*(bw + 8);
+          const h = (a.value/50)*maxH;
+          
+          addGlow(ctx, bx, base - h, bw, h, 8, [colors.p1, colors.p2, colors.p3, colors.p5][i%4], 0.2);
+          drawRoundedRect(ctx, bx, base - h, bw, h, 8, [colors.p1, colors.p2, colors.p3, colors.p5][i%4], null);
+          
+          text(ctx, a.name, bx + bw/2, base + 20, 11, colors.inkDim, 'center', 'alphabetic', '500');
+          text(ctx, `${a.value}%`, bx + bw/2, base - h - 8, 11, colors.ink, 'center', 'alphabetic', '600');
+        });
+      }
+
+      // Work Activities
+      {
+        const x = 24 + 2*(colW + 16), yy = y;
+        const cardGrad = ctx.createLinearGradient(x, yy, x + colW, yy + row2H);
+        cardGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        
+        addGlow(ctx, x, yy, colW, row2H, 16, colors.p7, 0.1);
+        drawRoundedRect(ctx, x, yy, colW, row2H, 16, cardGrad, 'rgba(6, 182, 212, 0.2)');
+        
+        text(ctx, 'Top Work Activities', x+20, yy+30, 15, colors.ink, 'left', 'alphabetic', '700');
+        
+        const barX = x+20, barY = yy+60, bw = colW-40, bh = 16, gap = 20;
+        data.workActivities.forEach((w, i) => {
+          const yy2 = barY + i*(bh+gap);
+          hBar(ctx, barX, yy2, bw, bh, w.value, [colors.p1, colors.p2, colors.p3, colors.p6, colors.p7, colors.p4, colors.p5][i%7]);
+          text(ctx, w.name, barX, yy2 - 6, 12, colors.ink, 'left', 'alphabetic', '600');
+          text(ctx, `${w.value}%`, barX + bw - 4, yy2 + 6, 11, colors.inkDim, 'right', 'alphabetic', '500');
+        });
+      }
+
+      y += row2H + 20;
+
+      // Geographic Growth (radar) with enhanced styling
+      {
+        const geoH = 260;
+        const cardGrad = ctx.createLinearGradient(24, y, width-24, y + geoH);
+        cardGrad.addColorStop(0, 'rgba(15, 23, 42, 0.8)');
+        cardGrad.addColorStop(1, 'rgba(30, 41, 59, 0.6)');
+        
+        addGlow(ctx, 24, y, width-48, geoH, 16, colors.p1, 0.1);
+        drawRoundedRect(ctx, 24, y, width-48, geoH, 16, cardGrad, 'rgba(99, 102, 241, 0.2)');
+        
+        text(ctx, 'Geographic Growth', 44, y+30, 16, colors.ink, 'left', 'alphabetic', '700');
+        text(ctx, 'Faster adoption in low/middle‑income countries (relative index)', width-44, y+30, 13, colors.inkDim, 'right', 'alphabetic', '400');
+        
+        radar(
+          ctx, 44 + (width-88)/4, y + 140, 85,
+          ['High‑income','Upper‑middle','Lower‑middle','Low‑income'],
+          [
+            { values: data.geo['2023'], stroke: colors.p1, fill: 'rgba(99,102,241,0.15)' },
+            { values: data.geo['2025'], stroke: colors.p3, fill: 'rgba(16,185,129,0.15)' }
+          ]
+        );
+
+        // Enhanced legend
+        const legX = 44 + (width-88)/2 + 40, legY = y+50;
+        text(ctx, '●', legX, legY, 16, colors.p1, 'left', 'alphabetic', '600');
+        text(ctx, '2023', legX+20, legY, 12, colors.ink, 'left', 'alphabetic', '500');
+        text(ctx, '●', legX+80, legY, 16, colors.p3, 'left', 'alphabetic', '600');
+        text(ctx, '2025', legX+100, legY, 12, colors.ink, 'left', 'alphabetic', '500');
+
+        // Source footer with better styling
+        text(ctx, 'Source: How People Use ChatGPT (NBER Working Paper, Sep 2025)', 44, y+240, 12, colors.inkDim, 'left', 'alphabetic', '400');
+      }
+    }
+
+    function redraw() {
+      render(1);
+    }
+
+    window.addEventListener('resize', redraw);
+    redraw();
+
+    // Download handling with improved UX
+    downloadBtn.addEventListener('click', () => {
+      const scale = parseFloat(scaleSelect.value);
+      downloadBtn.textContent = '⏳ Generating...';
+      downloadBtn.disabled = true;
+      
+      setTimeout(() => {
+        render(scale);
+        const url = canvas.toDataURL('image/png');
+        render(1); // Re-render back to 1x for display
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'how-people-use-chatgpt-infographic.png';
+        a.click();
+        
+        downloadBtn.textContent = '📥 Download PNG';
+        downloadBtn.disabled = false;
+      }, 100);
+    });
+
+    // Add smooth resize animation
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(redraw, 100);
+    });
+  </script>
+</body>
+</html>

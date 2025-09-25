@@ -1,0 +1,520 @@
+/* ===================================================================
+   BUSINESS THEME
+   Professional corporate aesthetic inspired by infographic design
+   Author: Chris Prakoso - Augmented Humanity
+   ================================================================== */
+
+/* Import base theme foundation */
+@import url('./base-theme.css');
+
+:root {
+  /* ===================================================================
+     THEME METADATA
+     ================================================================== */
+  --theme-name: "Business";
+  --theme-description: "Professional corporate aesthetic with navy and slate tones inspired by modern infographic design";
+  --theme-version: "1.0";
+  --theme-author: "Chris Prakoso";
+  --theme-category: "Professional";
+  
+  /* ===================================================================
+     BUSINESS COLOR PALETTE - LIGHT MODE
+     Inspired by the infographic's slate-based color scheme
+     ================================================================== */
+  --bg-primary: rgb(248, 250, 252);      /* slate-50 equivalent */
+  --bg-secondary: rgb(255, 255, 255);    /* White cards */
+  --bg-tertiary: rgb(241, 245, 249);     /* slate-100 equivalent */
+  --text-primary: rgb(15, 23, 42);       /* slate-900 equivalent */
+  --text-secondary: rgb(71, 85, 105);    /* slate-600 equivalent */
+  --text-tertiary: rgb(100, 116, 139);   /* slate-500 equivalent */
+  --border-primary: rgb(226, 232, 240);  /* slate-200 equivalent */
+  --border-secondary: rgb(203, 213, 225); /* slate-300 equivalent */
+  --accent-bg: rgb(239, 246, 255);       /* blue-50 for accents */
+  --accent-border: rgb(147, 197, 253);   /* blue-300 for accent borders */
+  
+  /* Component backgrounds - matching infographic style */
+  --card-bg: rgb(255, 255, 255);
+  --pill-neutral-bg: rgb(241, 245, 249);
+  --pill-neutral-text: rgb(51, 65, 85);
+  --pill-neutral-border: rgb(226, 232, 240);
+  
+  /* ===================================================================
+     BRAND COLORS - BUSINESS PROFESSIONAL PALETTE
+     ================================================================== */
+  --brand-primary: rgb(30, 64, 175);      /* blue-800 - Professional Blue */
+  --brand-secondary: rgb(59, 130, 246);   /* blue-500 - Corporate Blue */
+  --brand-accent: rgb(16, 185, 129);      /* emerald-500 - Success Green */
+  
+  /* Business Corporate Palette */
+  --corporate-navy: rgb(15, 23, 42);      /* slate-900 - Deep Navy */
+  --corporate-blue: rgb(30, 64, 175);     /* blue-800 - Corporate Blue */
+  --corporate-slate: rgb(71, 85, 105);    /* slate-600 - Professional Gray */
+  --corporate-emerald: rgb(16, 185, 129); /* emerald-500 - Business Green */
+  
+  /* ===================================================================
+     CONTEXTUAL COLOR SYSTEM - BUSINESS EDITION
+     Based on the infographic's clean, data-focused design
+     ================================================================== */
+  
+  /* Blue Theme Colors (Primary data, KPIs) */
+  --blue-bg-light: rgb(239, 246, 255);   /* blue-50 */
+  --blue-bg-medium: rgb(191, 219, 254);  /* blue-200 */
+  --blue-text: rgb(30, 64, 175);         /* blue-800 */
+  --blue-text-dark: rgb(30, 58, 138);    /* blue-900 */
+  
+  /* Slate Theme Colors (Secondary data, charts) */
+  --slate-bg-light: rgb(248, 250, 252);  /* slate-50 */
+  --slate-bg-medium: rgb(226, 232, 240); /* slate-200 */
+  --slate-text: rgb(51, 65, 85);         /* slate-700 */
+  --slate-text-dark: rgb(30, 41, 59);    /* slate-800 */
+  
+  /* Emerald Theme Colors (Success metrics, growth) */
+  --emerald-bg-light: rgb(236, 253, 245); /* emerald-50 */
+  --emerald-bg-medium: rgb(167, 243, 208); /* emerald-200 */
+  --emerald-text: rgb(4, 120, 87);        /* emerald-700 */
+  --emerald-text-dark: rgb(6, 95, 70);    /* emerald-800 */
+  
+  /* Amber Theme Colors (Warnings, important metrics) */
+  --amber-bg-light: rgb(255, 251, 235);   /* amber-50 */
+  --amber-bg-medium: rgb(252, 211, 77);   /* amber-300 */
+  --amber-text: rgb(146, 64, 14);         /* amber-700 */
+  --amber-text-dark: rgb(120, 53, 15);    /* amber-800 */
+  
+  /* Red Theme Colors (Critical data, alerts) */
+  --red-bg-light: rgb(254, 242, 242);     /* red-50 */
+  --red-bg-medium: rgb(252, 165, 165);    /* red-300 */
+  --red-text: rgb(153, 27, 27);           /* red-700 */
+  --red-text-dark: rgb(127, 29, 29);      /* red-800 */
+  
+  /* ===================================================================
+     BUSINESS COMPONENT CUSTOMIZATIONS
+     Inspired by the infographic's card-based layout
+     ================================================================== */
+  
+  /* Enhanced shadows for professional presentation */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 
+                 0 1px 2px -1px rgba(0, 0, 0, 0.1),
+                 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+  
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                       0 2px 4px -2px rgba(0, 0, 0, 0.1),
+                       0 20px 25px -5px rgba(15, 23, 42, 0.12);
+  
+  /* Progress bars for business metrics */
+  --progress-primary: linear-gradient(90deg, var(--brand-primary) var(--p, 0%), var(--border-primary) 0);
+  --progress-success: linear-gradient(90deg, var(--corporate-emerald) var(--p, 0%), var(--border-primary) 0);
+  --progress-warning: linear-gradient(90deg, var(--amber-text) var(--p, 0%), var(--border-primary) 0);
+  
+  /* Business gradients - inspired by infographic background */
+  --gradient-header: linear-gradient(135deg, var(--bg-primary), var(--bg-tertiary));
+  --gradient-cta-primary: linear-gradient(135deg, var(--corporate-blue), var(--corporate-navy));
+  --gradient-infographic: linear-gradient(to bottom, var(--bg-primary), var(--bg-tertiary));
+}
+
+/* ===================================================================
+   BUSINESS DARK MODE COLORS
+   Dark theme for professional presentations
+   ================================================================== */
+[data-theme="dark"] {
+  --bg-primary: rgb(15, 23, 42);         /* slate-900 */
+  --bg-secondary: rgb(30, 41, 59);       /* slate-800 */
+  --bg-tertiary: rgb(51, 65, 85);        /* slate-700 */
+  --text-primary: rgb(248, 250, 252);    /* slate-50 */
+  --text-secondary: rgb(148, 163, 184);  /* slate-400 */
+  --text-tertiary: rgb(100, 116, 139);   /* slate-500 */
+  --border-primary: rgb(71, 85, 105);    /* slate-600 */
+  --border-secondary: rgb(100, 116, 139); /* slate-500 */
+  --accent-bg: rgb(30, 58, 138);         /* blue-900 */
+  --accent-border: rgb(59, 130, 246);    /* blue-500 */
+  
+  /* Component backgrounds */
+  --card-bg: rgb(30, 41, 59);            /* slate-800 */
+  --pill-neutral-bg: rgb(51, 65, 85);    /* slate-700 */
+  --pill-neutral-text: rgb(203, 213, 225); /* slate-300 */
+  --pill-neutral-border: rgb(71, 85, 105); /* slate-600 */
+  
+  /* Dark mode contextual colors */
+  --blue-bg-light: rgb(30, 58, 138);     /* blue-900 */
+  --blue-bg-medium: rgb(37, 99, 235);    /* blue-600 */
+  --blue-text: rgb(147, 197, 253);       /* blue-300 */
+  --blue-text-dark: rgb(191, 219, 254);  /* blue-200 */
+  
+  --slate-bg-light: rgb(30, 41, 59);     /* slate-800 */
+  --slate-bg-medium: rgb(71, 85, 105);   /* slate-600 */
+  --slate-text: rgb(203, 213, 225);      /* slate-300 */
+  --slate-text-dark: rgb(241, 245, 249); /* slate-100 */
+  
+  --emerald-bg-light: rgb(6, 95, 70);    /* emerald-800 */
+  --emerald-bg-medium: rgb(16, 185, 129); /* emerald-500 */
+  --emerald-text: rgb(167, 243, 208);    /* emerald-200 */
+  --emerald-text-dark: rgb(209, 250, 229); /* emerald-100 */
+  
+  --amber-bg-light: rgb(120, 53, 15);    /* amber-800 */
+  --amber-bg-medium: rgb(245, 158, 11);  /* amber-500 */
+  --amber-text: rgb(252, 211, 77);       /* amber-300 */
+  --amber-text-dark: rgb(254, 243, 199); /* amber-100 */
+  
+  --red-bg-light: rgb(127, 29, 29);      /* red-800 */
+  --red-bg-medium: rgb(220, 38, 38);     /* red-600 */
+  --red-text: rgb(252, 165, 165);        /* red-300 */
+  --red-text-dark: rgb(254, 202, 202);   /* red-200 */
+  
+  /* Enhanced shadows for dark mode presentations */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 
+                 0 1px 2px -1px rgba(0, 0, 0, 0.4),
+                 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 
+                       0 2px 4px -2px rgba(0, 0, 0, 0.4),
+                       0 20px 25px -5px rgba(0, 0, 0, 0.35);
+  
+  /* Dark mode gradients */
+  --gradient-header: linear-gradient(135deg, var(--bg-secondary), var(--accent-bg));
+  --gradient-cta-primary: linear-gradient(135deg, var(--corporate-blue), rgb(29, 78, 216));
+  --gradient-infographic: linear-gradient(to bottom, rgb(2, 6, 23), var(--bg-primary));
+}
+
+/* ===================================================================
+   BUSINESS SPECIFIC COMPONENT OVERRIDES
+   ================================================================== */
+
+/* Corporate color utilities */
+.corporate-navy { color: var(--corporate-navy); }
+.corporate-blue { color: var(--corporate-blue); }
+.corporate-slate { color: var(--corporate-slate); }
+.corporate-emerald { color: var(--corporate-emerald); }
+
+.bg-corporate-navy { background-color: rgba(15, 23, 42, 0.1); }
+.bg-corporate-blue { background-color: rgba(30, 64, 175, 0.1); }
+.bg-corporate-slate { background-color: rgba(71, 85, 105, 0.1); }
+.bg-corporate-emerald { background-color: rgba(16, 185, 129, 0.1); }
+
+/* Business card styling - inspired by infographic cards */
+.business-card { 
+  background: var(--card-bg);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-primary);
+  transition: all var(--transition-normal);
+}
+
+.business-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+/* KPI card styling - matching infographic KPI design */
+.kpi-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-primary);
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-xs);
+}
+
+.kpi-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Professional buttons */
+.btn-business-primary {
+  background: var(--gradient-cta-primary);
+  color: white;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--radius-xl);
+  font-weight: var(--font-weight-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-business-primary:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  opacity: 0.9;
+}
+
+.btn-business-secondary {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--radius-xl);
+  font-weight: var(--font-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-primary);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.btn-business-secondary:hover {
+  background: var(--bg-tertiary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Chart container styling */
+.chart-container {
+  background: var(--card-bg);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-primary);
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.chart-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Progress bars for business metrics */
+.progress-business { 
+  height: 12px; 
+  border-radius: var(--radius-full); 
+  background: var(--progress-primary);
+  transition: all var(--transition-normal);
+}
+
+.progress-success { 
+  background: var(--progress-success);
+}
+
+.progress-warning { 
+  background: var(--progress-warning);
+}
+
+/* Typography enhancements for business presentation */
+.business-heading-xl {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.business-heading-lg {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.business-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.business-small {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+/* Professional pill styling */
+.business-pill {
+  border-radius: var(--radius-full);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  border: 1px solid var(--pill-neutral-border);
+  background: var(--pill-neutral-bg);
+  color: var(--pill-neutral-text);
+}
+
+/* ===================================================================
+   BUSINESS THEME SPECIFIC ANIMATIONS
+   ================================================================== */
+@keyframes businessFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-business-fade-in-up {
+  animation: businessFadeInUp 0.6s ease-out;
+}
+
+@keyframes businessSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-business-slide-in {
+  animation: businessSlideIn 0.5s ease-out;
+}
+
+/* ===================================================================
+   PRINT OPTIMIZATIONS FOR BUSINESS
+   ================================================================== */
+@media print {
+  /* Ensure corporate colors print correctly */
+  .corporate-navy { color: #0f172a !important; }
+  .corporate-blue { color: #1e40af !important; }
+  .corporate-slate { color: #475569 !important; }
+  .corporate-emerald { color: #10b981 !important; }
+  
+  /* Optimize business buttons for print */
+  .btn-business-primary {
+    background: #1e40af !important;
+    color: white !important;
+  }
+  
+  .btn-business-secondary {
+    background: white !important;
+    color: #0f172a !important;
+    border: 2px solid #e2e8f0 !important;
+  }
+  
+  /* Print-friendly cards */
+  .business-card, .kpi-card, .chart-container {
+    box-shadow: none !important;
+    border: 2px solid #e2e8f0 !important;
+  }
+  
+  /* Print-friendly progress bars */
+  .progress-business {
+    background: linear-gradient(90deg, #1e40af var(--p, 0%), #e2e8f0 0) !important;
+  }
+}
+
+/* ===================================================================
+   BUSINESS RESPONSIVE ENHANCEMENTS
+   ================================================================== */
+@media (max-width: 768px) {
+  /* Mobile-optimized spacing for business theme */
+  :root {
+    --card-padding: 1rem;
+    --button-padding-x: 1.5rem;
+    --button-padding-y: 0.625rem;
+  }
+  
+  /* Mobile-friendly KPI cards */
+  .kpi-card {
+    padding: var(--spacing-md);
+  }
+  
+  .kpi-value {
+    font-size: 1.75rem;
+  }
+  
+  /* Mobile shadows */
+  .business-card, .chart-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Mobile typography */
+  .business-heading-xl {
+    font-size: 2rem;
+  }
+  
+  .business-heading-lg {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===================================================================
+   BUSINESS INFOGRAPHIC SPECIFIC STYLES
+   Matching the original infographic design patterns
+   ================================================================== */
+
+/* Grid layouts for business dashboards */
+.business-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.business-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.business-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.business-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Business header styling */
+.business-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xl);
+}
+
+.business-header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.business-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+/* Business footer styling */
+.business-footer {
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-primary);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+/* Utility classes for business theme */
+.text-business-primary { color: var(--brand-primary); }
+.text-business-secondary { color: var(--brand-secondary); }
+.text-business-accent { color: var(--brand-accent); }
+
+.bg-business-primary { background-color: var(--brand-primary); }
+.bg-business-secondary { background-color: var(--brand-secondary); }
+.bg-business-accent { background-color: var(--brand-accent); }
+
+.border-business-primary { border-color: var(--brand-primary); }
+.border-business-secondary { border-color: var(--brand-secondary); }
+.border-business-accent { border-color: var(--brand-accent); }

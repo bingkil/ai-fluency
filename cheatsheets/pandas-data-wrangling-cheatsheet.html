@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Primary Meta Tags -->
+  <title>🐼 Pandas Data Wrangling Cheat-Sheet — Complete Guide to Data Manipulation in Python</title>
+  <meta name="title" content="🐼 Pandas Data Wrangling Cheat-Sheet — Complete Guide to Data Manipulation in Python" />
+  <meta name="description" content="Comprehensive pandas cheatsheet covering data loading, manipulation, filtering, grouping, and visualization. 24 essential sections with practical examples for data scientists and analysts." />
+  <meta name="keywords" content="pandas, python, data science, data wrangling, data manipulation, dataframe, data analysis, cheatsheet" />
+  <meta name="author" content="Chris Prakoso" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://augmentedhumanity.substack.com/pandas-cheatsheet" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://augmentedhumanity.substack.com/pandas-cheatsheet" />
+  <meta property="og:title" content="🐼 Pandas Data Wrangling Cheat-Sheet — Complete Guide to Data Manipulation in Python" />
+  <meta property="og:description" content="Comprehensive pandas cheatsheet covering data loading, manipulation, filtering, grouping, and visualization. 24 essential sections with practical examples for data scientists and analysts." />
+  <meta property="og:image" content="https://augmentedhumanity.substack.com/assets/pandas-cheatsheet-social.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Augmented Humanity" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://augmentedhumanity.substack.com/pandas-cheatsheet" />
+  <meta property="twitter:title" content="🐼 Pandas Data Wrangling Cheat-Sheet — Complete Guide to Data Manipulation in Python" />
+  <meta property="twitter:description" content="Comprehensive pandas cheatsheet covering data loading, manipulation, filtering, grouping, and visualization. 24 essential sections with practical examples for data scientists and analysts." />
+  <meta property="twitter:image" content="https://augmentedhumanity.substack.com/assets/pandas-cheatsheet-social.jpg" />
+  <meta property="twitter:creator" content="@mahadewa" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "🐼 Pandas Data Wrangling Cheat-Sheet — Complete Guide to Data Manipulation in Python",
+    "description": "Comprehensive pandas cheatsheet covering data loading, manipulation, filtering, grouping, and visualization. 24 essential sections with practical examples for data scientists and analysts.",
+    "image": "https://augmentedhumanity.substack.com/assets/pandas-cheatsheet-social.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Chris Prakoso",
+      "url": "https://www.linkedin.com/in/mahadewa"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Augmented Humanity",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://augmentedhumanity.substack.com/assets/augmented-humanity-logo.jpg"
+      }
+    },
+    "datePublished": "2025-09-25",
+    "dateModified": "2025-09-25",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://augmentedhumanity.substack.com/pandas-cheatsheet"
+    },
+    "keywords": ["pandas", "python", "data science", "data wrangling", "data manipulation", "dataframe", "data analysis"],
+    "proficiencyLevel": "Beginner to Advanced",
+    "educationalLevel": "Professional Development"
+  }
+  </script>
+
+  <!-- External Stylesheets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/infographic-styles.css">
+  
+  <!-- Theme System -->
+  <link id="theme-stylesheet" rel="stylesheet" href="../assets/themes/dark-knight.css">
+  
+  <!-- CSS Variables for dark/light mode support -->
+  <style>
+    :root {
+      --card-bg: #ffffff;
+      --border-color: #e5e7eb;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --text-tertiary: #9ca3af;
+      --primary-color: #2563eb;
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --bg-tertiary: #f3f4f6;
+    }
+    
+    [data-theme="dark"] {
+      --card-bg: #1f2937;
+      --border-color: #374151;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --text-tertiary: #9ca3af;
+      --bg-primary: #111827;
+      --bg-secondary: #1f2937;
+      --bg-tertiary: #374151;
+    }
+
+    .code-block {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="leading-relaxed" style="background-color: var(--bg-primary); color: var(--text-primary);" data-theme="light">
+  
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:outline-2 focus:outline-white">Skip to main content</a>
+
+  <!-- Augmented Humanity Logo -->
+  <a href="https://augmentedhumanity.substack.com/" target="_blank" rel="noopener" class="fixed top-4 left-4 z-50 group focus:outline-2 focus:outline-white focus:outline-offset-2" aria-label="Visit Augmented Humanity newsletter homepage">
+    <img src="../assets/augmented-humanity-logo.jpg" alt="Augmented Humanity Logo" class="h-12 w-auto rounded-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300" loading="lazy">
+  </a>
+
+  <!-- Social Sharing and Theme Toggle -->
+  <nav class="fixed top-4 right-4 z-50 flex items-center gap-2" role="navigation" aria-label="Social sharing and theme options">
+    <span class="text-sm font-medium px-2 py-1 rounded-md" style="background-color: var(--bg-secondary); color: var(--text-secondary);" role="note">Share:</span>
+    
+    <!-- Twitter/X Share -->
+    <a href="https://twitter.com/intent/tweet?url=https%3A//augmentedhumanity.substack.com/pandas-cheatsheet&text=🐼%20Comprehensive%20pandas%20cheatsheet%20for%20data%20wrangling%20-%2024%20essential%20sections%20with%20examples!%20Perfect%20for%20data%20scientists%20and%20analysts.%20by%20@mahadewa" 
+       target="_blank" 
+       rel="noopener" 
+       class="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center hover:bg-gray-700 focus:outline-2 focus:outline-white focus:outline-offset-2 transition-colors duration-300" 
+       aria-label="Share on Twitter/X">
+      <span aria-hidden="true">𝕏</span>
+    </a>
+    
+    <!-- LinkedIn Share -->
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//augmentedhumanity.substack.com/pandas-cheatsheet" 
+       target="_blank" 
+       rel="noopener" 
+       class="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-600 focus:outline-2 focus:outline-white focus:outline-offset-2 transition-colors duration-300" 
+       aria-label="Share on LinkedIn">
+      <span aria-hidden="true">💼</span>
+    </a>
+    
+    <!-- Copy Link -->
+    <button id="copy-link-btn" 
+            class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-500 focus:outline-2 focus:outline-white focus:outline-offset-2 transition-colors duration-300" 
+            aria-label="Copy link to clipboard"
+            onclick="copyToClipboard()">
+      <span aria-hidden="true">🔗</span>
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" 
+            class="w-10 h-10 bg-amber-500 text-white rounded-full flex items-center justify-center hover:bg-amber-400 focus:outline-2 focus:outline-white focus:outline-offset-2 transition-colors duration-300" 
+            aria-label="Toggle dark/light theme"
+            aria-describedby="theme-status">
+      <span id="theme-icon" aria-hidden="true">🌙</span>
+    </button>
+    <div id="theme-status" class="sr-only" role="status" aria-live="polite">Theme set to light mode</div>
+  </nav>
+
+  <main id="main-content">
+    
+    <!-- Header Section -->
+    <section class="px-6 md:px-10 lg:px-12 py-16" role="banner">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- Brand and Meta Info -->
+        <div class="flex items-center gap-3 text-sm mb-6" style="color: var(--text-tertiary);">
+          <span class="font-semibold">Augmented Humanity</span>
+          <span>•</span>
+          <span>Data Science</span>
+          <span>•</span>
+          <span>Programming Guide</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6" style="color: var(--text-primary);">
+          🐼 Pandas Data Wrangling Cheat-Sheet
+        </h1>
+
+        <!-- Description -->
+        <p class="text-xl md:text-2xl leading-relaxed mb-6" style="color: var(--text-secondary);">
+          Master Python's most powerful data manipulation library with this comprehensive guide covering 24 essential sections from basic operations to advanced techniques.
+        </p>
+
+        <!-- Feature List -->
+        <ul class="flex flex-wrap items-center gap-4 text-sm mb-6" role="list" aria-label="Cheatsheet features">
+          <li class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-green-500" aria-hidden="true"></span>
+            <span style="color: var(--text-secondary);">24 comprehensive sections</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-blue-500" aria-hidden="true"></span>
+            <span style="color: var(--text-secondary);">Practical code examples</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-purple-500" aria-hidden="true"></span>
+            <span style="color: var(--text-secondary);">Performance tips included</span>
+          </li>
+        </ul>
+
+        <!-- Source Attribution -->
+        <aside class="mt-3 text-sm space-y-1" style="color: var(--text-tertiary);" aria-label="Cheatsheet source and curation information">
+          <p>Source: Comprehensive pandas documentation and best practices</p>
+          <p>Curated by: Chris Prakoso <a href="https://www.linkedin.com/in/mahadewa" target="_blank" rel="noopener" class="text-blue-600 hover:underline focus:outline-2 focus:outline-blue-400 focus:outline-offset-2" aria-label="Chris Prakoso's LinkedIn profile">www.linkedin.com/in/mahadewa</a></p>
+          <p>Subscribe to my newsletter for the latest updates: <a href="https://augmentedhumanity.substack.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline focus:outline-2 focus:outline-blue-400 focus:outline-offset-2">Augmented Humanity</a></p>
+        </aside>
+
+        <!-- Primary CTA -->
+        <div class="flex flex-col sm:flex-row items-start gap-4 mt-8">
+          <a href="#cheatsheet-content" 
+             class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-2 focus:outline-white focus:outline-offset-2"
+             aria-label="Jump to pandas cheatsheet content">
+            <span aria-hidden="true">📊</span>
+            <span>Start Learning Pandas</span>
+          </a>
+          
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            <span class="pill bg-blue-100 text-blue-800 border border-blue-200">Python</span>
+            <span class="pill bg-green-100 text-green-800 border border-green-200">Data Science</span>
+            <span class="pill bg-purple-100 text-purple-800 border border-purple-200">FREE Guide</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Statistics Section -->
+    <section id="key-stats" class="px-6 md:px-10 lg:px-12 py-12" role="region" aria-labelledby="stats-heading">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="stats-heading" class="text-2xl md:text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">
+          Cheatsheet Highlights
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Total Sections -->
+          <div class="card-shadow card-hover focusable rounded-2xl p-6" 
+               style="background-color: var(--card-bg);" 
+               tabindex="0" 
+               role="img" 
+               aria-label="24 comprehensive sections covering all aspects of pandas">
+            <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Total Sections</div>
+            <div class="flex items-baseline gap-3 mb-4">
+              <div class="text-5xl font-black google-blue">24</div>
+              <div class="text-lg font-semibold" style="color: var(--text-primary);">Topics</div>
+            </div>
+            <div class="progress-bar mb-3" style="--p:100%" aria-hidden="true"></div>
+            <div class="text-xs" style="color: var(--text-tertiary);">Complete coverage from basics to advanced</div>
+          </div>
+
+          <!-- Code Examples -->
+          <div class="card-shadow card-hover focusable rounded-2xl p-6" 
+               style="background-color: var(--card-bg);" 
+               tabindex="0" 
+               role="img" 
+               aria-label="Over 150 practical code examples">
+            <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Code Examples</div>
+            <div class="flex items-baseline gap-3 mb-4">
+              <div class="text-5xl font-black google-green">150+</div>
+              <div class="text-lg font-semibold" style="color: var(--text-primary);">Examples</div>
+            </div>
+            <div class="progress-bar mb-3" style="--p:90%" aria-hidden="true"></div>
+            <div class="text-xs" style="color: var(--text-tertiary);">Real-world practical applications</div>
+          </div>
+
+          <!-- Performance Tips -->
+          <div class="card-shadow card-hover focusable rounded-2xl p-6" 
+               style="background-color: var(--card-bg);" 
+               tabindex="0" 
+               role="img" 
+               aria-label="20 performance optimization tips">
+            <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Performance Tips</div>
+            <div class="flex items-baseline gap-3 mb-4">
+              <div class="text-5xl font-black google-yellow text-amber-600">20</div>
+              <div class="text-lg font-semibold" style="color: var(--text-primary);">Tips</div>
+            </div>
+            <div class="progress-bar mb-3" style="--p:75%" aria-hidden="true"></div>
+            <div class="text-xs" style="color: var(--text-tertiary);">Memory & speed optimizations</div>
+          </div>
+
+          <!-- Best Practices -->
+          <div class="card-shadow card-hover focusable rounded-2xl p-6" 
+               style="background-color: var(--card-bg);" 
+               tabindex="0" 
+               role="img" 
+               aria-label="Essential best practices and anti-patterns">
+            <div class="text-sm font-medium mb-3" style="color: var(--text-secondary);">Best Practices</div>
+            <div class="flex items-baseline gap-3 mb-4">
+              <div class="text-5xl font-black google-red">100%</div>
+              <div class="text-lg font-semibold" style="color: var(--text-primary);">Coverage</div>
+            </div>
+            <div class="progress-bar mb-3" style="--p:100%" aria-hidden="true"></div>
+            <div class="text-xs" style="color: var(--text-tertiary);">Industry standard practices</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Cheatsheet Content -->
+    <section id="cheatsheet-content" class="px-6 md:px-10 lg:px-12 py-12" role="region" aria-labelledby="content-heading">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="content-heading" class="text-2xl md:text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">
+          Complete Pandas Reference Guide
+        </h2>
+        
+        <div class="section-grid">
+          
+          <!-- Section 0: Setup & Display -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--blue-bg-light), var(--blue-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--blue-text-dark);">0) Setup & Display</h3>
+              <span class="pill" style="background-color: var(--blue-bg-medium); color: var(--blue-text-dark);">Basics</span>
+            </div>
+            <div class="code-block">import pandas as pd
+import numpy as np
+
+pd.set_option("display.max_rows", 50)
+pd.set_option("display.width", 120)</div>
+          </div>
+
+          <!-- Section 1: Create / Load / Save -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--green-bg-light), var(--green-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--green-text-dark);">1) Create / Load / Save</h3>
+              <span class="pill" style="background-color: var(--green-bg-medium); color: var(--green-text-dark);">I/O</span>
+            </div>
+            <div class="code-block"># From dict / list / numpy
+df = pd.DataFrame({"id":[1,2], "name":["A","B"], "val":[10,20]})
+s  = pd.Series([1,2,3], name="x")
+
+# CSV / Parquet / JSON
+df = pd.read_csv("data.csv", dtype={"id":"Int64"})
+df = pd.read_parquet("data.parquet")
+df = pd.read_json("data.json", lines=True)
+
+# Save
+df.to_csv("out.csv", index=False)
+df.to_parquet("out.parquet")</div>
+          </div>
+
+          <!-- Section 2: Quick Intel -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--purple-bg-light), var(--purple-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--purple-text-dark);">2) Quick Intel</h3>
+              <span class="pill" style="background-color: var(--purple-bg-medium); color: var(--purple-text-dark);">Info</span>
+            </div>
+            <div class="code-block">df.shape; df.columns; df.index
+df.info()
+df.dtypes
+df.memory_usage(deep=True).sum()
+df.head(5); df.tail(5)
+df.describe(include="all")</div>
+          </div>
+
+          <!-- Section 3: Selecting & Filtering -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--amber-bg-light), var(--amber-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--amber-text-dark);">3) Selecting & Filtering</h3>
+              <span class="pill" style="background-color: var(--amber-bg-medium); color: var(--amber-text-dark);">Query</span>
+            </div>
+            <div class="code-block"># Columns
+df[["col1","col2"]]
+df.loc[:, "col1":"col3"]
+df.iloc[:, [0,2,4]]
+
+# Rows
+df.loc[df["amount"]>0]
+df.query("amount > 0 and status == 'OK'")
+
+# Scalar access
+df.at[row_label, "col"]
+df.iat[row_pos, col_pos]</div>
+          </div>
+
+          <!-- Section 4: Create/Modify Columns -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--blue-bg-light), var(--green-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">4) Create/Modify Columns</h3>
+              <span class="pill bg-gradient-to-r from-blue-100 to-green-100 text-gray-800">Transform</span>
+            </div>
+            <div class="code-block">df["net"] = df["gross"] - df["tax"]
+df = df.assign(
+    ratio=lambda x: x.net.div(x.gross),
+    is_big=lambda x: x.gross.ge(1000)
+)
+
+df["grade"] = np.select(
+    [df.ratio>=0.8, df.ratio>=0.5],
+    ["A","B"], default="C"
+)
+
+df["country"] = df["country"].replace({"UK":"United Kingdom"})
+df["code3"] = df["country"].map({"United Kingdom":"GBR"})</div>
+          </div>
+
+          <!-- Section 5: Missing Data -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--red-bg-light), var(--red-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--red-text-dark);">5) Missing Data</h3>
+              <span class="pill" style="background-color: var(--red-bg-medium); color: var(--red-text-dark);">Clean</span>
+            </div>
+            <div class="code-block">df.isna().mean()
+df["x"] = df["x"].fillna(0)
+df["y"] = df["y"].fillna(method="ffill")
+df = df.dropna(subset=["must_have"])
+
+df["cat"] = df["cat"].astype("string")
+df["n"] = df["n"].astype("Int64")</div>
+          </div>
+
+          <!-- Section 6: Type Management -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--purple-bg-light), var(--blue-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">6) Type Management</h3>
+              <span class="pill bg-gradient-to-r from-purple-100 to-blue-100 text-gray-800">Types</span>
+            </div>
+            <div class="code-block">df["ts"] = pd.to_datetime(df["ts"], utc=True, errors="coerce")
+df["day"] = df["ts"].dt.date
+df["cat"] = df["cat"].astype("category")
+df["flag"] = df["flag"].astype("boolean")
+df = df.convert_dtypes()</div>
+          </div>
+
+          <!-- Section 7: Dates, Times, Time Zones -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--green-bg-light), var(--blue-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">7) Dates & Time Zones</h3>
+              <span class="pill bg-gradient-to-r from-green-100 to-blue-100 text-gray-800">DateTime</span>
+            </div>
+            <div class="code-block">df["ts"] = pd.to_datetime(df["ts"], utc=True)
+df["ts_local"] = df["ts"].dt.tz_convert("Europe/Bratislava")
+
+df["date"] = df["ts"].dt.date
+df["hour"] = df["ts"].dt.hour
+df["woy"] = df["ts"].dt.isocalendar().week
+df["month"] = df["ts"].dt.to_period("M")
+
+ts = df.set_index("ts").sort_index()
+daily = ts.resample("D").agg({"val":"sum"}).fillna(0)</div>
+          </div>
+
+          <!-- Section 8: String Operations -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--amber-bg-light), var(--purple-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">8) String Operations</h3>
+              <span class="pill bg-gradient-to-r from-amber-100 to-purple-100 text-gray-800">Text</span>
+            </div>
+            <div class="code-block">s = df["name"].str
+df["clean"] = s.strip().lower().replace(r"\s+", " ", regex=True)
+df["domain"] = df["email"].str.extract(r"@([A-Za-z0-9\.-]+)")
+df["has_num"] = df["name"].str.contains(r"\d", na=False)</div>
+          </div>
+
+          <!-- Section 9: Indexes & MultiIndex -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--blue-bg-light), var(--blue-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--blue-text-dark);">9) Indexes & MultiIndex</h3>
+              <span class="pill" style="background-color: var(--blue-bg-medium); color: var(--blue-text-dark);">Index</span>
+            </div>
+            <div class="code-block">df = df.set_index(["country","city"]).sort_index()
+df.loc[("Slovakia", "Košice"), :]
+df = df.reset_index()</div>
+          </div>
+
+          <!-- Section 10: Sorting, Ranking, Sampling -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--green-bg-light), var(--green-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--green-text-dark);">10) Sorting & Ranking</h3>
+              <span class="pill" style="background-color: var(--green-bg-medium); color: var(--green-text-dark);">Order</span>
+            </div>
+            <div class="code-block">df = df.sort_values(["date","amount"], ascending=[True, False])
+df["rank"] = df.groupby("group")["score"].rank(method="first", ascending=False)
+df.sample(n=100, random_state=42)</div>
+          </div>
+
+          <!-- Section 11: De-duplication -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--purple-bg-light), var(--purple-bg-medium));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--purple-text-dark);">11) De-duplication</h3>
+              <span class="pill" style="background-color: var(--purple-bg-medium); color: var(--purple-text-dark);">Unique</span>
+            </div>
+            <div class="code-block">df.drop_duplicates(subset=["user_id", "date"], keep="last", inplace=True)
+df["is_dup"] = df.duplicated(["user_id", "date"], keep=False)</div>
+          </div>
+
+          <!-- Section 12: Joins / Concats -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--amber-bg-light), var(--red-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">12) Joins & Merges</h3>
+              <span class="pill bg-gradient-to-r from-amber-100 to-red-100 text-gray-800">Combine</span>
+            </div>
+            <div class="code-block">left.merge(right, on="id", how="left", suffixes=("", "_r"))
+left.merge(right, left_on="a", right_on="b", how="inner")
+pd.merge_asof(a.sort_values("ts"), b.sort_values("ts"), on="ts",
+              by="key", direction="nearest", tolerance=pd.Timedelta("2h"))
+
+pd.concat([df1, df2], axis=0, ignore_index=True)
+pd.concat([df1, df2], axis=1)</div>
+          </div>
+
+          <!-- Section 13: GroupBy -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--blue-bg-light), var(--purple-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">13) GroupBy Operations</h3>
+              <span class="pill bg-gradient-to-r from-blue-100 to-purple-100 text-gray-800">Aggregate</span>
+            </div>
+            <div class="code-block">g = df.groupby(["country","segment"], dropna=False)
+
+agg_df = g.agg(
+    n=("id","count"),
+    revenue=("amount","sum"),
+    avg=("amount","mean"),
+    uniq_users=("user_id","nunique")
+).reset_index()
+
+df["zscore"] = g["amount"].transform(lambda x: (x - x.mean())/x.std(ddof=0))
+big = g.filter(lambda x: x["amount"].sum() > 10_000)</div>
+          </div>
+
+          <!-- Section 14: Windows -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--green-bg-light), var(--amber-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">14) Rolling Windows</h3>
+              <span class="pill bg-gradient-to-r from-green-100 to-amber-100 text-gray-800">Windows</span>
+            </div>
+            <div class="code-block">s = df.sort_values("ts").set_index("ts")["amount"]
+roll = s.rolling("7D").mean()
+roll_n = s.rolling(window=7, min_periods=3).sum()
+expw = s.ewm(halflife=7, adjust=False).mean()</div>
+          </div>
+
+          <!-- Section 15: Reshaping -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--red-bg-light), var(--purple-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">15) Reshaping Data</h3>
+              <span class="pill bg-gradient-to-r from-red-100 to-purple-100 text-gray-800">Pivot</span>
+            </div>
+            <div class="code-block">long = pd.melt(df, id_vars=["id"], var_name="metric", value_name="value")
+
+wide = long.pivot(index="id", columns="metric", values="value").reset_index()
+
+pv = pd.pivot_table(df, index="country", columns="segment",
+                    values="amount", aggfunc="sum",
+                    fill_value=0, margins=True)</div>
+          </div>
+
+          <!-- Section 16: Binning & Quantiles -->
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--amber-bg-light), var(--blue-bg-light));">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold" style="color: var(--text-primary);">16) Binning & Quantiles</h3>
+              <span class="pill bg-gradient-to-r from-amber-100 to-blue-100 text-gray-800">Bins</span>
+            </div>
+            <div class="code-block">df["bucket"] = pd.cut(df["amount"], bins=[-np.inf,0,50,200,np.inf],
+                      labels=["neg","low","mid","high"])
+df["qtile"] = pd.qcut(df["score"], q=10, labels=False)
+
+low, high = df["amount"].quantile([0.01, 0.99])
+df["amount_c"] = df["amount"].clip(lower=low, upper=high)</div>
+          </div>
+
+        </div>
+
+        <!-- Performance Tips Section -->
+        <div class="mt-12">
+          <h3 class="text-2xl font-bold mb-6 text-center" style="color: var(--text-primary);">Performance & Best Practices</h3>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Performance Tips -->
+            <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--green-bg-light), var(--blue-bg-light));">
+              <h4 class="text-xl font-bold mb-4" style="color: var(--text-primary);">⚡ Performance Tips</h4>
+              <ul class="space-y-2 text-sm" style="color: var(--text-secondary);">
+                <li>• Prefer <strong>Parquet</strong> over CSV for I/O</li>
+                <li>• Use <strong>nullable dtypes</strong> (Int64, string, boolean)</li>
+                <li>• Downcast numerics with <code>pd.to_numeric(..., downcast="integer")</code></li>
+                <li>• Convert high-cardinality strings to <strong>categorical</strong></li>
+                <li>• Avoid <code>apply(axis=1)</code></li>
+                <li>• Chain with <code>.assign</code> + <code>.pipe</code></li>
+                <li>• Use <code>query</code>/<code>eval</code> for large filters</li>
+                <li>• For big data: chunked reading or Dask/Polars</li>
+              </ul>
+            </div>
+
+            <!-- Anti-patterns -->
+            <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--red-bg-light), var(--amber-bg-light));">
+              <h4 class="text-xl font-bold mb-4" style="color: var(--text-primary);">⚠️ Anti-patterns & Gotchas</h4>
+              <ul class="space-y-2 text-sm" style="color: var(--text-secondary);">
+                <li>• <strong>Chained indexing = bugs:</strong><br>
+                Bad: <code>df[df.a>0]["b"] = 1</code><br>
+                Good: <code>df.loc[df.a>0, "b"] = 1</code></li>
+                <li>• <code>inplace=True</code> rarely helps</li>
+                <li>• Mixing <code>NaN</code> and strings → cast to <code>"string"</code></li>
+                <li>• GroupBy drops NAs unless <code>dropna=False</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Method Chaining Example -->
+        <div class="mt-8">
+          <div class="card-shadow rounded-2xl p-6" style="background: linear-gradient(135deg, var(--purple-bg-light), var(--blue-bg-light));">
+            <h4 class="text-xl font-bold mb-4" style="color: var(--text-primary);">🔗 Method-Chaining Pattern</h4>
+            <div class="code-block">tidy = (
+    pd.read_parquet("sales.parquet")
+      .convert_dtypes()
+      .assign(ts=lambda d: pd.to_datetime(d["ts"], utc=True),
+              net=lambda d: d["amount"] - d["tax"])
+      .query("net >= 0 and status == 'OK'")
+      .pipe(lambda d: d.assign(
+          month=d["ts"].dt.to_period("M"),
+          seg=pd.cut(d["net"], [-np.inf,50,200,np.inf],
+                     labels=["low","mid","high"])
+      ))
+      .groupby(["month","seg"], dropna=False)
+      .agg(n=("id","count"), revenue=("net","sum"))
+      .reset_index()
+      .sort_values(["month","seg"])
+)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA Section -->
+    <section class="px-6 md:px-10 lg:px-12 py-8" role="region" aria-labelledby="newsletter-heading">
+      <div class="max-w-4xl mx-auto">
+        <div class="card-shadow rounded-2xl p-8" style="background: linear-gradient(135deg, var(--blue-bg-light), var(--purple-bg-light));">
+          <div class="flex flex-col md:flex-row items-start gap-6">
+            <!-- Profile Image -->
+            <div class="flex-shrink-0">
+              <img src="../assets/chris-prakoso-profile-picture.jpg" 
+                   alt="Chris Prakoso, curator of this pandas cheatsheet and author of Augmented Humanity newsletter" 
+                   class="w-20 h-20 rounded-full object-cover shadow-lg border-4 border-white"
+                   loading="lazy">
+            </div>
+            
+            <!-- Content -->
+            <div class="flex-1">
+              <h2 id="newsletter-heading" class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Hi there, I'm Chris Prakoso.</h2>
+              
+              <p class="text-base mb-4" style="color: var(--text-secondary);">
+                I believe that AI isn't here to replace us - it's here to elevate us. In <strong>Augmented Humanity</strong>, I explore how AI, data, and emerging tech enhance human potential, reshape industries, and redefine human-machine collaboration.
+              </p>
+              
+              <p class="text-base mb-6" style="color: var(--text-secondary);">
+                Subscribe today to get fresh insights, practical guides, and future-driven analysis delivered straight to your inbox.
+              </p>
+              
+              <!-- CTA Button -->
+              <div class="flex flex-col sm:flex-row items-start gap-4">
+                <a href="https://augmentedhumanity.substack.com/" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-2 focus:outline-white focus:outline-offset-2"
+                   aria-label="Subscribe to Chris Prakoso's Augmented Humanity newsletter">
+                  <span aria-hidden="true">📧</span>
+                  <span>Subscribe to Augmented Humanity</span>
+                </a>
+                <span class="text-sm font-medium px-3 py-1 bg-green-100 text-green-800 rounded-full" role="note" aria-label="Newsletter is free of charge">FREE Newsletter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="px-6 md:px-10 lg:px-12 py-8" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);" role="contentinfo">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="text-sm mb-4 md:mb-0" style="color: var(--text-tertiary);">
+          © 2025 Augmented Humanity. Curated by Chris Prakoso.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://www.linkedin.com/in/mahadewa" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 focus:outline-2 focus:outline-blue-400 focus:outline-offset-2" aria-label="Chris Prakoso's LinkedIn">LinkedIn</a>
+          <a href="https://twitter.com/mahadewa" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 focus:outline-2 focus:outline-blue-400 focus:outline-offset-2" aria-label="Chris Prakoso's Twitter">Twitter</a>
+          <a href="https://augmentedhumanity.substack.com/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 focus:outline-2 focus:outline-blue-400 focus:outline-offset-2" aria-label="Augmented Humanity Newsletter">Newsletter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../assets/infographic-scripts.js"></script>
+  
+  <script>
+    // Initialize infographic functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof initializeInfographic === 'function') {
+        initializeInfographic();
+      }
+    });
+
+    // Copy link functionality
+    function copyToClipboard() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(function() {
+        const button = document.getElementById('copy-link-btn');
+        const originalContent = button.innerHTML;
+        button.innerHTML = '<span aria-hidden="true">✓</span>';
+        button.classList.add('bg-green-500');
+        button.classList.remove('bg-green-600');
+        
+        setTimeout(function() {
+          button.innerHTML = originalContent;
+          button.classList.remove('bg-green-500');
+          button.classList.add('bg-green-600');
+        }, 2000);
+
+        // Announce to screen readers
+        const announcement = document.createElement('div');
+        announcement.setAttribute('role', 'status');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        announcement.textContent = 'Link copied to clipboard';
+        document.body.appendChild(announcement);
+        setTimeout(() => document.body.removeChild(announcement), 1000);
+      }).catch(function(err) {
+        console.error('Could not copy text: ', err);
+      });
+    }
+  </script>
+
+</body>
+</html>

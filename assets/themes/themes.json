@@ -1,0 +1,295 @@
+{
+  "themes": [
+    {
+      "id": "dark-knight",
+      "name": "Dark Knight",
+      "description": "Professional, sophisticated, tech-focused aesthetic with Google brand integration",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Professional",
+      "primaryColor": "#2563eb",
+      "accentColor": "#4285f4",
+      "backgroundColor": "#fafafa",
+      "textColor": "#111827",
+      "file": "dark-knight.css",
+      "preview": "dark-knight-preview.jpg",
+      "tags": ["professional", "tech", "google", "corporate", "modern"],
+      "useCases": [
+        "Corporate courses",
+        "Technical content",
+        "Professional development",
+        "Business presentations",
+        "Educational content"
+      ],
+      "features": [
+        "Google brand integration",
+        "Professional color palette",
+        "Enhanced shadows",
+        "Corporate-friendly design",
+        "Excellent readability"
+      ]
+    },
+    {
+      "id": "ocean-breeze",
+      "name": "Ocean Breeze",
+      "description": "Fresh, clean, calming aesthetic with ocean-inspired colors",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Lifestyle",
+      "primaryColor": "#0ea5e9",
+      "accentColor": "#06b6d4",
+      "backgroundColor": "#f0f9ff",
+      "textColor": "#0c4a6e",
+      "file": "ocean-breeze.css",
+      "preview": "ocean-breeze-preview.jpg",
+      "tags": ["fresh", "clean", "calm", "ocean", "wellness"],
+      "useCases": [
+        "Wellness content",
+        "Productivity courses",
+        "Learning platforms",
+        "Health & fitness",
+        "Mindfulness content"
+      ],
+      "features": [
+        "Ocean-inspired palette",
+        "Calming color scheme",
+        "Clean typography",
+        "Wellness-focused design",
+        "Soft gradients"
+      ]
+    },
+    {
+      "id": "sunset-glow",
+      "name": "Sunset Glow",
+      "description": "Warm, energetic, creative aesthetic with sunset-inspired colors",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Creative",
+      "primaryColor": "#f59e0b",
+      "accentColor": "#ef4444",
+      "backgroundColor": "#fef3c7",
+      "textColor": "#92400e",
+      "file": "sunset-glow.css",
+      "preview": "sunset-glow-preview.jpg",
+      "tags": ["warm", "creative", "energetic", "sunset", "artistic"],
+      "useCases": [
+        "Creative workshops",
+        "Design courses",
+        "Artistic content",
+        "Photography tutorials",
+        "Creative writing"
+      ],
+      "features": [
+        "Warm color palette",
+        "Creative gradients",
+        "Energetic design",
+        "Artistic typography",
+        "Sunset-inspired themes"
+      ]
+    },
+    {
+      "id": "forest-sage",
+      "name": "Forest Sage",
+      "description": "Natural, grounded, eco-friendly aesthetic with forest-inspired colors",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Natural",
+      "primaryColor": "#059669",
+      "accentColor": "#10b981",
+      "backgroundColor": "#f0fdf4",
+      "textColor": "#064e3b",
+      "file": "forest-sage.css",
+      "preview": "forest-sage-preview.jpg",
+      "tags": ["natural", "eco", "green", "sustainable", "organic"],
+      "useCases": [
+        "Environmental content",
+        "Sustainability courses",
+        "Nature photography",
+        "Outdoor activities",
+        "Eco-friendly brands"
+      ],
+      "features": [
+        "Nature-inspired palette",
+        "Sustainable design ethos",
+        "Organic shapes",
+        "Earth tone gradients",
+        "Environmental focus"
+      ]
+    },
+    {
+      "id": "hawkeye",
+      "name": "Hawkeye",
+      "description": "Sharp, analytical, precision-focused aesthetic with crimson accents for data-driven content",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Analytical",
+      "primaryColor": "#dc2626",
+      "accentColor": "#ef4444",
+      "backgroundColor": "#fafafa",
+      "textColor": "#111827",
+      "file": "hawkeye.css",
+      "preview": "hawkeye-preview.jpg",
+      "tags": ["analytical", "data", "precision", "crimson", "reports", "sharp"],
+      "useCases": [
+        "Data reports",
+        "Analytical content",
+        "Economic indices",
+        "Research findings",
+        "Business intelligence",
+        "Financial data"
+      ],
+      "features": [
+        "Crimson accent system",
+        "Data visualization focus",
+        "Analytical precision styling",
+        "Sharp contrast design",
+        "Report-optimized layout",
+        "KPI dashboard elements"
+      ]
+    },
+    {
+      "id": "magneto",
+      "name": "Magneto",
+      "description": "Dark, powerful theme with magnetic blue-purple gradients and glowing effects inspired by infographic styling",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Dark",
+      "primaryColor": "#6366f1",
+      "accentColor": "#8b5cf6",
+      "backgroundColor": "#0b1220",
+      "textColor": "#f8fafc",
+      "file": "magneto.css",
+      "preview": "magneto-preview.jpg",
+      "tags": ["dark", "magnetic", "infographic", "gradients", "glow", "data-viz", "modern"],
+      "useCases": [
+        "Data infographics",
+        "Interactive visualizations",
+        "Dashboard interfaces",
+        "Analytics presentations",
+        "Dark mode interfaces",
+        "Technical documentation"
+      ],
+      "features": [
+        "Magnetic blue-purple palette",
+        "Advanced glow effects",
+        "Gradient backgrounds",
+        "Infographic-optimized styling",
+        "Interactive element focus",
+        "Data visualization components",
+        "Backdrop blur effects",
+        "Responsive design system"
+      ]
+    },
+    {
+      "id": "dawn",
+      "name": "Dawn",
+      "description": "Fresh, inspiring theme with dawn-like gradients and ethereal glass effects inspired by modern infographic design",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Modern",
+      "primaryColor": "#0ea5e9",
+      "accentColor": "#d946ef",
+      "backgroundColor": "#fefcfb",
+      "textColor": "#1f2937",
+      "file": "dawn.css",
+      "preview": "dawn-preview.jpg",
+      "tags": ["modern", "fresh", "gradient", "glass", "infographic", "ethereal", "inspiring"],
+      "useCases": [
+        "Data infographics",
+        "Modern dashboards",
+        "Analytics presentations",
+        "Educational content",
+        "Interactive visualizations",
+        "Progress reports"
+      ],
+      "features": [
+        "ChatGPT-inspired gradient system",
+        "Advanced glass morphism effects",
+        "Backdrop blur styling",
+        "Floating animations",
+        "Dawn-inspired color palette",
+        "Modern typography with gradient text",
+        "Responsive design system",
+        "Interactive hover effects"
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "description": "Professional corporate aesthetic with navy and slate tones inspired by modern infographic design",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Professional",
+      "primaryColor": "#1e40af",
+      "accentColor": "#3b82f6",
+      "backgroundColor": "#f8fafc",
+      "textColor": "#0f172a",
+      "file": "business.css",
+      "preview": "business-preview.jpg",
+      "tags": ["professional", "corporate", "business", "slate", "navy", "infographic", "clean"],
+      "useCases": [
+        "Business presentations",
+        "Corporate dashboards",
+        "Data infographics",
+        "Executive reports",
+        "Financial presentations",
+        "KPI dashboards",
+        "Analytics presentations"
+      ],
+      "features": [
+        "Slate-based color palette",
+        "Navy corporate accents",
+        "Infographic-inspired design",
+        "Professional card layouts",
+        "KPI dashboard components",
+        "Print-optimized styling",
+        "Clean data visualization",
+        "Business-focused typography"
+      ]
+    },
+    {
+      "id": "leaderboard",
+      "name": "Leaderboard",
+      "description": "Sophisticated ranking and competition-focused design with glass morphism effects and animated rankings",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Competition",
+      "primaryColor": "#1e40af",
+      "accentColor": "#f59e0b",
+      "backgroundColor": "#0f172a",
+      "textColor": "#ffffff",
+      "file": "leaderboard.css",
+      "preview": "leaderboard-preview.jpg",
+      "tags": ["leaderboard", "ranking", "competition", "glass", "animated", "gold", "performance", "gamification"],
+      "useCases": [
+        "Performance leaderboards",
+        "Competition rankings",
+        "Score tracking",
+        "Achievement displays",
+        "KPI dashboards",
+        "Analytics leaderboards",
+        "Gaming interfaces",
+        "Progress tracking"
+      ],
+      "features": [
+        "Animated ranking system with pulsing effects",
+        "Glass morphism card design",
+        "Gold and blue premium color palette",
+        "Interactive table with hover effects",
+        "Badge and medal system",
+        "Gradient backgrounds with blur effects",
+        "Responsive design for all devices",
+        "Collapsible sections with smooth animations",
+        "Filter and sort functionality styling",
+        "Status indicators and progress tracking"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.5",
+    "lastUpdated": "2025-09-25",
+    "totalThemes": 9,
+    "categories": ["Professional", "Lifestyle", "Creative", "Natural", "Analytical", "Dark", "Modern", "Competition"],
+    "defaultTheme": "dark-knight"
+  }
+}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Theme Demo</title>
+    <link rel="stylesheet" href="assets/themes/base-theme.css">
+    <link rel="stylesheet" href="assets/themes/leaderboard.css">
+    <script src="assets/theme-manager.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="theme-leaderboard">
+    <div style="padding: 2rem;">
+        
+        <!-- Header Section -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1>🏆 Performance Leaderboard</h1>
+            <p style="font-size: 1.25rem; color: var(--lb-text-secondary); margin-bottom: 2rem;">
+                Top performing teams with detailed analytics and ranking system
+            </p>
+        </div>
+
+        <!-- Top 3 Champions -->
+        <div style="margin-bottom: 4rem;">
+            <h2>🎖️ Top 3 Champions</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                
+                <!-- Champion #1 -->
+                <div class="lb-card lb-rank-champion">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div class="lb-rank-badge">1</div>
+                        <h3 style="margin: 1rem 0 0.5rem 0;">Team Alpha</h3>
+                        <p style="color: var(--lb-text-muted);">Champion Performance</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                        <div class="lb-metric-card">
+                            <div class="lb-metric-value">98.5</div>
+                            <div class="lb-metric-label">Score</div>
+                        </div>
+                        <div class="lb-metric-card">
+                            <div class="lb-metric-value">156</div>
+                            <div class="lb-metric-label">Achievements</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                        <span class="lb-badge lb-badge-accent">🥇 Champion</span>
+                        <span class="lb-badge lb-badge-success">High Performer</span>
+                        <span class="lb-badge lb-badge-primary">Team Leader</span>
+                    </div>
+                </div>
+
+                <!-- Runner-up #2 -->
+                <div class="lb-card lb-rank-runner-up">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div class="lb-rank-badge">2</div>
+                        <h3 style="margin: 1rem 0 0.5rem 0;">Team Beta</h3>
+                        <p style="color: var(--lb-text-muted);">Runner-up Performance</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                        <div class="lb-metric-card">
+                            <div class="lb-metric-value">94.2</div>
+                            <div class="lb-metric-label">Score</div>
+                        </div>
+                        <div class="lb-metric-card">
+                            <div class="lb-metric-value">142</div>
+                            <div class="lb-metric-label">Achievements</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                        <span class="lb-badge lb-badge-secondary">🥈 Runner-up</span>
+                        <span class="lb-badge lb-badge-success">High Performer</span>
+                    </div>
+                </div>
+
+                <!-- Third Place #3 -->
+                <div class="lb-card lb-rank-third">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div class="lb-rank-badge">3</div>
+                        <h3 style="margin: 1rem 0 0.5rem 0;">Team Gamma</h3>
+                        <p style="color: var(--lb-text-muted);">Third Place Performance</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                        <div class="lb-metric-card">
+                            <div class="lb-metric-value">89.7</div>
+                            <div class="lb-metric-label">Score</div>
+                        </div>
+                        <div class="lb-metric-card">
+                            <div class="lb-metric-value">128</div>
+                            <div class="lb-metric-label">Achievements</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                        <span class="lb-badge lb-badge-primary">🥉 Third Place</span>
+                        <span class="lb-badge lb-badge-success">Strong Performer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Rankings Table -->
+        <div class="lb-card" style="margin-bottom: 2rem;">
+            <div class="lb-collapsible-header" onclick="toggleRankings()" style="padding: 1.5rem; margin: -2rem -2rem 2rem -2rem; border-radius: 1.875rem 1.875rem 0 0;">
+                <h3 style="margin: 0; text-align: center;">📊 Complete Rankings</h3>
+                <p style="text-align: center; margin: 0.5rem 0 0 0; color: rgba(255,255,255,0.8);">View all team performances and detailed metrics</p>
+                <div class="lb-toggle-text" style="text-align: center;" id="rankingsToggle">▼ Click to expand</div>
+            </div>
+            
+            <div id="rankingsContent" style="display: none;">
+                <!-- Filter Controls -->
+                <div class="lb-filter-container" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <span style="color: var(--lb-text-primary); font-weight: 600;">Filter by:</span>
+                        <select class="lb-filter-select">
+                            <option>All Categories</option>
+                            <option>High Performers</option>
+                            <option>New Teams</option>
+                            <option>Veterans</option>
+                        </select>
+                        <button class="lb-filter-button lb-filter-button-active">Score ↓</button>
+                        <button class="lb-filter-button lb-filter-button-inactive">Alphabetical</button>
+                        <button class="lb-filter-button lb-filter-button-inactive">Recent Activity</button>
+                    </div>
+                </div>
+
+                <!-- Rankings Table -->
+                <div style="overflow-x: auto;">
+                    <table class="lb-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Team</th>
+                                <th>Score</th>
+                                <th>Achievements</th>
+                                <th>Status</th>
+                                <th>Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="lb-table-row lb-table-row-success">
+                                <td><div class="lb-rank-badge">1</div></td>
+                                <td>
+                                    <div style="font-weight: 600; color: var(--lb-text-primary); margin-bottom: 0.25rem;">Team Alpha</div>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-muted);">ID: ALPHA-001</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 1.25rem; font-weight: 700; color: var(--lb-text-primary);">98.5</div>
+                                    <div style="font-size: 0.75rem; color: var(--lb-accent-light);">Champion</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                        <span class="lb-metric-badge">TNS: 95.2</span>
+                                        <span class="lb-metric-badge">MSS: 0.892</span>
+                                    </div>
+                                </td>
+                                <td><span class="lb-status-active">Active</span></td>
+                                <td>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-secondary);">
+                                        <div>Weekly: <span style="font-weight: 600; color: var(--lb-success);">+5.2%</span></div>
+                                        <div>Monthly: <span style="font-weight: 600; color: var(--lb-success);">+12.8%</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="lb-table-row lb-table-row-success">
+                                <td><div class="lb-rank-badge">2</div></td>
+                                <td>
+                                    <div style="font-weight: 600; color: var(--lb-text-primary); margin-bottom: 0.25rem;">Team Beta</div>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-muted);">ID: BETA-002</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 1.25rem; font-weight: 700; color: var(--lb-text-primary);">94.2</div>
+                                    <div style="font-size: 0.75rem; color: var(--lb-secondary-light);">Runner-up</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                        <span class="lb-metric-badge">TNS: 89.1</span>
+                                        <span class="lb-metric-badge">MSS: 0.847</span>
+                                    </div>
+                                </td>
+                                <td><span class="lb-status-active">Active</span></td>
+                                <td>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-secondary);">
+                                        <div>Weekly: <span style="font-weight: 600; color: var(--lb-success);">+3.1%</span></div>
+                                        <div>Monthly: <span style="font-weight: 600; color: var(--lb-success);">+8.4%</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="lb-table-row lb-table-row-warning">
+                                <td><div class="lb-rank-badge">3</div></td>
+                                <td>
+                                    <div style="font-weight: 600; color: var(--lb-text-primary); margin-bottom: 0.25rem;">Team Gamma</div>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-muted);">ID: GAMMA-003</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 1.25rem; font-weight: 700; color: var(--lb-text-primary);">89.7</div>
+                                    <div style="font-size: 0.75rem; color: var(--lb-primary-light);">Third Place</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                        <span class="lb-metric-badge">TNS: 82.5</span>
+                                        <span class="lb-metric-badge">MSS: 0.791</span>
+                                    </div>
+                                </td>
+                                <td><span class="lb-status-active">Active</span></td>
+                                <td>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-secondary);">
+                                        <div>Weekly: <span style="font-weight: 600; color: var(--lb-warning);">+1.5%</span></div>
+                                        <div>Monthly: <span style="font-weight: 600; color: var(--lb-success);">+4.2%</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="lb-table-row">
+                                <td><div class="lb-rank-badge">4</div></td>
+                                <td>
+                                    <div style="font-weight: 600; color: var(--lb-text-primary); margin-bottom: 0.25rem;">Team Delta</div>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-muted);">ID: DELTA-004</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 1.25rem; font-weight: 700; color: var(--lb-text-primary);">85.3</div>
+                                    <div style="font-size: 0.75rem; color: var(--lb-text-muted);">Performer</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                        <span class="lb-metric-badge">TNS: 78.9</span>
+                                        <span class="lb-metric-badge">MSS: 0.742</span>
+                                    </div>
+                                </td>
+                                <td><span class="lb-status-active">Active</span></td>
+                                <td>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-secondary);">
+                                        <div>Weekly: <span style="font-weight: 600; color: var(--lb-error);">-0.8%</span></div>
+                                        <div>Monthly: <span style="font-weight: 600; color: var(--lb-success);">+2.1%</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="lb-table-row">
+                                <td><div class="lb-rank-badge">5</div></td>
+                                <td>
+                                    <div style="font-weight: 600; color: var(--lb-text-primary); margin-bottom: 0.25rem;">Team Echo</div>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-muted);">ID: ECHO-005</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 1.25rem; font-weight: 700; color: var(--lb-text-primary);">81.7</div>
+                                    <div style="font-size: 0.75rem; color: var(--lb-text-muted);">Performer</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                        <span class="lb-metric-badge">TNS: 75.2</span>
+                                        <span class="lb-metric-badge">MSS: 0.698</span>
+                                    </div>
+                                </td>
+                                <td><span class="lb-status-inactive">Inactive</span></td>
+                                <td>
+                                    <div style="font-size: 0.875rem; color: var(--lb-text-secondary);">
+                                        <div>Weekly: <span style="font-weight: 600; color: var(--lb-error);">-2.3%</span></div>
+                                        <div>Monthly: <span style="font-weight: 600; color: var(--lb-error);">-1.4%</span></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <button class="lb-button" style="margin-right: 1rem;">Export Rankings</button>
+            <button class="lb-button lb-button-accent" style="margin-right: 1rem;">View Analytics</button>
+            <button class="lb-button lb-button-secondary">Team Management</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleRankings() {
+            const content = document.getElementById('rankingsContent');
+            const toggle = document.getElementById('rankingsToggle');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                toggle.textContent = '▲ Click to collapse';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '▼ Click to expand';
+            }
+        }
+    </script>
+</body>
+</html>
