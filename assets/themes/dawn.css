@@ -6,11 +6,24 @@
  * Version: 1.0
  */
 
+/* Import base theme foundation */
+@import url('base.css');
+
 :root {
-  /* Base Colors - Dawn palette */
-  --dawn-light-primary: #fefcfb;
-  --dawn-light-secondary: #fef7f0;
-  --dawn-light-tertiary: #fdf2f8;
+  /* ===================================================================
+     DAWN THEME - EXTENDS BASE THEME
+     ================================================================== */
+  
+  /* Override base theme variables for Dawn aesthetics */
+  --bg-primary: #fefcfb;
+  --bg-secondary: #fef7f0;
+  --bg-tertiary: #fdf2f8;
+  --card-bg: #ffffff;
+  
+  /* Dawn-specific palette (can be used internally) */
+  --dawn-light-primary: var(--bg-primary);
+  --dawn-light-secondary: var(--bg-secondary);
+  --dawn-light-tertiary: var(--bg-tertiary);
   --dawn-surface: #ffffff;
   --dawn-surface-elevated: #fefefe;
   

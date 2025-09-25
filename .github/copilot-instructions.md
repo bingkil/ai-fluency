@@ -28,10 +28,40 @@ theme-showcase.html        # Live preview of all themes
 ## 🎨 Theme System Deep Dive
 
 ### Theme Implementation Pattern
-Each theme is a CSS file that overrides CSS custom properties from `base-theme.css`. Themes are registered in `themes.json` with metadata like:
+Each theme is a CSS file that overrides CSS custom properties from the compiled `base.css` (which is generated from `base-theme.css`). Themes are registered in `themes.json` with metadata like:
 - Primary/accent colors, use cases, categories
 - Support for light/dark mode variants
 - Brand-specific styling (Google colors, corporate themes, etc.)
+
+### **⚠️ CRITICAL: Base Theme Development vs. Production Workflow**
+
+**Development vs. Production Files:**
+- **`base-theme.css`**: Source file with `@import "tailwindcss"` - DEVELOPMENT ONLY
+- **`base.css`**: Compiled production file - what themes import in production
+
+**MANDATORY FOR ALL THEME FILES**: Import the **compiled production version**:
+
+```css
+/* Import base theme foundation - PRODUCTION VERSION */
+@import url('base.css');
+```
+
+**⚠️ COMPILATION ALERT**: When `base-theme.css` is modified, MUST notify user to recompile:
+> "⚠️ **RECOMPILATION NEEDED**: Changes made to `base-theme.css` require running the build command to update `base.css`. Please run: `npm run build-base`"
+
+**NEVER EDIT `base.css` DIRECTLY** - It's generated from `base-theme.css` and will be overwritten during compilation.
+
+**Required for:**
+- All child theme files (`dawn.css`, `dark-knight.css`, `hawkeye.css`, etc.)
+- Component library (`infographic-styles.css` imports `themes/base.css`)
+
+**File dependency chain:**
+1. `base-theme.css` (source) → **COMPILE** → `base.css` (production)
+2. `[theme].css` (extends production via `@import url('base.css')`)
+3. `infographic-styles.css` (uses variables via `@import url('themes/base.css')`)
+4. HTML pages (complete styling)
+
+**Why essential:** Separates development source from production assets, enables Tailwind processing, ensures proper CSS variable inheritance.
 
 ### CSS Variable Architecture
 The system uses a comprehensive CSS variable system:
@@ -87,11 +117,17 @@ The system uses a comprehensive CSS variable system:
 ## 🔧 Development Workflows
 
 ### Adding New Themes
-1. Copy existing theme CSS file as template
-2. Override CSS custom properties for colors/styling
-3. Add theme metadata to `themes.json` registry
-4. Create demo page: `[theme-name]-theme-demo.html`
-5. Test with existing components and dark/light modes
+1. **⚠️ FIRST: Add base theme import** - `@import url('base.css');` at top of file (PRODUCTION VERSION)
+2. Copy existing theme CSS file as template
+3. Override CSS custom properties for colors/styling
+4. Add theme metadata to `themes.json` registry
+5. Create demo page: `[theme-name]-theme-demo.html`
+6. Test with existing components and dark/light modes
+
+### Modifying Base Theme System
+1. **Edit**: `base-theme.css` (source file with Tailwind directives)
+2. **⚠️ ALERT USER**: Must notify user to recompile: `npm run build-base`
+3. **Never edit**: `base.css` directly (this is compiled output)
 
 ### Creating New Infographics
 1. **ALWAYS refer to `docs/DESIGN_SPEC.md`** for complete HTML template and component patterns

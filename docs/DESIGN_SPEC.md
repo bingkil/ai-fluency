@@ -139,6 +139,39 @@ project-root/
 
 ## 🎨 Visual Design System
 
+### Theme System Architecture
+
+#### **⚠️ CRITICAL: Base Theme Development vs. Production Workflow**
+
+**Development vs. Production Files:**
+- **`base-theme.css`**: Source file with `@import "tailwindcss"` - for development/editing only
+- **`base.css`**: Compiled production file - what themes actually import in production
+
+**⚠️ MANDATORY REQUIREMENT**: All theme files MUST import the **compiled production version**:
+
+```css
+/* Import base theme foundation - PRODUCTION VERSION */
+@import url('base.css');
+```
+
+**⚠️ COMPILATION REQUIREMENT**: 
+When editing `base-theme.css`, you MUST notify the developer to recompile:
+```bash
+# Required after any base-theme.css changes
+npm run build-base  # Compiles base-theme.css → base.css
+```
+
+**Why this workflow is essential:**
+- Separates source code from compiled production assets
+- Ensures proper CSS variable inheritance through compiled base
+- Enables Tailwind CSS processing in base theme only
+- Maintains consistent theme architecture across all themes
+
+**File dependency chain:**
+1. `base-theme.css` (source with Tailwind) → **COMPILE** → `base.css` (production)
+2. `[theme-name].css` (extends production: `@import url('base.css')`)
+3. `infographic-styles.css` (uses variables: `@import url('themes/base.css')`)
+
 ### Color Palette (CSS Variables)
 
 #### Light Theme

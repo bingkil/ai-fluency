@@ -283,13 +283,48 @@
         "Filter and sort functionality styling",
         "Status indicators and progress tracking"
       ]
+    },
+    {
+      "id": "steel",
+      "name": "Steel",
+      "description": "Industrial strength data visualization with blue-gray steel accents and professional metallic aesthetic",
+      "version": "1.0",
+      "author": "Chris Prakoso",
+      "category": "Industrial",
+      "primaryColor": "#475569",
+      "accentColor": "#64748b",
+      "backgroundColor": "#f8fafc",
+      "textColor": "#0f172a",
+      "file": "steel.css",
+      "preview": "steel-preview.jpg",
+      "tags": ["industrial", "steel", "metallic", "data-viz", "professional", "blue-gray", "corporate"],
+      "useCases": [
+        "Industrial reports",
+        "Manufacturing dashboards",
+        "Economic data visualization",
+        "Corporate analytics",
+        "Technical documentation",
+        "Engineering metrics",
+        "Business intelligence",
+        "Financial indices"
+      ],
+      "features": [
+        "Blue-gray steel color palette",
+        "Industrial aesthetic design",
+        "Metallic accent system",
+        "Professional data visualization",
+        "Corporate-friendly styling",
+        "Enhanced shadow effects",
+        "Steel gradient components",
+        "Technical documentation focus"
+      ]
     }
   ],
   "metadata": {
-    "version": "1.5",
+    "version": "1.6",
     "lastUpdated": "2025-09-25",
-    "totalThemes": 9,
-    "categories": ["Professional", "Lifestyle", "Creative", "Natural", "Analytical", "Dark", "Modern", "Competition"],
+    "totalThemes": 10,
+    "categories": ["Professional", "Lifestyle", "Creative", "Natural", "Analytical", "Dark", "Modern", "Competition", "Industrial"],
     "defaultTheme": "dark-knight"
   }
 }

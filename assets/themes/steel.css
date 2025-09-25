@@ -1,0 +1,230 @@
+/* Import base theme foundation - PRODUCTION VERSION */
+@import url('base.css');
+
+/* Steel Theme - Industrial strength data visualization with blue-gray steel accents */
+:root { 
+  --ring-thickness: 14px; 
+  --primary-steel: rgb(71, 85, 105); /* Slate-600 */
+  --steel-light: rgb(226, 232, 240); /* Slate-200 */
+  --steel-accent: rgb(100, 116, 139); /* Slate-500 */
+  
+  /* Light theme colors - Steel industrial palette */
+  --bg-primary: rgb(248, 250, 252); /* Slate-50 */
+  --bg-secondary: rgb(255, 255, 255);
+  --bg-tertiary: rgb(241, 245, 249); /* Slate-100 */
+  --text-primary: rgb(15, 23, 42); /* Slate-900 */
+  --text-secondary: rgb(71, 85, 105); /* Slate-600 */
+  --text-tertiary: rgb(148, 163, 184); /* Slate-400 */
+  --border-primary: rgb(226, 232, 240); /* Slate-200 */
+  --border-secondary: rgb(203, 213, 225); /* Slate-300 */
+  --accent-bg: rgb(226, 232, 240); /* Slate-200 */
+  --accent-border: rgb(148, 163, 184); /* Slate-400 */
+  
+  /* Component backgrounds */
+  --card-bg: rgb(255, 255, 255);
+  --pill-neutral-bg: rgb(241, 245, 249); /* Slate-100 */
+  --pill-neutral-text: rgb(51, 65, 85); /* Slate-700 */
+  --pill-neutral-border: rgb(226, 232, 240); /* Slate-200 */
+  
+  /* Color scheme specific backgrounds - Steel industrial variants */
+  --blue-bg-light: rgb(240, 249, 255); /* Sky-50 */
+  --blue-bg-medium: rgb(186, 230, 253); /* Sky-200 */
+  --blue-text: rgb(2, 132, 199); /* Sky-600 */
+  --blue-text-dark: rgb(3, 105, 161); /* Sky-700 */
+  
+  --green-bg-light: rgb(236, 253, 245); /* Emerald-50 */
+  --green-bg-medium: rgb(167, 243, 208); /* Emerald-200 */
+  --green-text: rgb(5, 150, 105); /* Emerald-600 */
+  --green-text-dark: rgb(4, 120, 87); /* Emerald-700 */
+  
+  --amber-bg-light: rgb(255, 251, 235); /* Amber-50 */
+  --amber-bg-medium: rgb(252, 211, 77); /* Amber-300 */
+  --amber-text: rgb(180, 83, 9); /* Amber-700 */
+  --amber-text-dark: rgb(146, 64, 14); /* Amber-800 */
+  
+  --purple-bg-light: rgb(250, 245, 255); /* Purple-50 */
+  --purple-bg-medium: rgb(196, 181, 253); /* Purple-300 */
+  --purple-text: rgb(109, 40, 217); /* Purple-700 */
+  --purple-text-dark: rgb(88, 28, 135); /* Purple-800 */
+  
+  /* Steel accent instead of red */
+  --red-bg-light: rgb(248, 250, 252); /* Slate-50 */
+  --red-bg-medium: rgb(203, 213, 225); /* Slate-300 */
+  --red-text: rgb(71, 85, 105); /* Slate-600 */
+  --red-text-dark: rgb(51, 65, 85); /* Slate-700 */
+  
+  --neutral-bg-light: rgb(248, 250, 252); /* Slate-50 */
+  --neutral-bg-medium: rgb(226, 232, 240); /* Slate-200 */
+  --neutral-text: rgb(71, 85, 105); /* Slate-600 */
+  --neutral-text-dark: rgb(51, 65, 85); /* Slate-700 */
+}
+
+/* Dark theme colors - Industrial dark steel */
+[data-theme="dark"] {
+  --bg-primary: rgb(15, 23, 42); /* Slate-900 */
+  --bg-secondary: rgb(30, 41, 59); /* Slate-800 */
+  --bg-tertiary: rgb(51, 65, 85); /* Slate-700 */
+  --text-primary: rgb(248, 250, 252); /* Slate-50 */
+  --text-secondary: rgb(148, 163, 184); /* Slate-400 */
+  --text-tertiary: rgb(100, 116, 139); /* Slate-500 */
+  --border-primary: rgb(71, 85, 105); /* Slate-600 */
+  --border-secondary: rgb(100, 116, 139); /* Slate-500 */
+  --accent-bg: rgb(51, 65, 85); /* Slate-700 */
+  --accent-border: rgb(100, 116, 139); /* Slate-500 */
+  
+  /* Component backgrounds */
+  --card-bg: rgb(30, 41, 59); /* Slate-800 */
+  --pill-neutral-bg: rgb(51, 65, 85); /* Slate-700 */
+  --pill-neutral-text: rgb(203, 213, 225); /* Slate-300 */
+  --pill-neutral-border: rgb(71, 85, 105); /* Slate-600 */
+  
+  /* Color scheme specific backgrounds - dark variants */
+  --blue-bg-light: rgb(3, 105, 161); /* Sky-700 */
+  --blue-bg-medium: rgb(2, 132, 199); /* Sky-600 */
+  --blue-text: rgb(125, 211, 252); /* Sky-300 */
+  --blue-text-dark: rgb(186, 230, 253); /* Sky-200 */
+  
+  --green-bg-light: rgb(4, 120, 87); /* Emerald-700 */
+  --green-bg-medium: rgb(5, 150, 105); /* Emerald-600 */
+  --green-text: rgb(110, 231, 183); /* Emerald-300 */
+  --green-text-dark: rgb(167, 243, 208); /* Emerald-200 */
+  
+  --amber-bg-light: rgb(146, 64, 14); /* Amber-800 */
+  --amber-bg-medium: rgb(217, 119, 6); /* Amber-600 */
+  --amber-text: rgb(252, 211, 77); /* Amber-300 */
+  --amber-text-dark: rgb(254, 243, 199); /* Amber-100 */
+  
+  --purple-bg-light: rgb(88, 28, 135); /* Purple-800 */
+  --purple-bg-medium: rgb(126, 34, 206); /* Purple-700 */
+  --purple-text: rgb(196, 181, 253); /* Purple-300 */
+  --purple-text-dark: rgb(221, 214, 254); /* Purple-200 */
+  
+  /* Steel accent in dark mode */
+  --red-bg-light: rgb(51, 65, 85); /* Slate-700 */
+  --red-bg-medium: rgb(100, 116, 139); /* Slate-500 */
+  --red-text: rgb(148, 163, 184); /* Slate-400 */
+  --red-text-dark: rgb(203, 213, 225); /* Slate-300 */
+  
+  --neutral-bg-light: rgb(30, 41, 59); /* Slate-800 */
+  --neutral-bg-medium: rgb(71, 85, 105); /* Slate-600 */
+  --neutral-text: rgb(203, 213, 225); /* Slate-300 */
+  --neutral-text-dark: rgb(248, 250, 252); /* Slate-50 */
+}
+
+/* Font Family Override */
+html { 
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+}
+
+/* Progress Bar Component - Steel accent */
+.progress-bar { 
+  height: 12px; 
+  border-radius: 9999px; 
+  background: linear-gradient(90deg, var(--primary-steel) var(--p, 0%), var(--border-primary) 0);
+  transition: all 0.3s ease;
+}
+
+/* Conic Ring Progress Component - Steel accent */
+.conic-ring { 
+  width: 120px; 
+  height: 120px; 
+  border-radius: 50%; 
+  display: grid; 
+  place-items: center; 
+  background: conic-gradient(var(--primary-steel) calc(var(--v, 0) * 3.6deg), var(--border-primary) 0);
+  position: relative;
+}
+
+.conic-ring::before { 
+  content: ""; 
+  width: calc(100% - var(--ring-thickness)); 
+  height: calc(100% - var(--ring-thickness)); 
+  border-radius: 50%; 
+  background: var(--card-bg); 
+  position: absolute;
+}
+
+.conic-ring .ring-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Pill Badge Component */
+.pill { 
+  border-radius: 9999px; 
+  padding: 4px 12px; 
+  font-size: 12px; 
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Card Elevation Shadow - Steel theme optimized */
+.card-shadow { 
+  box-shadow: 
+    0 1px 3px 0 rgba(51, 65, 85, 0.1), 
+    0 1px 2px -1px rgba(51, 65, 85, 0.1),
+    0 4px 6px -1px rgba(51, 65, 85, 0.05),
+    0 10px 15px -3px rgba(51, 65, 85, 0.04);
+}
+
+[data-theme="dark"] .card-shadow {
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.3), 
+    0 1px 2px -1px rgba(0, 0, 0, 0.3),
+    0 4px 6px -1px rgba(0, 0, 0, 0.2),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(100, 116, 139, 0.1); /* Steel border glow */
+}
+
+/* Responsive Grid Utilities */
+.grid-kpi { 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+}
+
+.grid-auto-fit { 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+}
+
+/* Mini Chart Bars for Trends - Steel accent */
+.mini-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary-steel) var(--p, 0%), var(--border-primary) 0);
+  transition: all 0.2s ease;
+}
+
+/* Steel-specific enhancements */
+.steel-gradient {
+  background: linear-gradient(135deg, var(--primary-steel), var(--steel-accent));
+}
+
+.steel-border {
+  border: 1px solid var(--primary-steel);
+}
+
+/* Industrial styling for data visualization */
+.industrial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  box-shadow: 
+    0 2px 4px rgba(71, 85, 105, 0.1),
+    inset 0 1px 0 rgba(248, 250, 252, 0.1);
+}
+
+[data-theme="dark"] .industrial-card {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(100, 116, 139, 0.1);
+}
+
+/* Steel accent hover effects */
+.steel-hover:hover {
+  background-color: var(--steel-light);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .steel-hover:hover {
+  background-color: var(--accent-bg);
+}

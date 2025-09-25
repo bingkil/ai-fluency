@@ -4,6 +4,9 @@
    Inspired by modern leaderboard interfaces
    ====================================== */
 
+/* Import base theme foundation */
+@import url('base.css');
+
 /* ======================================
    ROOT VARIABLES
    ====================================== */

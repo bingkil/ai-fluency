@@ -6,6 +6,9 @@
  * Version: 1.0
  */
 
+/* Import base theme foundation */
+@import url('base.css');
+
 :root {
   /* Base Colors - Dark magnetic palette */
   --magneto-dark-primary: #0b1220;

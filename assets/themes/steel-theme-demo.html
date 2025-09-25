@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Steel Theme Demo — Industrial Data Visualization</title>
+  <meta name="description" content="Demonstration of the Steel theme featuring industrial strength data visualization with blue-gray steel accents.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Steel Theme -->
+  <link rel="stylesheet" href="steel.css">
+  
+  <!-- Base Infographic Styles -->
+  <link rel="stylesheet" href="../infographic-styles.css">
+</head>
+<body class="min-h-screen" style="background: var(--bg-primary); color: var(--text-primary);">
+  <!-- Skip Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 rounded-md" style="background: var(--accent-bg); color: var(--text-primary);">
+    Skip to main content
+  </a>
+
+  <!-- Theme Toggle -->
+  <div class="fixed top-4 right-4 z-40">
+    <button id="themeToggle" class="p-2 rounded-lg card-shadow transition-all duration-200" style="background: var(--card-bg); color: var(--text-primary);" aria-label="Toggle dark mode">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header class="relative overflow-hidden py-16 px-4" style="background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 pill" style="background: var(--accent-bg); color: var(--text-secondary);">
+        <div class="w-2 h-2 rounded-full" style="background: var(--primary-steel);"></div>
+        Steel Theme Demo
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-black mb-6" style="color: var(--text-primary);">
+        Industrial <span class="steel-gradient bg-clip-text text-transparent">Data</span> Visualization
+      </h1>
+      
+      <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed" style="color: var(--text-secondary);">
+        Professional blue-gray steel aesthetic designed for manufacturing dashboards, economic indices, and corporate analytics with industrial strength styling.
+      </p>
+
+      <!-- Feature Pills -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <span class="pill" style="background: var(--blue-bg-light); color: var(--blue-text);">Steel Gradients</span>
+        <span class="pill" style="background: var(--green-bg-light); color: var(--green-text);">Industrial Design</span>
+        <span class="pill" style="background: var(--amber-bg-light); color: var(--amber-text);">Data Focused</span>
+        <span class="pill" style="background: var(--purple-bg-light); color: var(--purple-text);">Corporate Ready</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- KPI Cards Section -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8 text-center" style="color: var(--text-primary);">Industrial Metrics Dashboard</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Production Efficiency -->
+          <div class="industrial-card p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold" style="color: var(--text-secondary);">Production Efficiency</h3>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: var(--blue-bg-light);">
+                <div class="w-4 h-4 rounded" style="background: var(--blue-text);"></div>
+              </div>
+            </div>
+            <div class="text-3xl font-bold mb-2" style="color: var(--text-primary);">94.2%</div>
+            <div class="progress-bar mb-2" style="--p: 94.2%;"></div>
+            <div class="text-sm" style="color: var(--text-tertiary);">+2.1% from last month</div>
+          </div>
+
+          <!-- Quality Control -->
+          <div class="industrial-card p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold" style="color: var(--text-secondary);">Quality Control</h3>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: var(--green-bg-light);">
+                <div class="w-4 h-4 rounded" style="background: var(--green-text);"></div>
+              </div>
+            </div>
+            <div class="text-3xl font-bold mb-2" style="color: var(--text-primary);">99.7%</div>
+            <div class="progress-bar mb-2" style="--p: 99.7%;"></div>
+            <div class="text-sm" style="color: var(--text-tertiary);">Defect rate: 0.3%</div>
+          </div>
+
+          <!-- Equipment Uptime -->
+          <div class="industrial-card p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold" style="color: var(--text-secondary);">Equipment Uptime</h3>
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: var(--amber-bg-light);">
+                <div class="w-4 h-4 rounded" style="background: var(--amber-text);"></div>
+              </div>
+            </div>
+            <div class="text-3xl font-bold mb-2" style="color: var(--text-primary);">87.4%</div>
+            <div class="progress-bar mb-2" style="--p: 87.4%;"></div>
+            <div class="text-sm" style="color: var(--text-tertiary);">12.6% maintenance time</div>
+          </div>
+
+          <!-- Steel Production -->
+          <div class="industrial-card p-6 rounded-xl">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold" style="color: var(--text-secondary);">Steel Output</h3>
+              <div class="conic-ring" style="--v: 76; width: 60px; height: 60px; --ring-thickness: 8px;">
+                <div class="ring-content">
+                  <div class="text-xs font-bold" style="color: var(--text-primary);">76%</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-3xl font-bold mb-2" style="color: var(--text-primary);">2,847</div>
+            <div class="text-sm" style="color: var(--text-tertiary);">tons this quarter</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Color Palette Showcase -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8 text-center" style="color: var(--text-primary);">Steel Color System</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div class="text-center">
+            <div class="w-full h-20 rounded-lg mb-2" style="background: var(--blue-bg-medium);"></div>
+            <div class="text-sm font-medium" style="color: var(--blue-text);">Steel Blue</div>
+          </div>
+          <div class="text-center">
+            <div class="w-full h-20 rounded-lg mb-2" style="background: var(--green-bg-medium);"></div>
+            <div class="text-sm font-medium" style="color: var(--green-text);">Industrial Green</div>
+          </div>
+          <div class="text-center">
+            <div class="w-full h-20 rounded-lg mb-2" style="background: var(--amber-bg-medium);"></div>
+            <div class="text-sm font-medium" style="color: var(--amber-text);">Warning Amber</div>
+          </div>
+          <div class="text-center">
+            <div class="w-full h-20 rounded-lg mb-2" style="background: var(--purple-bg-medium);"></div>
+            <div class="text-sm font-medium" style="color: var(--purple-text);">Tech Purple</div>
+          </div>
+          <div class="text-center">
+            <div class="w-full h-20 rounded-lg mb-2" style="background: var(--primary-steel);"></div>
+            <div class="text-sm font-medium" style="color: var(--primary-steel);">Primary Steel</div>
+          </div>
+          <div class="text-center">
+            <div class="w-full h-20 rounded-lg mb-2" style="background: var(--neutral-bg-medium);"></div>
+            <div class="text-sm font-medium" style="color: var(--neutral-text);">Neutral Gray</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Visualization Components -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8 text-center" style="color: var(--text-primary);">Component Library</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Progress Rings -->
+          <div class="industrial-card p-8 rounded-xl">
+            <h3 class="text-lg font-semibold mb-6" style="color: var(--text-primary);">Production Metrics</h3>
+            <div class="flex justify-center space-x-8">
+              <div class="text-center">
+                <div class="conic-ring mx-auto mb-4" style="--v: 85;">
+                  <div class="ring-content">
+                    <div class="text-xl font-bold" style="color: var(--text-primary);">85%</div>
+                    <div class="text-xs" style="color: var(--text-secondary);">Capacity</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="conic-ring mx-auto mb-4" style="--v: 92;">
+                  <div class="ring-content">
+                    <div class="text-xl font-bold" style="color: var(--text-primary);">92%</div>
+                    <div class="text-xs" style="color: var(--text-secondary);">Efficiency</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini Charts -->
+          <div class="industrial-card p-8 rounded-xl">
+            <h3 class="text-lg font-semibold mb-6" style="color: var(--text-primary);">Weekly Trends</h3>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-sm" style="color: var(--text-secondary);">Monday</span>
+                <div class="flex-1 mx-4">
+                  <div class="mini-bar" style="--p: 78%;"></div>
+                </div>
+                <span class="text-sm font-medium" style="color: var(--text-primary);">78%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm" style="color: var(--text-secondary);">Tuesday</span>
+                <div class="flex-1 mx-4">
+                  <div class="mini-bar" style="--p: 85%;"></div>
+                </div>
+                <span class="text-sm font-medium" style="color: var(--text-primary);">85%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm" style="color: var(--text-secondary);">Wednesday</span>
+                <div class="flex-1 mx-4">
+                  <div class="mini-bar" style="--p: 91%;"></div>
+                </div>
+                <span class="text-sm font-medium" style="color: var(--text-primary);">91%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm" style="color: var(--text-secondary);">Thursday</span>
+                <div class="flex-1 mx-4">
+                  <div class="mini-bar" style="--p: 87%;"></div>
+                </div>
+                <span class="text-sm font-medium" style="color: var(--text-primary);">87%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm" style="color: var(--text-secondary);">Friday</span>
+                <div class="flex-1 mx-4">
+                  <div class="mini-bar" style="--p: 94%;"></div>
+                </div>
+                <span class="text-sm font-medium" style="color: var(--text-primary);">94%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Theme Features -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8 text-center" style="color: var(--text-primary);">Steel Theme Features</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="industrial-card p-6 rounded-xl steel-hover">
+            <div class="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style="background: var(--blue-bg-light);">
+              <div class="w-6 h-6 rounded" style="background: var(--blue-text);"></div>
+            </div>
+            <h3 class="text-lg font-semibold mb-3" style="color: var(--text-primary);">Industrial Aesthetic</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">Blue-gray steel color palette with metallic accents designed for manufacturing and industrial applications.</p>
+          </div>
+
+          <div class="industrial-card p-6 rounded-xl steel-hover">
+            <div class="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style="background: var(--green-bg-light);">
+              <div class="w-6 h-6 rounded" style="background: var(--green-text);"></div>
+            </div>
+            <h3 class="text-lg font-semibold mb-3" style="color: var(--text-primary);">Data Visualization</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">Optimized for charts, progress indicators, and KPI dashboards with clear visual hierarchy.</p>
+          </div>
+
+          <div class="industrial-card p-6 rounded-xl steel-hover">
+            <div class="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style="background: var(--amber-bg-light);">
+              <div class="w-6 h-6 rounded" style="background: var(--amber-text);"></div>
+            </div>
+            <h3 class="text-lg font-semibold mb-3" style="color: var(--text-primary);">Corporate Ready</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">Professional styling suitable for executive reports, business intelligence, and enterprise dashboards.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4" style="background: var(--bg-secondary); border-top: 1px solid var(--border-primary);">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="text-sm" style="color: var(--text-tertiary);">
+        Steel Theme Demo — Part of the AI Fluency Infographic System
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../infographic-scripts.js"></script>
+  <script>
+    // Initialize theme toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeInfographic();
+    });
+  </script>
+</body>
+</html>

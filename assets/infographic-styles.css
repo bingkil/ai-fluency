@@ -4,50 +4,20 @@
    Author: Chris Prakoso - Augmented Humanity
    ================================================================== */
 
-/* CSS Variables and Custom Properties */
+/* Import base theme foundation */
+@import url('themes/base.css');
+
+/* ===================================================================
+   COMPONENT-SPECIFIC VARIABLES
+   Note: Core theme variables come from base.css and theme files
+   ================================================================== */
 :root { 
+  /* Component-specific variables */
   --ring-thickness: 14px; 
-  --primary-blue: rgb(37, 99, 235);
-  --blue-light: rgb(219, 234, 254);
   
-  /* Light theme colors */
-  --bg-primary: rgb(250, 250, 250);
-  --bg-secondary: rgb(255, 255, 255);
-  --bg-tertiary: rgb(245, 245, 245);
-  --text-primary: rgb(17, 24, 39);
-  --text-secondary: rgb(107, 114, 128);
-  --text-tertiary: rgb(156, 163, 175);
-  --border-primary: rgb(229, 231, 235);
-  --border-secondary: rgb(209, 213, 219);
-  --accent-bg: rgb(219, 234, 254);
-  --accent-border: rgb(147, 197, 253);
-  
-  /* Component backgrounds */
-  --card-bg: rgb(255, 255, 255);
-  --pill-neutral-bg: rgb(245, 245, 245);
-  --pill-neutral-text: rgb(55, 65, 81);
-  --pill-neutral-border: rgb(229, 231, 235);
-  
-  /* Color scheme specific backgrounds */
-  --blue-bg-light: rgb(239, 246, 255);
-  --blue-bg-medium: rgb(219, 234, 254);
-  --blue-text: rgb(30, 64, 175);
-  --blue-text-dark: rgb(30, 58, 138);
-  
-  --green-bg-light: rgb(240, 253, 244);
-  --green-bg-medium: rgb(187, 247, 208);
-  --green-text: rgb(22, 101, 52);
-  --green-text-dark: rgb(20, 83, 45);
-  
-  --amber-bg-light: rgb(255, 251, 235);
-  --amber-bg-medium: rgb(253, 230, 138);
-  --amber-text: rgb(146, 64, 14);
-  --amber-text-dark: rgb(120, 53, 15);
-  
-  --purple-bg-light: rgb(250, 245, 255);
-  --purple-bg-medium: rgb(221, 214, 254);
-  --purple-text: rgb(88, 28, 135);
-  --purple-text-dark: rgb(76, 29, 149);
+  /* Legacy compatibility (will be removed) */
+  --primary-blue: var(--brand-primary);
+  --blue-light: var(--blue-bg-light);
   
   --red-bg-light: rgb(254, 242, 242);
   --red-bg-medium: rgb(254, 202, 202);
@@ -67,55 +37,10 @@
 }
 
 /* Dark theme colors */
-[data-theme="dark"] {
-  --bg-primary: rgb(17, 24, 39);
-  --bg-secondary: rgb(31, 41, 55);
-  --bg-tertiary: rgb(55, 65, 81);
-  --text-primary: rgb(243, 244, 246);
-  --text-secondary: rgb(156, 163, 175);
-  --text-tertiary: rgb(107, 114, 128);
-  --border-primary: rgb(75, 85, 99);
-  --border-secondary: rgb(107, 114, 128);
-  --accent-bg: rgb(30, 58, 138);
-  --accent-border: rgb(37, 99, 235);
-  
-  /* Component backgrounds */
-  --card-bg: rgb(31, 41, 55);
-  --pill-neutral-bg: rgb(55, 65, 81);
-  --pill-neutral-text: rgb(209, 213, 219);
-  --pill-neutral-border: rgb(75, 85, 99);
-  
-  /* Color scheme specific backgrounds - dark variants */
-  --blue-bg-light: rgb(30, 58, 138);
-  --blue-bg-medium: rgb(37, 99, 235);
-  --blue-text: rgb(147, 197, 253);
-  --blue-text-dark: rgb(191, 219, 254);
-  
-  --green-bg-light: rgb(20, 83, 45);
-  --green-bg-medium: rgb(34, 197, 94);
-  --green-text: rgb(134, 239, 172);
-  --green-text-dark: rgb(187, 247, 208);
-  
-  --amber-bg-light: rgb(120, 53, 15);
-  --amber-bg-medium: rgb(245, 158, 11);
-  --amber-text: rgb(252, 211, 77);
-  --amber-text-dark: rgb(254, 243, 199);
-  
-  --purple-bg-light: rgb(76, 29, 149);
-  --purple-bg-medium: rgb(147, 51, 234);
-  --purple-text: rgb(196, 181, 253);
-  --purple-text-dark: rgb(221, 214, 254);
-  
-  --red-bg-light: rgb(127, 29, 29);
-  --red-bg-medium: rgb(220, 38, 38);
-  --red-text: rgb(252, 165, 165);
-  --red-text-dark: rgb(254, 202, 202);
-  
-  --neutral-bg-light: rgb(31, 41, 55);
-  --neutral-bg-medium: rgb(75, 85, 99);
-  --neutral-text: rgb(209, 213, 219);
-  --neutral-text-dark: rgb(243, 244, 246);
-}
+/* ===================================================================
+   NOTE: Dark mode color variables now come from base.css
+   This ensures consistent theming across all components
+   ================================================================== */
 
 /* ===================================================================
    TYPOGRAPHY AND BASE STYLES

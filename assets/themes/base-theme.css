@@ -3,7 +3,7 @@
    Foundation for all infographic themes
    Author: Chris Prakoso - Augmented Humanity
    ================================================================== */
-
+@import "tailwindcss";
 /* ===================================================================
    CORE THEME VARIABLES STRUCTURE
    These variables will be overridden by individual themes
@@ -29,6 +29,61 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  
+  /* ===================================================================
+     CORE COLOR SYSTEM - LIGHT MODE DEFAULTS
+     ================================================================== */
+  --bg-primary: rgb(255, 255, 255);
+  --bg-secondary: rgb(248, 250, 252);
+  --bg-tertiary: rgb(241, 245, 249);
+  --text-primary: rgb(15, 23, 42);
+  --text-secondary: rgb(71, 85, 105);
+  --text-tertiary: rgb(100, 116, 139);
+  --border-primary: rgb(226, 232, 240);
+  --border-secondary: rgb(203, 213, 225);
+  --accent-bg: rgb(219, 234, 254);
+  --accent-border: rgb(147, 197, 253);
+  
+  /* Component backgrounds */
+  --card-bg: var(--bg-primary);
+  --pill-neutral-bg: var(--bg-secondary);
+  --pill-neutral-text: rgb(55, 65, 81);
+  --pill-neutral-border: var(--border-primary);
+  
+  /* ===================================================================
+     CONTEXTUAL COLOR SYSTEM - LIGHT MODE
+     ================================================================== */
+  --blue-bg-light: rgb(219, 234, 254);
+  --blue-bg-medium: rgb(147, 197, 253);
+  --blue-text: rgb(37, 99, 235);
+  --blue-text-dark: rgb(29, 78, 216);
+  
+  --green-bg-light: rgb(220, 252, 231);
+  --green-bg-medium: rgb(134, 239, 172);
+  --green-text: rgb(22, 163, 74);
+  --green-text-dark: rgb(21, 128, 61);
+  
+  --amber-bg-light: rgb(254, 243, 199);
+  --amber-bg-medium: rgb(252, 211, 77);
+  --amber-text: rgb(146, 64, 14);
+  --amber-text-dark: rgb(120, 53, 15);
+  
+  --purple-bg-light: rgb(243, 232, 255);
+  --purple-bg-medium: rgb(196, 181, 253);
+  --purple-text: rgb(124, 58, 237);
+  --purple-text-dark: rgb(109, 40, 217);
+  
+  --red-bg-light: rgb(254, 242, 242);
+  --red-bg-medium: rgb(252, 165, 165);
+  --red-text: rgb(220, 38, 38);
+  --red-text-dark: rgb(185, 28, 28);
+  
+  /* ===================================================================
+     BRAND COLORS
+     ================================================================== */
+  --brand-primary: rgb(37, 99, 235);
+  --brand-secondary: rgb(124, 58, 237);
+  --brand-accent: rgb(22, 163, 74);
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
   
@@ -136,28 +191,59 @@
    DARK THEME BASE COLORS
    ================================================================== */
 [data-theme="dark"] {
-  --bg-primary: rgb(17, 24, 39);
-  --bg-secondary: rgb(31, 41, 55);
-  --bg-tertiary: rgb(55, 65, 81);
-  --text-primary: rgb(243, 244, 246);
-  --text-secondary: rgb(156, 163, 175);
-  --text-tertiary: rgb(107, 114, 128);
-  --border-primary: rgb(75, 85, 99);
-  --border-secondary: rgb(107, 114, 128);
+  /* ===================================================================
+     CORE COLOR SYSTEM - DARK MODE OVERRIDES
+     ================================================================== */
+  --bg-primary: rgb(15, 23, 42);
+  --bg-secondary: rgb(30, 41, 59);
+  --bg-tertiary: rgb(51, 65, 85);
+  --text-primary: rgb(248, 250, 252);
+  --text-secondary: rgb(203, 213, 225);
+  --text-tertiary: rgb(148, 163, 184);
+  --border-primary: rgb(71, 85, 105);
+  --border-secondary: rgb(100, 116, 139);
   --accent-bg: rgb(30, 58, 138);
-  --accent-border: rgb(37, 99, 235);
+  --accent-border: rgb(59, 130, 246);
   
   /* Component backgrounds */
-  --card-bg: rgb(31, 41, 55);
-  --pill-neutral-bg: rgb(55, 65, 81);
-  --pill-neutral-text: rgb(209, 213, 219);
-  --pill-neutral-border: rgb(75, 85, 99);
+  --card-bg: rgb(30, 41, 59);
+  --pill-neutral-bg: rgb(51, 65, 85);
+  --pill-neutral-text: rgb(203, 213, 225);
+  --pill-neutral-border: rgb(71, 85, 105);
+  
+  /* ===================================================================
+     CONTEXTUAL COLOR SYSTEM - DARK MODE
+     ================================================================== */
+  --blue-bg-light: rgb(30, 58, 138);
+  --blue-bg-medium: rgb(37, 99, 235);
+  --blue-text: rgb(147, 197, 253);
+  --blue-text-dark: rgb(191, 219, 254);
+  
+  --green-bg-light: rgb(20, 83, 45);
+  --green-bg-medium: rgb(34, 197, 94);
+  --green-text: rgb(134, 239, 172);
+  --green-text-dark: rgb(187, 247, 208);
+  
+  --amber-bg-light: rgb(120, 53, 15);
+  --amber-bg-medium: rgb(217, 119, 6);
+  --amber-text: rgb(252, 211, 77);
+  --amber-text-dark: rgb(254, 243, 199);
+  
+  --purple-bg-light: rgb(76, 29, 149);
+  --purple-bg-medium: rgb(124, 58, 237);
+  --purple-text: rgb(196, 181, 253);
+  --purple-text-dark: rgb(221, 214, 254);
+  
+  --red-bg-light: rgb(127, 29, 29);
+  --red-bg-medium: rgb(220, 38, 38);
+  --red-text: rgb(252, 165, 165);
+  --red-text-dark: rgb(254, 202, 202);
   
   /* Adjust shadows for dark mode */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 /* ===================================================================
